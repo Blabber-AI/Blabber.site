@@ -275,7 +275,6 @@ body {
    RESPONSIVE DESIGN
 -------------------------- */
 
-/* Tablet and above */
 @media (min-width: 768px) {
   .hero {
     flex-direction: row;
@@ -289,9 +288,5 @@ body {
   .hero-image {
     display: flex;
     align-items: center;
-  }
-
-  .contact-form {
-    flex-direction: row;
   }
 }

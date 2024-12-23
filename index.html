@@ -4,118 +4,146 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blabber | AI-Powered Language Tutor</title>
+  <!-- Link to external CSS file -->
   <link rel="stylesheet" href="styles.css" />
   <!-- Favicon (optional) -->
   <!-- <link rel="icon" href="assets/favicon.ico" type="image/x-icon"> -->
 </head>
-
 <body>
-  <!-- HEADER / NAVIGATION -->
-  <header class="header">
-    <nav class="navbar">
-      <div class="nav-logo">
-        <!-- Replace with your actual logo -->
-        <img src="assets/your-logo.png" alt="Blabber Logo" class="logo" />
-      </div>
-      <ul class="nav-menu">
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#features">Features</a></li>
-        <!-- Updated link to the support folder -->
-        <li><a href="/support/">Support</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="container">
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-logo">
+          <!-- Replace with your actual logo -->
+          <img src="assets/your-logo.png" alt="Blabber Logo" class="logo">
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#features">Features</a></li>
+          <!-- Link to the support folder -->
+          <li><a href="support/" aria-label="Support Link">Support</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1 class="hero-title">Revolutionize Language Learning</h1>
-      <p class="hero-subtitle">
-        Experience the future of language tutoring with our
-        <span class="highlight">AI-Powered Avatar</span>. Conduct real-time conversations, practice vocabulary, and master new languages—anytime, anywhere.
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1 class="hero-title">Revolutionize Language Learning</h1>
+        <p class="hero-subtitle">
+          Experience the future of language tutoring with our
+          <span class="highlight">AI-Powered Avatar</span>.
+          Conduct real-time conversations, practice vocabulary, and master new languages—anytime, anywhere.
+        </p>
+        <button class="cta-button" onclick="scrollToElement('how-it-works')">Learn More</button>
+      </div>
+      <!-- Hero image / animation -->
+      <div class="hero-image">
+        <!-- Renamed to your-hero-image.gif -->
+        <img src="assets/your-hero-image.gif" alt="Hero Image">
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works" id="how-it-works">
+      <h2>How It Works</h2>
+      <div class="steps-container">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Pick Your Language & Goal</h3>
+          <p>
+            Business trips, travel, or exam prep—set your target and let 
+            Blabber’s AI tailor your session to meet your exact needs.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Engage in Real-Time</h3>
+          <p>
+            Hop into a virtual classroom led by our AI avatar. Practice 
+            pronunciation, discuss grammar, and build confidence in a 
+            safe, judgment-free space.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Track Progress & Adapt</h3>
+          <p>
+            Our system identifies areas for improvement, introduces fresh materials, 
+            and syncs with your curriculum to keep you on track.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-item">
+          <img src="assets/your-animation.gif" alt="Interactive Conversations" class="feature-icon">
+          <h3>Interactive Conversations</h3>
+          <p>
+            Engage in AI-led dialogues on grammar, vocab sets, literature, or any class material you choose.
+          </p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="feature-item">
+          <img src="assets/your-animation.gif" alt="Safe Space" class="feature-icon">
+          <h3>Safe Space to Practice</h3>
+          <p>
+            Practice speaking privately and experiment without worry. Perfect for beginners and shy speakers.
+          </p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="feature-item">
+          <img src="assets/your-animation.gif" alt="Full Curriculum Integration" class="feature-icon">
+          <h3>Curriculum Integration</h3>
+          <p>
+            Seamlessly integrate textbooks, grammar levels, and literature. Perfectly aligned with school requirements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / CTA SECTION -->
+    <section class="contact" id="contact">
+      <h2>Ready to Transform Your Classroom?</h2>
+      <p>
+        Schedule a demo or get in touch with us to learn more about 
+        Blabber’s AI tutor for schools, businesses, or personal learning.
       </p>
-      <button class="cta-button" onclick="scrollToElement('how-it-works')">Learn More</button>
-    </div>
-    <!-- Hero image / animation -->
-    <div class="hero-image">
-      <!-- Replace with your hero image or animation GIF -->
-      <img src="assets/your-hero-image.jpg" alt="Hero Image" />
-    </div>
-  </section>
 
-  <!-- HOW IT WORKS SECTION -->
-  <section class="how-it-works" id="how-it-works">
-    <h2>How It Works</h2>
-    <div class="steps-container">
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Pick Your Language & Goal</h3>
-        <p>Business trips, travel, or exam prep—just set your target and let Blabber’s AI tailor your session to meet your exact needs.</p>
+      <!-- Contact Form / CTA -->
+      <form class="contact-form" onsubmit="return false;">
+        <input type="email" placeholder="Your Email Address" required />
+        <button type="submit">Request Demo</button>
+      </form>
+
+      <!-- Direct Contact Info -->
+      <div class="contact-direct-info">
+        <p>Contact us directly:</p>
+        <p>
+          Email:
+          <a href="mailto:contact@blabber.site">contact@blabber.site</a>
+        </p>
+        <p>
+          Phone:
+          <a href="tel:+972524278042">+972-52-427-8042</a>
+        </p>
       </div>
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Engage in Real-Time</h3>
-        <p>Hop into a virtual classroom led by our AI avatar. Practice pronunciation, discuss grammar, and build confidence in a safe, judgment-free space.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Track Progress & Adapt</h3>
-        <p>Our system identifies areas for improvement, introduces fresh materials, and syncs with your curriculum to keep you on track.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FEATURES SECTION -->
-  <section class="features" id="features">
-    <h2>Key Features</h2>
-    <div class="features-grid">
-      <!-- Feature 1 -->
-      <div class="feature-item">
-        <img src="assets/your-animation.gif" alt="Interactive Conversations" class="feature-icon" />
-        <h3>Interactive Conversations</h3>
-        <p>Engage in AI-led dialogues on grammar, vocab sets, literature, or any class material you choose.</p>
-      </div>
-      <!-- Feature 2 -->
-      <div class="feature-item">
-        <img src="assets/your-animation.gif" alt="Safe Space" class="feature-icon" />
-        <h3>Safe Space to Practice</h3>
-        <p>Practice speaking privately and experiment without worry. Perfect for beginners and shy speakers.</p>
-      </div>
-      <!-- Feature 3 -->
-      <div class="feature-item">
-        <img src="assets/your-animation.gif" alt="Full Curriculum Integration" class="feature-icon" />
-        <h3>Curriculum Integration</h3>
-        <p>Seamlessly integrate your textbooks, grammar levels, and literature. Perfectly aligned with school requirements.</p>
-      </div>
-    </div>
-  </section>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>&copy; <span id="year"></span> Blabber. All rights reserved.</p>
+    </footer>
+  </div>
 
-  <!-- CONTACT / CTA SECTION -->
-  <section class="contact" id="contact">
-    <h2>Ready to Transform Your Classroom?</h2>
-    <p>Schedule a demo or get in touch with us to learn more about Blabber’s AI tutor for schools, businesses, or personal learning.</p>
-
-    <!-- Contact Form / CTA -->
-    <form class="contact-form" onsubmit="return false;">
-      <input type="email" placeholder="Your Email Address" required />
-      <button type="submit">Request Demo</button>
-    </form>
-
-    <!-- Direct Contact Info -->
-    <div style="margin-top: 2rem; color: #fff;">
-      <p>Contact us directly:</p>
-      <p>Email: <a href="mailto:contact@blabber.site" style="color: #fff; text-decoration: underline;">contact@blabber.site</a></p>
-      <p>Phone: <a href="tel:+972524278042" style="color: #fff; text-decoration: underline;">+972-52-427-8042</a></p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>&copy; <span id="year"></span> Blabber. All rights reserved.</p>
-  </footer>
-
-  <!-- JS -->
+  <!-- Link to external JS file -->
   <script src="script.js"></script>
 </body>
 </html>

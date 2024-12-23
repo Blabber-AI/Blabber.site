@@ -125,19 +125,29 @@
       </p>
 
       <!-- 
-        Using a mailto approach:
-        - This will open the user's default email client with your email address.
-        - Some browsers/devices may not have a configured mail client.
+        We'll let our script handle submission via fetch to Formspree.
+        1) Add "id='demoForm'" so we can target it in script.
+        2) Add hidden fields for _subject, etc.
       -->
-      <form
-        class="contact-form"
-        action="mailto:contact@blabber.site"
-        method="POST"
-        enctype="text/plain"
-      >
-        <input type="email" name="User Email" placeholder="Your Email Address" required />
+      <form class="contact-form" id="demoForm">
+        <!-- Subject for Formspree (this will appear as the email subject) -->
+        <input type="hidden" name="_subject" value="Demo Request from Blabber Website">
+        
+        <!-- This will appear in the email body as "userEmail: <the user typed>" -->
+        <input 
+          type="email" 
+          name="userEmail" 
+          placeholder="Your Email Address" 
+          required 
+        />
+
         <button type="submit">Request Demo</button>
       </form>
+
+      <!-- A hidden success message, displayed upon successful submission -->
+      <div id="successMessage" style="display: none; color: #fff; margin-top: 1rem; font-weight: 600;">
+        Message sent! Thanks.
+      </div>
 
       <!-- Direct Contact Info -->
       <div style="margin-top: 2rem;">

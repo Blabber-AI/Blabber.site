@@ -1,0 +1,369 @@
+/* ------------------------- */
+/* GLOBAL STYLES            */
+/* ------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #5e17eb;        /* Main brand color */
+  --secondary-color: #f3f0fc;      /* Background or accent color */
+  --dark-color: #2d2d2d;          /* Text color */
+  --light-color: #ffffff;
+  --max-width: 1200px;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+/* ------------------------- */
+/* HEADER / NAV              */
+/* ------------------------- */
+
+.header {
+  background-color: var(--light-color);
+  padding: 0.5rem 1rem;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+.nav-menu a:hover {
+  color: var(--primary-color);
+}
+
+/* ------------------------- */
+/* HERO SECTION              */
+/* ------------------------- */
+
+.hero {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.highlight {
+  color: var(--dark-color);
+  background: var(--primary-color);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+.cta-button {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
+}
+
+.hero-image img {
+  width: 300px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ------------------------- */
+/* HOW IT WORKS              */
+/* ------------------------- */
+
+.how-it-works {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.step {
+  background-color: var(--light-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  flex: 1 1 250px;
+  max-width: 300px;
+  text-align: left;
+}
+
+.step-number {
+  background: var(--primary-color);
+  color: var(--light-color);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* ------------------------- */
+/* FEATURES SECTION          */
+/* ------------------------- */
+
+.features {
+  background-color: var(--light-color);
+  padding: 2rem;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.feature-item {
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.feature-item h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.feature-icon {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+/* ------------------------- */
+/* SUPPORT / FAQ SECTION     */
+/* ------------------------- */
+
+.support {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.support h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.faq-container {
+  text-align: left;
+  margin: 2rem 0;
+}
+
+.faq-item {
+  background: var(--light-color);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.faq-question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question:hover {
+  color: var(--primary-color);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 1rem 1rem 1rem;
+  color: #555;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.arrow.rotate {
+  transform: rotate(45deg);
+}
+
+.additional-info {
+  margin-top: 2rem;
+}
+
+.additional-info h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------------- */
+/* CONTACT SECTION           */
+/* ------------------------- */
+
+.contact {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact-form input[type="email"] {
+  padding: 0.8rem;
+  width: 100%;
+  border-radius: 4px;
+  border: none;
+}
+
+.contact-form button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  opacity: 0.9;
+}
+
+/* ------------------------- */
+/* FOOTER                    */
+/* ------------------------- */
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--light-color);
+  color: #777;
+  border-top: 1px solid #eee;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ------------------------- */
+/* RESPONSIVE DESIGN         */
+/* ------------------------- */
+
+/* Tablet and above */
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+  }
+  .hero-content {
+    flex: 1;
+    margin-right: 2rem;
+  }
+  .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+}

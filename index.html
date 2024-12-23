@@ -8,7 +8,7 @@
   <!-- Link to external CSS file -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- (Optional) Favicon
+  <!-- Optional Favicon 
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   -->
 </head>
@@ -18,13 +18,13 @@
     <header class="header">
       <nav class="navbar">
         <div class="nav-logo">
-          <!-- Replace with your actual logo (e.g., your-logo.png) -->
+          <!-- Replace with your actual logo -->
           <img src="assets/your-logo.png" alt="Blabber Logo" class="logo">
         </div>
         <ul class="nav-menu">
           <li><a href="#how-it-works">How It Works</a></li>
           <li><a href="#features">Features</a></li>
-          <!-- Link to your /support/ folder -->
+          <!-- Link to your support folder -->
           <li><a href="support/">Support</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -124,9 +124,18 @@
         Blabber’s AI tutor for schools, businesses, or personal learning.
       </p>
 
-      <!-- Contact Form / CTA -->
-      <form class="contact-form" onsubmit="return false;">
-        <input type="email" placeholder="Your Email Address" required />
+      <!-- 
+        Using a mailto approach:
+        - This will open the user's default email client with your email address.
+        - Some browsers/devices may not have a configured mail client.
+      -->
+      <form
+        class="contact-form"
+        action="mailto:contact@blabber.site"
+        method="POST"
+        enctype="text/plain"
+      >
+        <input type="email" name="User Email" placeholder="Your Email Address" required />
         <button type="submit">Request Demo</button>
       </form>
 

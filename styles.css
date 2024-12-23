@@ -1,10 +1,15 @@
-/* -------------------------------------
-   Global Reset & Basic Styles
-------------------------------------- */
+/* -------------------------
+   GLOBAL
+-------------------------- */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -13,37 +18,42 @@ body {
   color: #333;
 }
 
-/* Container for center alignment and spacing */
+/* Container for main content */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
-  text-align: center; /* Center text in the container */
+  text-align: center; /* Center text for main content */
 }
 
-/* Header / Navbar */
+/* -------------------------
+   HEADER / NAV
+-------------------------- */
+
 .header {
   text-align: center;
-  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
 }
 
 .navbar {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.nav-logo img {
+.nav-logo .logo {
   height: 50px;
-  margin-bottom: 0.5rem;
+  width: auto;
 }
 
 .nav-menu {
+  list-style: none;
   display: inline-flex;
   gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-menu li a {
@@ -52,17 +62,24 @@ body {
   color: #333;
 }
 
-/* Hero Section */
+.nav-menu li a:hover {
+  color: #5e17eb;
+}
+
+/* -------------------------
+   HERO SECTION
+-------------------------- */
+
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
+  gap: 2rem;
 }
 
 .hero-content {
   max-width: 600px;
-  margin-bottom: 2rem;
 }
 
 .hero-title {
@@ -95,6 +112,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
 }
+
 .cta-button:hover {
   opacity: 0.9;
 }
@@ -106,21 +124,26 @@ body {
   border-radius: 8px;
 }
 
-/* Section Titles */
-section h2 {
+/* -------------------------
+   HOW IT WORKS
+-------------------------- */
+
+.how-it-works {
+  margin-top: 2rem;
+}
+
+.how-it-works h2 {
   font-size: 2rem;
   color: #5e17eb;
   margin-bottom: 1rem;
-  margin-top: 2rem;
-  text-align: center;
 }
 
-/* How It Works */
 .steps-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  margin-top: 1rem;
 }
 
 .step {
@@ -143,12 +166,26 @@ section h2 {
   font-size: 1.2rem;
 }
 
-/* Features */
+/* -------------------------
+   FEATURES
+-------------------------- */
+
+.features {
+  margin-top: 2rem;
+}
+
+.features h2 {
+  font-size: 2rem;
+  color: #5e17eb;
+  margin-bottom: 1rem;
+}
+
 .features-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  margin-top: 1rem;
 }
 
 .feature-item {
@@ -156,7 +193,7 @@ section h2 {
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  max-width: 300px;
+  max-width: 280px;
   text-align: center;
 }
 
@@ -165,12 +202,21 @@ section h2 {
   margin-bottom: 1rem;
 }
 
-/* Contact Section */
+.feature-item h3 {
+  color: #5e17eb;
+  margin-bottom: 0.5rem;
+}
+
+/* -------------------------
+   CONTACT SECTION
+-------------------------- */
+
 .contact {
   background-color: #5e17eb;
   color: #fff;
   text-align: center;
   padding: 3rem 1rem;
+  margin-top: 2rem;
 }
 
 .contact h2 {
@@ -184,7 +230,7 @@ section h2 {
 }
 
 .contact-form {
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   gap: 1rem;
   max-width: 400px;
@@ -208,21 +254,44 @@ section h2 {
   font-weight: 600;
   cursor: pointer;
 }
+
 .contact-form button:hover {
   opacity: 0.9;
 }
 
-.contact-direct-info p {
-  margin-top: 1rem;
-  color: #fff;
-}
+/* -------------------------
+   FOOTER
+-------------------------- */
 
-/* Footer */
 .footer {
+  text-align: center;
+  padding: 1rem;
   background-color: #fff;
   color: #777;
-  padding: 1rem;
-  font-size: 0.9rem;
   border-top: 1px solid #eee;
-  text-align: center;
+}
+
+/* -------------------------
+   RESPONSIVE DESIGN
+-------------------------- */
+
+/* Tablet and above */
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+  }
+  .hero-content {
+    margin-right: 2rem;
+    text-align: left;
+  }
+  .hero-image {
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-form {
+    flex-direction: row;
+  }
 }

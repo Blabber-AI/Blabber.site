@@ -1,30 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Blabber - Enhance English Learning with AI</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Language Tutor Landing Page</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Favicon (optional) -->
+  <!-- <link rel="icon" href="assets/favicon.ico" type="image/x-icon"> -->
 </head>
+
 <body>
-    <header>
-        <img src="assets/images/logo.png" alt="Blabber Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/support/">Support</a></li>
-                <li><a href="/marketing/">About</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="hero">
-            <h1>Welcome to Blabber</h1>
-            <p>Empowering students to master English through AI-driven conversations.</p>
-            <a href="/marketing/" class="cta-button">Learn More</a>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Blabber. All rights reserved.</p>
-    </footer>
+  <!-- HEADER / NAVIGATION -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-logo">
+        <!-- Replace with your logo -->
+        <img src="assets/your-logo.png" alt="Company Logo" class="logo" />
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#how-it-works">How it Works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#support">Support</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1 class="hero-title">Revolutionize Language Learning</h1>
+      <p class="hero-subtitle">Empower your classroom with an <span class="highlight">AI-Powered Avatar</span> that meets students in real-time practice sessions, tailors lessons to your curriculum, and provides a safe space to learn and improve.</p>
+      <button class="cta-button" onclick="scrollToElement('how-it-works')">Learn More</button>
+    </div>
+    <!-- Hero image / animation -->
+    <div class="hero-image">
+      <!-- Replace with your hero image or animation GIF -->
+      <img src="assets/your-hero-image.jpg" alt="Hero Image" />
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS SECTION -->
+  <section class="how-it-works" id="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps-container">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Choose Your Language Focus</h3>
+        <p>Whether it’s business trips, travel, or preparing for an exam like IELTS, our AI tutor customizes each session to meet your exact goal.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Real-Time Practice Sessions</h3>
+        <p>Join an avatar-led, Zoom-like conversation. Practice new vocabulary, review grammar, and engage in interactive discussions—anytime, anywhere.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Tailored Curriculum</h3>
+        <p>We integrate with textbooks, lesson plans, or any custom material from your class syllabus—ensuring students stay aligned with your objectives.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features" id="features">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-item">
+        <img src="assets/your-animation.gif" alt="Interactive Conversations" class="feature-icon" />
+        <h3>Interactive Conversations</h3>
+        <p>An avatar conducts discussions, similar to Zoom meetings, on topics selected by the teacher. Cover grammar, specific vocabulary, literary texts, or any subject needed.</p>
+      </div>
+      <!-- Feature 2 -->
+      <div class="feature-item">
+        <img src="assets/your-animation.gif" alt="Safe Space" class="feature-icon" />
+        <h3>A Safe Space</h3>
+        <p>Students can practice freely and make mistakes without judgment—ideal for beginners who might be anxious when speaking in front of others.</p>
+      </div>
+      <!-- Feature 3 -->
+      <div class="feature-item">
+        <img src="assets/your-animation.gif" alt="Full Curriculum Integration" class="feature-icon" />
+        <h3>Fully Adapted to the Curriculum</h3>
+        <p>Our platform integrates with grade-level textbooks, grammar levels, literature, or any learning resource—so no student gets left behind.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT / FAQ SECTION -->
+  <section class="support" id="support">
+    <h2>Support & FAQ</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          What makes this AI tutor different from other language apps?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Our solution goes beyond static lessons; it hosts real-time, avatar-led conversations that adapt to your curriculum and your students’ needs.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Can I use my existing school textbooks and materials?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. We fully integrate existing textbooks, allowing the AI tutor to conduct discussions or exercises tailored to your exact material.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Is it suitable for all language levels?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. Our AI adapts to any level—from beginners who need basic vocabulary to advanced learners preparing for professional or academic exams.</p>
+        </div>
+      </div>
+    </div>
+    <div class="additional-info">
+      <h3>Need more info?</h3>
+      <p>Our support team is here to help. If you need additional guidance, personalized demos, or have special integration requests, reach out below!</p>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA SECTION -->
+  <section class="contact" id="contact">
+    <h2>Ready to Transform Your Classroom?</h2>
+    <p>Connect with us to learn more about integrating our AI tutor into your school curriculum.</p>
+    <form class="contact-form" onsubmit="return false;">
+      <input type="email" placeholder="Your Email Address" required />
+      <button type="submit">Request Demo</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Your Company Name. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>

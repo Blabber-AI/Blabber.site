@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blabber Support | AI-Powered Language Tutor</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <!--
+    If you need separate styling for the support page, you can:
+    - Create a new "support.css" and link it here
+    - OR continue using the main "styles.css" from the parent folder
+    by referencing "../styles.css".
+  -->
+</head>
+<body>
+
+  <!-- HEADER with "Back to Home" link -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-logo">
+        <img src="../assets/your-logo.png" alt="Blabber Logo" class="logo" />
+      </div>
+      <ul class="nav-menu">
+        <!-- Link back to the main site (index.html) -->
+        <li><a href="../index.html">Back to Blabber</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- Support Header -->
+    <div class="support-header">
+      <h1>Blabber Support Center</h1>
+      <p>Your go-to resource for getting the most out of our AI-Powered Language Tutor</p>
+    </div>
+
+    <!-- Getting Started Section -->
+    <section class="faq-section">
+      <h2 class="faq-title">1. Getting Started</h2>
+
+      <!-- FAQ Item 1 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How does Blabber's language tutoring process work?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            After you sign up, you can choose a target language, specify your goals, 
+            and schedule a “Zoom-like” session with our AI avatar. You’ll practice 
+            speaking and listening in real time, learn new vocabulary, and receive 
+            immediate feedback on grammar and pronunciation. Each session is tailored 
+            to your proficiency level and curriculum needs.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How do I book my first session?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Log in and navigate to the “Schedule Session” tab. Select a date and time, 
+            add any lesson materials or special requests, and confirm. You’ll receive 
+            an email or in-app notification once your session is scheduled.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Which devices and browsers are supported?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Blabber runs on most modern web browsers (Chrome, Firefox, Safari, Edge) and 
+            devices (PC, Mac, iOS, Android). For optimal performance, ensure your browser 
+            is up to date, and check that your device meets our minimum system requirements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teacher-Focused Section -->
+    <section class="faq-section">
+      <h2 class="faq-title">2. For Teachers & Schools</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How can I integrate my school’s textbooks into Blabber?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Go to the “Curriculum Integration” menu under your Teacher Dashboard. Upload 
+            your textbook in PDF or compatible e-book formats. Our AI will automatically 
+            sync the material, creating discussion prompts and exercises that align with 
+            your textbook’s chapters.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Can I track students’ progress?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Absolutely! Each student’s spoken and written interactions are logged (text only—no 
+            personal audio or video recordings saved for privacy). You’ll see summarized reports, 
+            highlighting improvements and identifying areas for further practice.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How do I manage multiple classes?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            In your Teacher Dashboard, create separate class groups. Assign the relevant 
+            textbooks or study materials to each group. You can schedule group sessions 
+            or 1:1 sessions for individual students.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Student-Focused Section -->
+    <section class="faq-section">
+      <h2 class="faq-title">3. For Students</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How do I practice speaking if I’m shy or a beginner?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Our avatar-led sessions provide a private, judgment-free environment. You 
+            can repeat words and phrases as often as you like. The AI will gently correct 
+            mistakes and gradually introduce new vocabulary based on your comfort level.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Can I review session recordings?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            We respect your privacy, so we only store session transcripts (text versions) 
+            unless you opt in to record audio or video. If you opt in, your session 
+            video/audio is available for a limited time in your account under “Past Sessions.”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Payments & Pricing -->
+    <section class="faq-section">
+      <h2 class="faq-title">4. Payments & Pricing</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          What are the accepted payment methods?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            We accept major credit/debit cards via Stripe. All payments are securely 
+            processed, and no financial information is ever shared with third parties.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How do schools pay for multiple students?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Schools can set up a single billing account and purchase session packages 
+            at discounted rates. Simply contact our sales team for customized 
+            institution-wide plans.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Troubleshooting & Technical Issues -->
+    <section class="faq-section">
+      <h2 class="faq-title">5. Troubleshooting & Technical Issues</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          My microphone isn’t working, how do I fix it?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            First, check your browser or device settings to ensure microphone access 
+            is granted. If the problem persists, restart your device and try again. For 
+            further assistance, consult our <em>Audio Troubleshooting Guide</em> or 
+            reach out to Support.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          I’m experiencing lag or low-quality audio/video.
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            A strong, stable internet connection is crucial. Try moving closer to your 
+            Wi-Fi router or using a wired connection. Close unnecessary applications 
+            that may consume bandwidth. If issues persist, contact your internet 
+            provider or our Support team for further guidance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust & Safety -->
+    <section class="faq-section">
+      <h2 class="faq-title">6. Privacy & Data Protection</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How is my personal information protected?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            We use encryption to keep your data secure, and we never share personal 
+            details such as email addresses or phone numbers without your explicit 
+            consent. Please review our Privacy Policy for more information.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How do I report harassment or inappropriate behavior?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            If you encounter any form of harassment or inappropriate content, please 
+            report it immediately through the in-app reporting feature or email us at 
+            <a href="mailto:contact@blabber.site">contact@blabber.site</a>. We take 
+            these matters seriously and will investigate promptly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Help & Contact -->
+    <section class="additional-help">
+      <h2>Need Additional Help?</h2>
+      <div class="contact-info">
+        <p>Email: <a href="mailto:contact@blabber.site">contact@blabber.site</a></p>
+        <p>Phone: <a href="tel:+972524278042">+972-52-427-8042</a></p>
+      </div>
+      <p>
+        Our support team is here to assist you with any questions or technical issues. 
+        Feel free to reach out for personalized help or in-depth demos.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="support-footer">
+      <p>&copy; <span id="year"></span> Blabber. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Toggle FAQ answers
+    function toggleFAQ(button) {
+      const answer = button.nextElementSibling;
+      const arrow = button.querySelector(".arrow");
+
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+        arrow.classList.remove("rotate");
+      } else {
+        answer.style.display = "block";
+        arrow.classList.add("rotate");
+      }
+    }
+
+    // Update footer year
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>

@@ -259,6 +259,11 @@ body {
   opacity: 0.9;
 }
 
+#successMessage {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
 /* -------------------------
    FOOTER
 -------------------------- */

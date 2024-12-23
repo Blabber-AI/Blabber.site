@@ -1,0 +1,121 @@
+/* -------------------------
+   GLOBAL
+-------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f9fc;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  color: #5e17eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------
+   HEADER / NAV
+-------------------------- */
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nav-logo .logo {
+  height: 50px;
+  width: auto;
+}
+
+.nav-menu {
+  list-style: none;
+  display: inline-flex;
+  gap: 1.5rem;
+}
+
+.back-link {
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+}
+
+.back-link:hover {
+  color: #5e17eb;
+}
+
+/* -------------------------
+   CONTAINER
+-------------------------- */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  text-align: left; /* Left align text for policy readability */
+}
+
+/* Title & Intro */
+.page-title {
+  font-size: 2rem;
+  color: #5e17eb;
+  margin-bottom: 1rem;
+}
+
+.intro-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* Section Headings */
+.policy-section h2 {
+  font-size: 1.2rem;
+  color: #5e17eb;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Paragraphs & Lists */
+.policy-section p,
+.policy-section li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.policy-section ul {
+  list-style: disc inside;
+}
+
+/* Contact Info */
+.contact-info {
+  margin-top: 2rem;
+}
+
+/* -------------------------
+   FOOTER
+-------------------------- */
+.privacy-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  padding: 1rem;
+  border-top: 1px solid #eee;
+}

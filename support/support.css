@@ -1,6 +1,6 @@
 /* -------------------------
-   Global & Structural
-------------------------- */
+   GLOBAL
+-------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -13,60 +13,78 @@ body {
   color: #333;
 }
 
-.header,
-.navbar,
-.support-footer {
-  text-align: center;
+/* -------------------------
+   HEADER / NAV
+-------------------------- */
+.header {
+  text-align: left;
+  padding: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
 }
 
 .navbar {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .nav-logo img {
   height: 50px;
-  margin-bottom: 0.5rem;
+  width: auto;
 }
 
 .nav-menu {
+  list-style: none;
   display: inline-flex;
   gap: 1.5rem;
-  list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.nav-menu li a {
+.back-link {
   text-decoration: none;
   font-weight: 500;
   color: #333;
 }
 
-/* Main Container */
+.back-link:hover {
+  color: #5e17eb;
+}
+
+/* Container for support page */
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
+  /* Left alignment with some padding for better mobile readability */
+  text-align: left;
 }
 
-/* Support Header */
+/* -------------------------
+   SUPPORT HEADER
+-------------------------- */
 .support-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 2rem;
 }
+
 .support-header h1 {
   font-size: 2rem;
   color: #5e17eb;
   margin-bottom: 0.5rem;
 }
+
 .support-header p {
   font-size: 1.1rem;
   color: #666;
 }
 
-/* FAQ Sections */
+/* -------------------------
+   FAQ SECTION
+-------------------------- */
 .faq-section {
   margin-bottom: 3rem;
 }
@@ -76,7 +94,7 @@ body {
   color: #5e17eb;
   margin-bottom: 1rem;
   margin-top: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .faq-item {
@@ -101,6 +119,7 @@ body {
   align-items: center;
   font-size: 1rem;
 }
+
 .faq-question:hover {
   background-color: #efefef;
 }
@@ -117,34 +136,40 @@ body {
   transition: transform 0.3s ease;
   margin-left: 10px;
 }
+
 .arrow.rotate {
   transform: rotate(45deg);
 }
 
-/* Additional Help & Footer */
+/* Additional Help */
 .additional-help {
-  text-align: center;
+  text-align: left;
   margin-top: 3rem;
 }
+
 .additional-help h2 {
   font-size: 1.5rem;
   color: #5e17eb;
   margin-bottom: 1rem;
 }
+
 .contact-info {
   font-size: 1rem;
   color: #555;
   margin-bottom: 2rem;
 }
+
 .contact-info p {
   margin-bottom: 0.5rem;
 }
 
-/* Footer */
+/* -------------------------
+   FOOTER
+-------------------------- */
 .support-footer {
+  text-align: center;
   font-size: 0.9rem;
   color: #aaa;
   padding: 1rem;
   border-top: 1px solid #eee;
-  text-align: center;
 }

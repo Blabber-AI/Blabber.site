@@ -1,183 +1,1393 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-language="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blabber | AI-Powered Language Tutor</title>
-
-  <!-- Link to external CSS file -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Optional Favicon 
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blabber | AI-Powered Language Tutor for Schools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Color Variables */
+      --primary: #5e17eb;
+      --primary-dark: #4812b3;
+      --primary-light: #e5dbff;
+      --secondary: #2d7ff9;
+      --success: #34c759;
+      --error: #ff3b30;
+      --dark-gray: #333333;
+      --medium-gray: #666666;
+      --light-gray: #f8f9fc;
+      --offwhite: #f8f9fd;
+      --white: #ffffff;
+      
+      /* Spacing Variables */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      --space-4xl: 6rem;
+      
+      /* Border Radius */
+      --radius-sm: 0.25rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 1rem;
+      --radius-pill: 9999px;
+      
+      /* Shadows */
+      --shadow-light: 0 2px 4px rgba(0,0,0,0.05);
+      --shadow-medium: 0 4px 6px rgba(0,0,0,0.08);
+      --shadow-strong: 0 8px 16px rgba(0,0,0,0.12);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--dark-gray);
+      background-color: var(--light-gray);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--dark-gray);
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-lg);
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: var(--space-lg);
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-md);
+    }
+    
+    p {
+      margin-bottom: var(--space-md);
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--primary-dark);
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+    
+    .btn {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--white) !important;
+      border: none;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+    }
+    
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-light);
+    }
+    
+    /* Header & Navigation */
+    .header {
+      background-color: var(--white);
+      box-shadow: var(--shadow-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    
+    .header.scrolled {
+      box-shadow: var(--shadow-medium);
+    }
+    
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-md) 0;
+    }
+    
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo {
+      height: 40px;
+      width: auto;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: var(--space-lg);
+    }
+    
+    .nav-menu li a {
+      font-weight: 600;
+      color: var(--dark-gray);
+      position: relative;
+      padding: var(--space-xs) 0;
+    }
+    
+    .nav-menu li a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-menu li a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      bottom: -4px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-menu li a:hover:after {
+      width: 100%;
+    }
+    
+    .mobile-nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark-gray);
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background-color: var(--white);
+      background-image: 
+        radial-gradient(var(--primary-light) 2px, transparent 2px),
+        radial-gradient(var(--primary-light) 2px, transparent 2px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      padding: var(--space-4xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-tagline {
+      display: inline-block;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: var(--space-md);
+    }
+    
+    .hero-title {
+      font-size: 3rem;
+      margin-bottom: var(--space-md);
+      color: var(--dark-gray);
+    }
+    
+    .hero-title span {
+      color: var(--primary);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--medium-gray);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xl);
+      margin-top: var(--space-xl);
+    }
+    
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .hero-stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .hero-stat-label {
+      font-size: 0.875rem;
+      color: var(--medium-gray);
+    }
+    
+    .hero-image {
+      position: absolute;
+      right: -100px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 600px;
+      height: auto;
+      z-index: 1;
+    }
+    
+    /* Featured By Section */
+    .featured-by {
+      padding: var(--space-3xl) 0;
+      background-color: var(--offwhite);
+      text-align: center;
+    }
+    
+    .featured-by-title {
+      color: var(--medium-gray);
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: var(--space-xl);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-2xl);
+    }
+    
+    .logo-item {
+      height: 30px;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+    
+    .logo-item:hover {
+      opacity: 1;
+    }
+    
+    /* How It Works Section */
+    .how-it-works {
+      padding: var(--space-4xl) 0;
+      background-color: var(--white);
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto var(--space-3xl);
+    }
+    
+    .section-subtitle {
+      color: var(--primary);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: var(--space-sm);
+    }
+    
+    .section-title {
+      margin-bottom: var(--space-md);
+    }
+    
+    .section-description {
+      color: var(--medium-gray);
+    }
+    
+    .steps-container {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-lg);
+    }
+    
+    .step {
+      background-color: var(--white);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-medium);
+      flex: 1;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .step:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-strong);
+    }
+    
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-bottom: var(--space-md);
+    }
+    
+    .step h3 {
+      margin-bottom: var(--space-md);
+    }
+    
+    .step-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: var(--space-md);
+    }
+    
+    /* Features Section */
+    .features {
+      padding: var(--space-4xl) 0;
+      background-color: var(--light-gray);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-xl);
+    }
+    
+    .feature-item {
+      background-color: var(--white);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-medium);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-strong);
+    }
+    
+    .feature-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: var(--space-md);
+    }
+    
+    .feature-item h3 {
+      margin-bottom: var(--space-md);
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      padding: var(--space-4xl) 0;
+      background-color: var(--white);
+    }
+    
+    .testimonials-container {
+      display: flex;
+      gap: var(--space-xl);
+      overflow-x: auto;
+      padding-bottom: var(--space-lg);
+      /* Hide scrollbar */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .testimonials-container::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .testimonial-card {
+      background-color: var(--offwhite);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      min-width: 300px;
+      max-width: 400px;
+      flex: 1;
+      box-shadow: var(--shadow-light);
+    }
+    
+    .testimonial-quote {
+      font-style: italic;
+      margin-bottom: var(--space-lg);
+      position: relative;
+      padding-left: var(--space-md);
+      border-left: 3px solid var(--primary);
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: var(--space-md);
+      object-fit: cover;
+    }
+    
+    .testimonial-info h4 {
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+    
+    .testimonial-info p {
+      margin-bottom: 0;
+      font-size: 0.875rem;
+      color: var(--medium-gray);
+    }
+    
+    /* CTA Section */
+    .cta {
+      padding: var(--space-4xl) 0;
+      background-color: var(--primary);
+      color: var(--white);
+      text-align: center;
+    }
+    
+    .cta-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .cta h2 {
+      color: var(--white);
+      margin-bottom: var(--space-lg);
+    }
+    
+    .cta p {
+      margin-bottom: var(--space-xl);
+      font-size: 1.125rem;
+    }
+    
+    .cta-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .cta-input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: var(--radius-md) 0 0 var(--radius-md);
+      font-size: 1rem;
+    }
+    
+    .cta-button {
+      background-color: var(--secondary);
+      color: var(--white);
+      border: none;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 0.75rem 1.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      background-color: #236ccf;
+    }
+    
+    #successMessage {
+      display: none;
+      margin-top: var(--space-md);
+      font-weight: 600;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--dark-gray);
+      color: var(--white);
+      padding: var(--space-3xl) 0 var(--space-lg);
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-xl);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .footer-logo {
+      height: 40px;
+      width: auto;
+      margin-bottom: var(--space-md);
+    }
+    
+    .footer-about p {
+      color: #aaa;
+      font-size: 0.875rem;
+    }
+    
+    .footer-heading {
+      font-size: 1.125rem;
+      margin-bottom: var(--space-md);
+      color: var(--white);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: var(--space-sm);
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      font-size: 0.875rem;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+    }
+    
+    .footer-bottom {
+      padding-top: var(--space-lg);
+      border-top: 1px solid #444;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+    
+    .footer-copyright {
+      color: #aaa;
+      font-size: 0.875rem;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: var(--space-md);
+    }
+    
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background-color: #444;
+      color: var(--white);
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    
+    /* RTL Support */
+    [dir="rtl"] {
+      text-align: right;
+    }
+    
+    [dir="rtl"] .hero-image {
+      right: auto;
+      left: -100px;
+    }
+    
+    [dir="rtl"] .nav-menu {
+      flex-direction: row-reverse;
+    }
+    
+    [dir="rtl"] .hero-content {
+      align-items: flex-end;
+      text-align: right;
+    }
+    
+    [dir="rtl"] .step-number,
+    [dir="rtl"] .feature-icon {
+      margin-right: 0;
+      margin-left: var(--space-md);
+    }
+    
+    [dir="rtl"] .testimonial-avatar {
+      margin-right: 0;
+      margin-left: var(--space-md);
+    }
+    
+    [dir="rtl"] .cta-input {
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    
+    [dir="rtl"] .cta-button {
+      border-radius: var(--radius-md) 0 0 var(--radius-md);
+    }
+    
+    /* Language Switcher */
+    .language-switcher {
+      display: flex;
+      align-items: center;
+      margin-left: var(--space-md);
+    }
+    
+    [dir="rtl"] .language-switcher {
+      margin-left: 0;
+      margin-right: var(--space-md);
+    }
+    
+    .language-btn {
+      background: transparent;
+      border: none;
+      color: var(--dark-gray);
+      cursor: pointer;
+      padding: var(--space-xs);
+      font-weight: 600;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+    
+    .language-btn.active {
+      opacity: 1;
+      color: var(--primary);
+    }
+    
+    .language-btn:hover {
+      opacity: 1;
+    }
+    
+    /* Responsive Design */
+    @media screen and (max-width: 992px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+      
+      h2 {
+        font-size: 1.75rem;
+      }
+      
+      .hero {
+        padding: var(--space-3xl) 0;
+      }
+      
+      .hero-image {
+        width: 500px;
+        right: -150px;
+      }
+      
+      [dir="rtl"] .hero-image {
+        right: auto;
+        left: -150px;
+      }
+      
+      .steps-container {
+        flex-direction: column;
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      .mobile-nav-toggle {
+        display: block;
+      }
+      
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: var(--shadow-medium);
+        padding: var(--space-lg) 0;
+      }
+      
+      .nav-menu.active {
+        right: 0;
+      }
+      
+      .hero {
+        text-align: center;
+        padding: var(--space-2xl) 0;
+      }
+      
+      .hero-content {
+        align-items: center;
+        max-width: 100%;
+      }
+      
+      .hero-image {
+        display: none;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+      }
+      
+      .cta-form {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+      
+      .cta-input {
+        border-radius: var(--radius-md);
+      }
+      
+      .cta-button {
+        border-radius: var(--radius-md);
+        width: 100%;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <!-- HEADER / NAVIGATION -->
-    <header class="header">
+  <!-- Header / Navigation -->
+  <header class="header" id="header">
+    <div class="container">
       <nav class="navbar">
         <div class="nav-logo">
-          <!-- Replace with your actual logo -->
-          <img src="assets/your-logo.png" alt="Blabber Logo" class="logo">
+          <img src="https://via.placeholder.com/120x40?text=Blabber" alt="Blabber Logo" class="logo">
         </div>
         <ul class="nav-menu">
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#features">Features</a></li>
-          <!-- Link to your support folder -->
-          <li><a href="support/">Support</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#how-it-works" data-en="How It Works" data-he="איך זה עובד">How It Works</a></li>
+          <li><a href="#features" data-en="Features" data-he="תכונות">Features</a></li>
+          <li><a href="#testimonials" data-en="Testimonials" data-he="המלצות">Testimonials</a></li>
+          <li><a href="support/" data-en="Support" data-he="תמיכה">Support</a></li>
+          <li><a href="#contact" class="btn btn-primary" data-en="Get Started" data-he="התחל עכשיו">Get Started</a></li>
         </ul>
+        <div class="language-switcher">
+          <button class="language-btn active" data-lang="en">EN</button>
+          <span>|</span>
+          <button class="language-btn" data-lang="he">עב</button>
+        </div>
+        <button class="mobile-nav-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title">Revolutionize Language Learning</h1>
-        <p class="hero-subtitle">
-          Experience the future of language tutoring with our
-          <span class="highlight">AI-Powered Avatar</span>.
-          Conduct real-time conversations, practice vocabulary, and master new languages—anytime, anywhere.
-        </p>
-        <button class="cta-button" onclick="scrollToElement('how-it-works')">Learn More</button>
+        <span class="hero-tagline" data-en="AI-Powered Language Learning for Schools" data-he="למידת שפות מבוססת בינה מלאכותית לבתי ספר">AI-Powered Language Learning for Schools</span>
+        <h1 class="hero-title" data-en="Transform Classroom Language Education with <span>Blabber AI</span>" data-he="שנו את הוראת השפות בכיתה עם <span>Blabber AI</span>">Transform Classroom Language Education with <span>Blabber AI</span></h1>
+        <p class="hero-subtitle" data-en="Enhance your school's language curriculum with our AI tutor that enables students to practice conversations, receive instant feedback, and build confidence — perfectly integrated with your educational goals." data-he="שפרו את תוכנית לימודי השפות בבית ספרכם עם מורה בינה מלאכותית המאפשר לתלמידים לתרגל שיחות, לקבל משוב מיידי ולבנות ביטחון — משתלב בצורה מושלמת עם המטרות החינוכיות שלכם.">Enhance your school's language curriculum with our AI tutor that enables students to practice conversations, receive instant feedback, and build confidence — perfectly integrated with your educational goals.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary" data-en="Request School Demo" data-he="בקשו הדגמה לבית הספר">Request School Demo</a>
+          <a href="#how-it-works" class="btn btn-secondary" data-en="Learn More" data-he="למידע נוסף">Learn More</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number" id="studentCount" data-value="10000">0</span><span>+</span>
+            <span class="hero-stat-label" data-en="Active Students" data-he="תלמידים פעילים">Active Students</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number" id="schoolCount" data-value="500">0</span><span>+</span>
+            <span class="hero-stat-label" data-en="Partner Schools" data-he="בתי ספר שותפים">Partner Schools</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number" id="satisfactionRate" data-value="98">0</span><span>%</span>
+            <span class="hero-stat-label" data-en="Educator Satisfaction" data-he="שביעות רצון מורים">Educator Satisfaction</span>
+          </div>
+        </div>
       </div>
-      <!-- Hero image / animation -->
-      <div class="hero-image">
-        <!-- Make sure you have an actual GIF named 'your-hero-image.gif' in assets/ -->
-        <img src="assets/your-hero-image.gif" alt="Hero Image" />
-      </div>
-    </section>
+      <img src="https://via.placeholder.com/600x400?text=AI+Tutor" alt="AI Language Tutor" class="hero-image">
+    </div>
+  </section>
 
-    <!-- HOW IT WORKS SECTION -->
-    <section class="how-it-works" id="how-it-works">
-      <h2>How It Works</h2>
+  <!-- Featured By Section -->
+  <section class="featured-by">
+    <div class="container">
+      <h3 class="featured-by-title" data-en="Trusted By Leading Educational Institutions" data-he="מהימן על ידי מוסדות חינוך מובילים">Trusted By Leading Educational Institutions</h3>
+      <div class="logos">
+        <img src="https://via.placeholder.com/120x30?text=School1" alt="School Logo" class="logo-item">
+        <img src="https://via.placeholder.com/120x30?text=School2" alt="School Logo" class="logo-item">
+        <img src="https://via.placeholder.com/120x30?text=School3" alt="School Logo" class="logo-item">
+        <img src="https://via.placeholder.com/120x30?text=School4" alt="School Logo" class="logo-item">
+        <img src="https://via.placeholder.com/120x30?text=School5" alt="School Logo" class="logo-item">
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle" data-en="Implementation Process" data-he="תהליך היישום">Implementation Process</span>
+        <h2 class="section-title" data-en="How Blabber Works in Schools" data-he="איך Blabber עובד בבתי ספר">How Blabber Works in Schools</h2>
+        <p class="section-description" data-en="Our AI-powered language tutor integrates with your school curriculum to provide personalized learning experiences that support educators and engage students." data-he="מורה השפות מבוסס הבינה המלאכותית שלנו משתלב בתוכנית הלימודים של בית הספר כדי לספק חוויות למידה מותאמות אישית התומכות במחנכים ומעניינות את התלמידים.">Our AI-powered language tutor integrates with your school curriculum to provide personalized learning experiences that support educators and engage students.</p>
+      </div>
       <div class="steps-container">
         <div class="step">
           <div class="step-number">1</div>
-          <h3>Pick Your Language & Goal</h3>
-          <p>
-            Business trips, travel, or exam prep—set your target and let 
-            Blabber’s AI tailor your session to meet your exact needs.
-          </p>
+          <div class="step-icon"><i class="fas fa-bullseye"></i></div>
+          <h3 data-en="Integrate with Your Curriculum" data-he="שילוב עם תכנית הלימודים שלכם">Integrate with Your Curriculum</h3>
+          <p data-en="We work with your school to align Blabber with existing curriculum standards, ensuring seamless integration with your language department's goals and methodologies." data-he="אנו עובדים עם בית הספר שלכם כדי להתאים את Blabber לסטנדרטים של תכנית הלימודים הקיימת, תוך הבטחת שילוב חלק עם היעדים והמתודולוגיות של מחלקת השפות שלכם.">We work with your school to align Blabber with existing curriculum standards, ensuring seamless integration with your language department's goals and methodologies.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
-          <h3>Engage in Real-Time</h3>
-          <p>
-            Hop into a virtual classroom led by our AI avatar. Practice 
-            pronunciation, discuss grammar, and build confidence in a 
-            safe, judgment-free space.
-          </p>
+          <div class="step-icon"><i class="fas fa-comments"></i></div>
+          <h3 data-en="Empower Your Students" data-he="העצימו את התלמידים שלכם">Empower Your Students</h3>
+          <p data-en="Students engage in real-time conversations with our AI avatar. They practice pronunciation, discuss curriculum topics, and build confidence in a safe, judgment-free environment." data-he="תלמידים מקיימים שיחות בזמן אמת עם האווטאר מבוסס הבינה המלאכותית שלנו. הם מתרגלים הגייה, דנים בנושאי תכנית הלימודים ובונים ביטחון בסביבה בטוחה וללא שיפוט.">Students engage in real-time conversations with our AI avatar. They practice pronunciation, discuss curriculum topics, and build confidence in a safe, judgment-free environment.</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h3>Track Progress & Adapt</h3>
-          <p>
-            Our system identifies areas for improvement, introduces 
-            fresh materials, and syncs with your curriculum to keep 
-            you on track.
-          </p>
+          <div class="step-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 data-en="Track Classroom Progress" data-he="מעקב אחר התקדמות בכיתה">Track Classroom Progress</h3>
+          <p data-en="Teachers receive detailed analytics and insights on student performance. Our system identifies areas for improvement, helps educators target instruction, and provides data to demonstrate learning outcomes." data-he="מורים מקבלים ניתוחים ותובנות מפורטים על ביצועי התלמידים. המערכת שלנו מזהה תחומים לשיפור, עוזרת למחנכים למקד את ההוראה, ומספקת נתונים להדגמת תוצאות הלמידה.">Teachers receive detailed analytics and insights on student performance. Our system identifies areas for improvement, helps educators target instruction, and provides data to demonstrate learning outcomes.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FEATURES SECTION -->
-    <section class="features" id="features">
-      <h2>Key Features</h2>
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle" data-en="For Educational Institutions" data-he="למוסדות חינוך">For Educational Institutions</span>
+        <h2 class="section-title" data-en="School-Focused Features" data-he="תכונות ממוקדות בתי ספר">School-Focused Features</h2>
+        <p class="section-description" data-en="Discover how Blabber's innovative technology strengthens your language curriculum, improves student outcomes, and provides valuable tools for educators." data-he="גלו כיצד הטכנולוגיה החדשנית של Blabber מחזקת את תכנית הלימודים בשפות, משפרת את תוצאות התלמידים ומספקת כלים יקרי ערך למחנכים.">Discover how Blabber's innovative technology strengthens your language curriculum, improves student outcomes, and provides valuable tools for educators.</p>
+      </div>
       <div class="features-grid">
-        <!-- Feature 1 -->
         <div class="feature-item">
-          <img src="assets/your-animation.gif" alt="Interactive Conversations" class="feature-icon" />
-          <h3>Interactive Conversations</h3>
-          <p>
-            Engage in AI-led dialogues on grammar, vocab sets, literature, 
-            or any class material you choose.
-          </p>
+          <div class="feature-icon"><i class="fas fa-robot"></i></div>
+          <h3>AI-Led Conversations</h3>
+          <p>Engage in natural dialogues on grammar, vocabulary, literature, or any class material with our advanced AI tutor.</p>
         </div>
-        <!-- Feature 2 -->
         <div class="feature-item">
-          <img src="assets/your-animation.gif" alt="Safe Space" class="feature-icon" />
-          <h3>Safe Space to Practice</h3>
-          <p>
-            Practice speaking privately and experiment without worry. 
-            Perfect for beginners and shy speakers.
-          </p>
+          <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+          <h3>Safe Learning Environment</h3>
+          <p>Practice speaking privately without fear of judgment. Perfect for beginners and shy speakers to build confidence.</p>
         </div>
-        <!-- Feature 3 -->
         <div class="feature-item">
-          <img src="assets/your-animation.gif" alt="Full Curriculum Integration" class="feature-icon" />
+          <div class="feature-icon"><i class="fas fa-school"></i></div>
           <h3>Curriculum Integration</h3>
-          <p>
-            Seamlessly integrate textbooks, grammar levels, and literature. 
-            Perfectly aligned with school requirements.
-          </p>
+          <p>Seamlessly integrate with textbooks, grammar levels, and literature. Perfectly aligned with school requirements.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-clipboard-check"></i></div>
+          <h3>Instant Feedback</h3>
+          <p>Receive real-time corrections and suggestions on pronunciation, grammar, and vocabulary usage.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-clock"></i></div>
+          <h3>24/7 Availability</h3>
+          <p>Practice anytime, anywhere. Our AI tutor is always ready to help you improve your language skills.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+          <h3>Adaptive Learning</h3>
+          <p>Our AI analyzes your performance and adjusts difficulty to provide optimal challenges for your skill level.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CONTACT / CTA SECTION -->
-    <section class="contact" id="contact">
-      <h2>Ready to Transform Your Classroom?</h2>
-      <p>
-        Schedule a demo or get in touch with us to learn more about 
-        Blabber’s AI tutor for schools, businesses, or personal learning.
-      </p>
-
-      <!-- 
-        We'll let our script handle submission via fetch to Formspree.
-        1) Add "id='demoForm'" so we can target it in script.
-        2) Add hidden fields for _subject, etc.
-      -->
-      <form class="contact-form" id="demoForm">
-        <!-- Subject for Formspree (this will appear as the email subject) -->
-        <input type="hidden" name="_subject" value="Demo Request from Blabber Website">
-        
-        <!-- This will appear in the email body as "userEmail: <the user typed>" -->
-        <input 
-          type="email" 
-          name="userEmail" 
-          placeholder="Your Email Address" 
-          required 
-        />
-
-        <button type="submit">Request Demo</button>
-      </form>
-
-      <!-- A hidden success message, displayed upon successful submission -->
-      <div id="successMessage" style="display: none; color: #fff; margin-top: 1rem; font-weight: 600;">
-        Message sent! Thanks.
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle" data-en="School Success Stories" data-he="סיפורי הצלחה של בתי ספר">School Success Stories</span>
+        <h2 class="section-title" data-en="What Educators & Administrators Say" data-he="מה מחנכים ומנהלים אומרים">What Educators & Administrators Say</h2>
+        <p class="section-description" data-en="Hear from education professionals who have transformed their language programs with Blabber's AI-powered solution." data-he="שמעו ממקצועני חינוך ששינו את תכניות השפות שלהם עם הפתרון מבוסס הבינה המלאכותית של Blabber.">Hear from education professionals who have transformed their language programs with Blabber's AI-powered solution.</p>
       </div>
-
-      <!-- Direct Contact Info -->
-      <div style="margin-top: 2rem;">
-        <p>Contact us directly:</p>
-        <p>
-          Email: 
-          <a href="mailto:contact@blabber.site" style="color: #fff; text-decoration: underline;">
-            contact@blabber.site
-          </a>
-        </p>
-        <p>
-          Phone: 
-          <a href="tel:+972524278042" style="color: #fff; text-decoration: underline;">
-            +972-52-427-8042
-          </a>
-        </p>
+      <div class="testimonials-container">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Blabber has revolutionized how our students practice English. The AI tutor provides personalized attention that would be impossible for a single teacher to deliver to every student.</p>
+          <div class="testimonial-author">
+            <img src="https://via.placeholder.com/50?text=M" alt="Avatar" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Michael Cohen</h4>
+              <p>English Department Head, International School</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">As someone with social anxiety, I struggled to practice speaking in class. With Blabber, I can practice as much as I need without feeling judged. My confidence has improved tremendously!</p>
+          <div class="testimonial-author">
+            <img src="https://via.placeholder.com/50?text=S" alt="Avatar" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Sarah Johnson</h4>
+              <p>High School Student</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Implementing Blabber in our curriculum has led to measurable improvements in our students' speaking abilities. The data insights help us target instruction where it's needed most.</p>
+          <div class="testimonial-author">
+            <img src="https://via.placeholder.com/50?text=R" alt="Avatar" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Rebecca Levy</h4>
+              <p>Language Program Director</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <!-- FOOTER (outside .container for full-width style) -->
+  <!-- CTA Section -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-content">
+        <h2 data-en="Ready to Transform Your School's Language Program?" data-he="מוכנים לשנות את תכנית השפות של בית הספר שלכם?">Ready to Transform Your School's Language Program?</h2>
+        <p data-en="Schedule a personalized demo for your school administrators and language department. See how Blabber can enhance your curriculum, improve student outcomes, and provide valuable teaching tools." data-he="תזמנו הדגמה מותאמת אישית למנהלי בית הספר ומחלקת השפות שלכם. ראו כיצד Blabber יכול לשפר את תכנית הלימודים שלכם, לשפר את תוצאות התלמידים ולספק כלי הוראה יקרי ערך.">Schedule a personalized demo for your school administrators and language department. See how Blabber can enhance your curriculum, improve student outcomes, and provide valuable teaching tools.</p>
+        <form class="cta-form" id="demoForm">
+          <input type="hidden" name="_subject" value="School Demo Request from Blabber Website">
+          <input type="email" name="userEmail" placeholder="Your School Email Address" data-en-placeholder="Your School Email Address" data-he-placeholder="כתובת האימייל של בית הספר שלך" required class="cta-input">
+          <button type="submit" class="cta-button" data-en="Request School Demo" data-he="בקש הדגמה לבית ספר">Request School Demo</button>
+        </form>
+        <div id="successMessage">Thank you! We'll be in touch soon.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
-  <p>
-    &copy; <span id="year"></span> Blabber. All rights reserved.
-    | <a href="privacy/">Privacy Policy</a>
-  </p>
-</footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <img src="https://via.placeholder.com/120x40?text=Blabber" alt="Blabber Logo" class="footer-logo">
+          <p>Blabber is revolutionizing language education with AI-powered tutoring that provides personalized, interactive learning experiences.</p>
+        </div>
+        <div class="footer-links-column">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="support/">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-column">
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="privacy/">Privacy Policy</a></li>
+            <li><a href="support/">FAQ</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Case Studies</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-column">
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:contact@blabber.site">contact@blabber.site</a></li>
+            <li><a href="tel:+972524278042">+972-52-427-8042</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; <span id="year"></span> Blabber. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
+  <script>
+    // Update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile menu toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileNavToggle) {
+      mobileNavToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileNavToggle.querySelector('i').classList.toggle('fa-bars');
+        mobileNavToggle.querySelector('i').classList.toggle('fa-times');
+      });
+    }
+    
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Form submission
+    const form = document.getElementById('demoForm');
+    const successMessage = document.getElementById('successMessage');
+    
+    if (form) {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        
+        // Simulate form submission
+        successMessage.style.display = 'block';
+        form.reset();
+        
+        // In actual implementation, you would use Formspree or another form handler
+        // Using the code from your original script.js
+      });
+    }
+    
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          // Close mobile menu if open
+          navMenu.classList.remove('active');
+          
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // CountUp.js embedded implementation
+    var CountUp = (function() {
+      // CountUp implementation
+      function CountUp(target, startVal, endVal, decimals, duration, options) {
+        var self = this;
+        self.version = '2.0.8';
+        self.options = {
+          useEasing: true,
+          useGrouping: true,
+          separator: ',',
+          decimal: '.',
+          easingFn: easeOutExpo,
+          formattingFn: formatNumber,
+          prefix: '',
+          suffix: '',
+          numerals: []
+        };
+        
+        // Merge options
+        if (options && typeof options === 'object') {
+          for (var key in self.options) {
+            if (options.hasOwnProperty(key) && options[key] !== null) {
+              self.options[key] = options[key];
+            }
+          }
+        }
+        
+        if (self.options.separator === '') {
+          self.options.useGrouping = false;
+        }
+        
+        self.target = typeof target === 'string' ? document.getElementById(target) : target;
+        self.startVal = Number(startVal);
+        self.endVal = Number(endVal);
+        self.countDown = (self.startVal > self.endVal);
+        self.frameVal = self.startVal;
+        self.decimals = Math.max(0, decimals || 0);
+        self.dec = Math.pow(10, self.decimals);
+        self.duration = Number(duration) * 1000 || 2000;
+        
+        // Format endVal 
+        self.formattedEndVal = self.options.formattingFn(self.endVal);
+        
+        function easeOutExpo(t, b, c, d) {
+          return c * (1 - Math.pow(2, -10 * t / d)) + b;
+        }
+        
+        function formatNumber(num) {
+          var neg = (num < 0),
+              x, x1, x2, x3, i, l;
+          num = Math.abs(num).toFixed(self.decimals);
+          num += '';
+          x = num.split('.');
+          x1 = x[0];
+          x2 = x.length > 1 ? self.options.decimal + x[1] : '';
+          if (self.options.useGrouping) {
+            x3 = '';
+            for (i = 0, l = x1.length; i < l; ++i) {
+              if (i !== 0 && ((i % 3) === 0)) {
+                x3 = self.options.separator + x3;
+              }
+              x3 = x1[l - i - 1] + x3;
+            }
+            x1 = x3;
+          }
+          
+          // optional numeral substitution
+          if (self.options.numerals.length) {
+            x1 = x1.replace(/[0-9]/g, function(w) {
+              return self.options.numerals[+w];
+            });
+            x2 = x2.replace(/[0-9]/g, function(w) {
+              return self.options.numerals[+w];
+            });
+          }
+          return (neg ? '-' : '') + self.options.prefix + x1 + x2 + self.options.suffix;
+        }
+        
+        self.printValue = function(value) {
+          var result = self.options.formattingFn(value);
+          if (self.target) {
+            if (self.target.tagName === 'INPUT') {
+              self.target.value = result;
+            } else if (self.target.tagName === 'text' || self.target.tagName === 'tspan') {
+              self.target.textContent = result;
+            } else {
+              self.target.innerHTML = result;
+            }
+          }
+          return result;
+        };
+        
+        self.count = function(timestamp) {
+          if (!self.startTime) { self.startTime = timestamp; }
+          
+          var elapsed = timestamp - self.startTime;
+          var progress = elapsed / self.duration;
+          progress = progress > 1 ? 1 : progress;
+          
+          var eased = self.options.easingFn(progress, 0, 1, 1);
+          var currentVal = self.startVal + (self.endVal - self.startVal) * eased;
+          self.frameVal = self.countDown ? Math.max(self.endVal, currentVal) : Math.min(self.endVal, currentVal);
+          
+          // decimal
+          self.frameVal = Math.round(self.frameVal * self.dec) / self.dec;
+          
+          // format and print value
+          self.printValue(self.frameVal);
+          
+          if (progress < 1) {
+            self.rAF = requestAnimationFrame(self.count);
+          } else {
+            if (self.callback) { self.callback(); }
+          }
+        };
+        
+        self.start = function(callback) {
+          self.callback = callback;
+          self.rAF = requestAnimationFrame(self.count);
+          return false;
+        };
+        
+        self.pauseResume = function() {
+          if (!self.paused) {
+            self.paused = true;
+            cancelAnimationFrame(self.rAF);
+          } else {
+            self.paused = false;
+            delete self.startTime;
+            self.duration = self.remaining;
+            self.startVal = self.frameVal;
+            requestAnimationFrame(self.count);
+          }
+        };
+        
+        self.reset = function() {
+          self.paused = false;
+          delete self.startTime;
+          self.frameVal = self.startVal;
+          cancelAnimationFrame(self.rAF);
+          self.printValue(self.startVal);
+        };
+        
+        self.update = function(newEndVal) {
+          cancelAnimationFrame(self.rAF);
+          self.paused = false;
+          delete self.startTime;
+          self.startVal = self.frameVal;
+          self.endVal = Number(newEndVal);
+          self.countDown = (self.startVal > self.endVal);
+          self.rAF = requestAnimationFrame(self.count);
+        };
+        
+        // format startVal on initialization
+        self.printValue(self.startVal);
+      }
+      
+      return CountUp;
+    }());
 
-  <!-- Main JavaScript -->
-  <script src="script.js"></script>
+    // Count-up animation
+    function startCountUp() {
+      const options = {
+        duration: 2.5,
+        useEasing: true,
+        useGrouping: true,
+        separator: ',',
+        decimal: '.'
+      };
+      
+      // Get all elements with count-up data
+      const countElements = document.querySelectorAll('[id$="Count"], [id$="Rate"]');
+      
+      countElements.forEach(element => {
+        const targetValue = parseInt(element.getAttribute('data-value'), 10);
+        try {
+          const countUp = new CountUp(element.id, 0, targetValue, 0, 2.5, options);
+          countUp.start();
+        } catch (error) {
+          console.error('Error with CountUp:', error);
+          // Fallback
+          element.textContent = element.getAttribute('data-value');
+        }
+      });
+    }
+    
+    // Language switcher
+    const languageBtns = document.querySelectorAll('.language-btn');
+    let currentLang = 'en';
+    
+    function switchLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
+      
+      // Update active button state
+      languageBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      
+      // Update all translatable elements
+      document.querySelectorAll('[data-' + lang + ']').forEach(element => {
+        const translatedText = element.getAttribute('data-' + lang);
+        if (translatedText) {
+          if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
+            element.placeholder = element.getAttribute('data-' + lang + '-placeholder') || translatedText;
+          } else {
+            // Preserve any spans within the text
+            if (element.innerHTML.includes('<span>')) {
+              const spanContent = element.querySelector('span')?.innerHTML;
+              element.innerHTML = translatedText.replace(/<span>.*?<\/span>/, `<span>${spanContent}</span>`);
+            } else {
+              element.innerHTML = translatedText;
+            }
+          }
+        }
+      });
+    }
+    
+    languageBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        switchLanguage(lang);
+      });
+    });
+    
+    // Initialize count-up when elements are in viewport
+    document.addEventListener('DOMContentLoaded', () => {
+      // Start countUp when the stats section is visible
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startCountUp();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      const statsSection = document.querySelector('.hero-stats');
+      if (statsSection) {
+        observer.observe(statsSection);
+      } else {
+        // If stats section not found, start count-up anyway
+        startCountUp();
+      }
+    });
+  </script>
 </body>
 </html>

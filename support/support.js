@@ -17,3 +17,21 @@ const yearSpan = document.getElementById("year");
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+// Expand the first FAQ item by default
+document.addEventListener('DOMContentLoaded', () => {
+  const firstFAQ = document.querySelector('.faq-question');
+  if (firstFAQ) {
+    toggleFAQ(firstFAQ);
+  }
+});

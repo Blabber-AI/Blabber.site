@@ -4,204 +4,213 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blabber Support | AI-Powered Language Tutor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="support.css" />
 </head>
 <body>
   <!-- HEADER with "Back to Home" link on the right -->
-  <header class="header">
-    <nav class="navbar">
+  <header class="header" id="header">
+    <div class="navbar">
       <div class="nav-logo">
-        <img src="../assets/your-logo.png" alt="Blabber Logo" class="logo"/>
+        <img src="../assets/Blabber-logo.png" alt="Blabber Logo" class="logo"/>
       </div>
       <ul class="nav-menu">
-        <li><a href="../index.html" class="back-link">Back to Blabber</a></li>
+        <li><a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blabber</a></li>
       </ul>
-    </nav>
+      <div class="language-switcher">
+        <button class="language-btn active" data-lang="en">EN</button>
+        <span>|</span>
+        <button class="language-btn" data-lang="he">עב</button>
+      </div>
+    </div>
   </header>
 
   <div class="container">
     <!-- Support Header -->
     <div class="support-header">
-      <h1>Blabber Support Center</h1>
-      <p>Your go-to resource for getting the most out of our AI-Powered Language Tutor</p>
+      <h1 data-en="Blabber Support Center" data-he="מרכז התמיכה של Blabber">Blabber Support Center</h1>
+      <p data-en="Your go-to resource for getting the most out of our AI-Powered Language Tutor" data-he="המשאב המרכזי שלך לקבלת המירב מחונך השפה שלנו המופעל על ידי בינה מלאכותית">Your go-to resource for getting the most out of our AI-Powered Language Tutor</p>
     </div>
 
     <!-- Getting Started Section -->
     <section class="faq-section">
-      <h2 class="faq-title">Getting Started</h2>
+      <h2 class="faq-title" data-en="Getting Started" data-he="התחלה">Getting Started</h2>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          How can my school integrate Blabber?
+          <span data-en="How can my school integrate Blabber?" data-he="איך בית הספר שלי יכול לשלב את Blabber?">How can my school integrate Blabber?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Contact us to start the integration process. We’ll collaborate with your school to define goals, tailor the app to your needs, and train teachers for a seamless setup.</p>
+          <p data-en="Contact us to start the integration process. We'll collaborate with your school to define goals, tailor the app to your needs, and train teachers for a seamless setup." data-he="צור איתנו קשר כדי להתחיל את תהליך האינטגרציה. נשתף פעולה עם בית הספר שלך להגדרת יעדים, התאמת האפליקציה לצרכים שלך, והכשרת מורים להתקנה חלקה.">Contact us to start the integration process. We'll collaborate with your school to define goals, tailor the app to your needs, and train teachers for a seamless setup.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          What devices does Blabber work on?
+          <span data-en="What devices does Blabber work on?" data-he="על אילו מכשירים Blabber עובד?">What devices does Blabber work on?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Blabber is compatible with smartphones and tablets. Students and teachers each use a unique app interface designed for their roles.</p>
+          <p data-en="Blabber is compatible with smartphones and tablets. Students and teachers each use a unique app interface designed for their roles." data-he="Blabber תואם לטלפונים חכמים וטאבלטים. תלמידים ומורים משתמשים כל אחד בממשק אפליקציה ייחודי המותאם לתפקידם.">Blabber is compatible with smartphones and tablets. Students and teachers each use a unique app interface designed for their roles.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          Which languages are available?
+          <span data-en="Which languages are available?" data-he="אילו שפות זמינות?">Which languages are available?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Currently, we offer English as the target language, with fully customizable learning plans for schools.</p>
+          <p data-en="Currently, we offer English as the target language, with fully customizable learning plans for schools." data-he="כרגע, אנו מציעים אנגלית כשפת יעד, עם תוכניות לימוד מותאמות אישית לבתי ספר.">Currently, we offer English as the target language, with fully customizable learning plans for schools.</p>
         </div>
       </div>
     </section>
 
     <!-- For Schools & Teachers Section -->
     <section class="faq-section">
-      <h2 class="faq-title">For Schools & Teachers</h2>
+      <h2 class="faq-title" data-en="For Schools & Teachers" data-he="לבתי ספר ומורים">For Schools & Teachers</h2>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          How is Blabber customized for schools?
+          <span data-en="How is Blabber customized for schools?" data-he="איך Blabber מותאם לבתי ספר?">How is Blabber customized for schools?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Blabber works closely with schools to fully align the app with the Education Ministry’s curriculum. From setting goals to tailoring exercises and activities, we ensure the app supports your school’s specific requirements.</p>
+          <p data-en="Blabber works closely with schools to fully align the app with the Education Ministry's curriculum. From setting goals to tailoring exercises and activities, we ensure the app supports your school's specific requirements." data-he="Blabber עובד בצמוד לבתי ספר כדי להתאים לחלוטין את האפליקציה לתוכנית הלימודים של משרד החינוך. מקביעת יעדים ועד התאמת תרגילים ופעילויות, אנו מבטיחים שהאפליקציה תומכת בדרישות הספציפיות של בית הספר שלך.">Blabber works closely with schools to fully align the app with the Education Ministry's curriculum. From setting goals to tailoring exercises and activities, we ensure the app supports your school's specific requirements.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          How do teachers use Blabber?
+          <span data-en="How do teachers use Blabber?" data-he="איך מורים משתמשים ב-Blabber?">How do teachers use Blabber?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Teachers access a dedicated interface to track progress, assign tasks, and adapt lessons to students’ needs. Training is provided to ensure smooth implementation.</p>
+          <p data-en="Teachers access a dedicated interface to track progress, assign tasks, and adapt lessons to students' needs. Training is provided to ensure smooth implementation." data-he="מורים ניגשים לממשק ייעודי כדי לעקוב אחר התקדמות, להקצות משימות, ולהתאים שיעורים לצרכי התלמידים. הכשרה ניתנת כדי להבטיח יישום חלק.">Teachers access a dedicated interface to track progress, assign tasks, and adapt lessons to students' needs. Training is provided to ensure smooth implementation.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          Can Blabber handle multiple classes or groups?
+          <span data-en="Can Blabber handle multiple classes or groups?" data-he="האם Blabber יכול לטפל במספר כיתות או קבוצות?">Can Blabber handle multiple classes or groups?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Yes. Teachers can create and manage multiple class groups within the app, ensuring easy organization and flexibility.</p>
+          <p data-en="Yes. Teachers can create and manage multiple class groups within the app, ensuring easy organization and flexibility." data-he="כן. מורים יכולים ליצור ולנהל מספר קבוצות כיתה בתוך האפליקציה, מה שמבטיח ארגון וגמישות קלים.">Yes. Teachers can create and manage multiple class groups within the app, ensuring easy organization and flexibility.</p>
         </div>
       </div>
     </section>
 
     <!-- For Students Section -->
     <section class="faq-section">
-      <h2 class="faq-title">For Students</h2>
+      <h2 class="faq-title" data-en="For Students" data-he="לתלמידים">For Students</h2>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          How do students use Blabber?
+          <span data-en="How do students use Blabber?" data-he="איך תלמידים משתמשים ב-Blabber?">How do students use Blabber?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Students use the app to practice speaking, listening, and vocabulary in a fun, interactive way. Feedback on grammar and pronunciation is provided instantly for continuous improvement.</p>
+          <p data-en="Students use the app to practice speaking, listening, and vocabulary in a fun, interactive way. Feedback on grammar and pronunciation is provided instantly for continuous improvement." data-he="תלמידים משתמשים באפליקציה כדי לתרגל דיבור, האזנה ואוצר מילים בדרך כיפית ואינטראקטיבית. משוב על דקדוק והגייה ניתן באופן מיידי לשיפור מתמיד.">Students use the app to practice speaking, listening, and vocabulary in a fun, interactive way. Feedback on grammar and pronunciation is provided instantly for continuous improvement.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          What if I’m shy or not confident?
+          <span data-en="What if I'm shy or not confident?" data-he="מה אם אני ביישן או לא בטוח בעצמי?">What if I'm shy or not confident?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Blabber creates a safe, private environment where students can practice as much as they need, with no fear of judgment.</p>
+          <p data-en="Blabber creates a safe, private environment where students can practice as much as they need, with no fear of judgment." data-he="Blabber יוצר סביבה בטוחה ופרטית בה תלמידים יכולים לתרגל כמה שהם צריכים, ללא פחד משיפוט.">Blabber creates a safe, private environment where students can practice as much as they need, with no fear of judgment.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          How is progress tracked?
+          <span data-en="How is progress tracked?" data-he="איך מעקב אחר התקדמות מתבצע?">How is progress tracked?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Students receive regular progress updates and can review session highlights directly in the app.</p>
+          <p data-en="Students receive regular progress updates and can review session highlights directly in the app." data-he="תלמידים מקבלים עדכוני התקדמות סדירים ויכולים לסקור את הדגשי המפגש ישירות באפליקציה.">Students receive regular progress updates and can review session highlights directly in the app.</p>
         </div>
       </div>
     </section>
 
     <!-- Payments & Pricing Section -->
     <section class="faq-section">
-      <h2 class="faq-title">Payments & Pricing</h2>
+      <h2 class="faq-title" data-en="Payments & Pricing" data-he="תשלומים ותמחור">Payments & Pricing</h2>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          How do schools pay for Blabber?
+          <span data-en="How do schools pay for Blabber?" data-he="איך בתי ספר משלמים עבור Blabber?">How do schools pay for Blabber?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Payments are processed through the “Gefen” system on a per-student basis. A minimum number of students is required for each school.</p>
+          <p data-en="Payments are processed through the 'Gefen' system on a per-student basis. A minimum number of students is required for each school." data-he="תשלומים מעובדים דרך מערכת 'גפן' על בסיס פר-תלמיד. נדרש מספר מינימלי של תלמידים לכל בית ספר.">Payments are processed through the "Gefen" system on a per-student basis. A minimum number of students is required for each school.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          Are there discounts for larger schools?
+          <span data-en="Are there discounts for larger schools?" data-he="האם יש הנחות לבתי ספר גדולים יותר?">Are there discounts for larger schools?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Pricing is designed to be scalable, ensuring fair rates for schools of all sizes. Contact us for details.</p>
+          <p data-en="Pricing is designed to be scalable, ensuring fair rates for schools of all sizes. Contact us for details." data-he="המחירים מתוכננים להיות ברי-קיימא, תוך הבטחת תעריפים הוגנים לבתי ספר בכל הגדלים. צרו קשר לפרטים.">Pricing is designed to be scalable, ensuring fair rates for schools of all sizes. Contact us for details.</p>
         </div>
       </div>
     </section>
 
     <!-- Troubleshooting & Technical Issues Section -->
     <section class="faq-section">
-      <h2 class="faq-title">Troubleshooting & Technical Issues</h2>
+      <h2 class="faq-title" data-en="Troubleshooting & Technical Issues" data-he="פתרון בעיות ובעיות טכניות">Troubleshooting & Technical Issues</h2>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          What if the app isn’t working properly?
+          <span data-en="What if the app isn't working properly?" data-he="מה אם האפליקציה לא עובדת כראוי?">What if the app isn't working properly?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>First, try restarting your device and ensuring permissions for the app (microphone, camera, etc.) are enabled. If the issue persists, contact our support team for quick assistance.</p>
+          <p data-en="First, try restarting your device and ensuring permissions for the app (microphone, camera, etc.) are enabled. If the issue persists, contact our support team for quick assistance." data-he="קודם כל, נסה להפעיל מחדש את המכשיר שלך ולוודא שההרשאות לאפליקציה (מיקרופון, מצלמה וכו') מופעלות. אם הבעיה נמשכת, צור קשר עם צוות התמיכה שלנו לסיוע מהיר.">First, try restarting your device and ensuring permissions for the app (microphone, camera, etc.) are enabled. If the issue persists, contact our support team for quick assistance.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          How do I fix audio or video issues?
+          <span data-en="How do I fix audio or video issues?" data-he="איך אני מתקן בעיות אודיו או וידאו?">How do I fix audio or video issues?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Ensure your internet connection is stable and check device settings. For additional help, refer to our troubleshooting guide or reach out to support.</p>
+          <p data-en="Ensure your internet connection is stable and check device settings. For additional help, refer to our troubleshooting guide or reach out to support." data-he="ודא שחיבור האינטרנט שלך יציב ובדוק את הגדרות המכשיר. לעזרה נוספת, עיין במדריך פתרון הבעיות שלנו או פנה לתמיכה.">Ensure your internet connection is stable and check device settings. For additional help, refer to our troubleshooting guide or reach out to support.</p>
         </div>
       </div>
     </section>
 
     <!-- Privacy & Data Protection Section -->
     <section class="faq-section">
-      <h2 class="faq-title">Privacy & Data Protection</h2>
+      <h2 class="faq-title" data-en="Privacy & Data Protection" data-he="פרטיות והגנת מידע">Privacy & Data Protection</h2>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          How is my data protected?
+          <span data-en="How is my data protected?" data-he="איך המידע שלי מוגן?">How is my data protected?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>All data is encrypted and securely stored. We never share personal information without explicit consent.</p>
+          <p data-en="All data is encrypted and securely stored. We never share personal information without explicit consent." data-he="כל המידע מוצפן ומאוחסן באופן מאובטח. לעולם לא נשתף מידע אישי ללא הסכמה מפורשת.">All data is encrypted and securely stored. We never share personal information without explicit consent.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFAQ(this)">
-          How do I report inappropriate behavior?
+          <span data-en="How do I report inappropriate behavior?" data-he="איך אני מדווח על התנהגות לא ראויה?">How do I report inappropriate behavior?</span>
           <span class="arrow">+</span>
         </button>
         <div class="faq-answer">
-          <p>Report any issues directly through the app or email us at <a href="mailto:contact@blabber.site">contact@blabber.site</a>. All reports are taken seriously and investigated promptly.</p>
+          <p data-en="Report any issues directly through the app or email us at <a href='mailto:contact@blabber.site'>contact@blabber.site</a>. All reports are taken seriously and investigated promptly." data-he="דווח על כל בעיה ישירות דרך האפליקציה או שלח לנו אימייל ל-<a href='mailto:contact@blabber.site'>contact@blabber.site</a>. כל הדיווחים נלקחים ברצינות ונחקרים במהירות.">Report any issues directly through the app or email us at <a href="mailto:contact@blabber.site">contact@blabber.site</a>. All reports are taken seriously and investigated promptly.</p>
         </div>
       </div>
     </section>
@@ -209,10 +218,88 @@
 
   <!-- Footer -->
   <footer class="support-footer">
-    <p>&copy; <span id="year"></span> Blabber. All rights reserved.</p>
+    <p data-en="&copy; <span id='year'></span> Blabber. All rights reserved." data-he="&copy; <span id='year'></span> Blabber. כל הזכויות שמורות.">&copy; <span id="year"></span> Blabber. All rights reserved.</p>
   </footer>
 
   <!-- Support JS -->
   <script src="support.js"></script>
+  
+  <script>
+    // Set the current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Language switcher logic (copied from index.html for consistency)
+    const languageBtns = document.querySelectorAll('.language-btn');
+    let currentLang = 'en';
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
+
+      // Update active button state
+      languageBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+
+      // Update all translatable elements
+      document.querySelectorAll('[data-' + lang + ']').forEach(element => {
+        const translatedText = element.getAttribute('data-' + lang);
+        if (translatedText) {
+          if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
+            element.placeholder = element.getAttribute('data-' + lang + '-placeholder') || translatedText;
+          } else {
+            // Preserve any spans within the text
+            if (element.innerHTML.includes('<span>')) {
+              const spanContent = element.querySelector('span')?.innerHTML;
+              element.innerHTML = translatedText.replace(/<span>.*?<\/span>/, `<span>${spanContent}</span>`);
+            } else {
+              element.innerHTML = translatedText;
+            }
+          }
+        }
+      });
+
+      // Save language preference
+      localStorage.setItem('blabberLanguage', lang);
+    }
+
+    languageBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        switchLanguage(lang);
+      });
+    });
+
+    // Load saved language preference
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLanguage = localStorage.getItem('blabberLanguage');
+      if (savedLanguage) {
+        switchLanguage(savedLanguage);
+      } else {
+        switchLanguage('en');
+      }
+    });
+
+    // FAQs Toggle function
+    function toggleFAQ(button) {
+      const answer = button.nextElementSibling;
+      const isOpen = answer.style.display === 'block';
+      // Close all FAQs
+      document.querySelectorAll('.faq-answer').forEach(item => {
+        item.style.display = 'none';
+      });
+      document.querySelectorAll('.faq-question').forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.arrow').textContent = '+';
+      });
+      // Open the clicked FAQ if it was closed
+      if (!isOpen) {
+        answer.style.display = 'block';
+        button.classList.add('active');
+        button.querySelector('.arrow').textContent = '−';
+      }
+    }
+  </script>
 </body>
 </html>

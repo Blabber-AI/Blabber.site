@@ -11,10 +11,10 @@
   <style>
     :root {
       /* Color Variables */
-      --primary: #5e17eb;
-      --primary-dark: #4812b3;
+      --primary: #7b3db1;
+      --primary-dark: #452848;
       --primary-light: #e5dbff;
-      --secondary: #2d7ff9;
+      --secondary: #6aa6ff;
       --success: #34c759;
       --error: #ff3b30;
       --dark-gray: #333333;
@@ -111,10 +111,11 @@
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
       font-size: 1rem;
-      padding: 0.75rem 1.5rem;
+      padding: 1rem 2.75rem;
       border-radius: var(--radius-md);
       cursor: pointer;
       transition: all 0.3s ease;
+      letter-spacing: 0.5px;
     }
     
     .btn-primary {
@@ -160,12 +161,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: var(--space-md) 0;
+      padding: 0;
+      height: 80px;
     }
     
     .nav-logo {
       display: flex;
       align-items: center;
+      height: 100%;
     }
     
     .logo {
@@ -177,13 +180,25 @@
       display: flex;
       list-style: none;
       gap: var(--space-lg);
+      align-items: center;
+      height: 100%;
+      margin: 0;
+    }
+    
+    .nav-menu li {
+      display: flex;
+      align-items: center;
+      height: 100%;
     }
     
     .nav-menu li a {
       font-weight: 600;
       color: var(--dark-gray);
       position: relative;
-      padding: var(--space-xs) 0;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 var(--space-xs);
     }
     
     .nav-menu li a:hover {
@@ -196,13 +211,23 @@
       width: 0;
       height: 2px;
       background: var(--primary);
-      bottom: -4px;
+      bottom: 28px;
       left: 0;
       transition: width 0.3s ease;
     }
     
     .nav-menu li a:hover:after {
       width: 100%;
+    }
+    
+    .nav-menu li a.btn {
+      height: auto;
+      padding: 0.85rem 2.25rem;
+      margin-left: 0.5rem;
+    }
+    
+    .nav-menu li a.btn:after {
+      display: none;
     }
     
     .mobile-nav-toggle {
@@ -225,13 +250,21 @@
       padding: var(--space-4xl) 0;
       position: relative;
       overflow: hidden;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero .container {
+      position: relative;
+      width: 100%;
     }
     
     .hero-content {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      max-width: 600px;
+      max-width: 550px;
       position: relative;
       z-index: 2;
     }
@@ -274,33 +307,60 @@
       flex-wrap: wrap;
       gap: var(--space-xl);
       margin-top: var(--space-xl);
+      justify-content: space-between;
+      max-width: 450px;
     }
     
     .hero-stat {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      min-width: 100px;
     }
     
     .hero-stat-number {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-xs);
+    }
+    
+    .hero-stat-number span {
+      margin-left: 2px;
+    }
+    
+    [dir="rtl"] .hero-stat-number span {
+      margin-left: 0;
+      margin-right: 2px;
     }
     
     .hero-stat-label {
       font-size: 0.875rem;
       color: var(--medium-gray);
+      text-align: center;
     }
     
     .hero-image {
       position: absolute;
-      right: -100px;
+      right: 50px;
       top: 50%;
       transform: translateY(-50%);
-      width: 600px;
+      width: 480px;
       height: auto;
       z-index: 1;
+      max-width: 40%;
+      box-shadow: var(--shadow-strong);
+      border-radius: var(--radius-lg);
+      transition: all 0.3s ease;
+    }
+    
+    [dir="rtl"] .hero-image {
+      right: auto;
+      left: 50px;
     }
     
     /* Featured By Section */
@@ -667,7 +727,7 @@
     
     [dir="rtl"] .hero-image {
       right: auto;
-      left: -100px;
+      left: 50px;
     }
     
     [dir="rtl"] .nav-menu {
@@ -675,8 +735,25 @@
     }
     
     [dir="rtl"] .hero-content {
-      align-items: flex-end;
-      text-align: right;
+      align-items: flex-end !important;
+      text-align: right !important;
+    }
+    
+    [dir="rtl"] .hero-buttons {
+      justify-content: flex-end !important;
+      flex-direction: row-reverse !important;
+      text-align: right !important;
+    }
+    
+    [dir="rtl"] .hero-stats {
+      justify-content: flex-end !important;
+      flex-direction: row-reverse !important;
+      text-align: right !important;
+    }
+    
+    [dir="rtl"] .hero-stat {
+      align-items: flex-end !important;
+      text-align: right !important;
     }
     
     [dir="rtl"] .step-number,
@@ -703,6 +780,7 @@
       display: flex;
       align-items: center;
       margin-left: var(--space-md);
+      height: 100%;
     }
     
     [dir="rtl"] .language-switcher {
@@ -731,6 +809,18 @@
     }
     
     /* Responsive Design */
+    @media screen and (max-width: 1200px) {
+      .hero-image {
+        right: 0;
+        width: 450px;
+      }
+      
+      [dir="rtl"] .hero-image {
+        left: 0;
+        right: auto;
+      }
+    }
+    
     @media screen and (max-width: 992px) {
       h1 {
         font-size: 2.25rem;
@@ -745,13 +835,14 @@
       }
       
       .hero-image {
-        width: 500px;
-        right: -150px;
+        width: 380px;
+        right: 0;
+        max-width: 35%;
       }
       
       [dir="rtl"] .hero-image {
         right: auto;
-        left: -150px;
+        left: 0;
       }
       
       .steps-container {
@@ -774,7 +865,7 @@
       
       .nav-menu {
         position: fixed;
-        top: 70px;
+        top: 80px;
         right: -100%;
         flex-direction: column;
         background-color: var(--white);
@@ -783,10 +874,25 @@
         transition: 0.3s;
         box-shadow: var(--shadow-medium);
         padding: var(--space-lg) 0;
+        height: auto;
       }
       
       .nav-menu.active {
         right: 0;
+      }
+      
+      .nav-menu li {
+        height: auto;
+        margin: var(--space-sm) 0;
+      }
+      
+      .nav-menu li a {
+        height: auto;
+        padding: var(--space-sm) 0;
+      }
+      
+      .nav-menu li a:after {
+        bottom: 0;
       }
       
       .hero {
@@ -826,6 +932,27 @@
         text-align: center;
       }
     }
+    
+    [dir="rtl"] {
+      text-align: right !important;
+    }
+    [dir="rtl"] .container,
+    [dir="rtl"] .section-header,
+    [dir="rtl"] .features,
+    [dir="rtl"] .testimonials,
+    [dir="rtl"] .footer,
+    [dir="rtl"] .hero-content,
+    [dir="rtl"] .cta-content {
+      text-align: right !important;
+    }
+    [dir="rtl"] .hero-buttons {
+      justify-content: flex-end !important;
+      text-align: right !important;
+    }
+    [dir="rtl"] .hero-stats {
+      justify-content: flex-end !important;
+      text-align: right !important;
+    }
   </style>
 </head>
 <body>
@@ -834,7 +961,7 @@
     <div class="container">
       <nav class="navbar">
         <div class="nav-logo">
-          <img src="assets/your-logo.png" alt="Blabber Logo" class="logo">
+          <img src="assets/Blabber-logo.png" alt="Blabber Logo" class="logo">
         </div>
         <ul class="nav-menu">
           <li><a href="#how-it-works" data-en="How It Works" data-he="איך זה עובד">How It Works</a></li>
@@ -861,27 +988,33 @@
       <div class="hero-content">
         <span class="hero-tagline" data-en="AI-Powered Language Learning for Schools" data-he="למידת שפות מבוססת בינה מלאכותית לבתי ספר">AI-Powered Language Learning for Schools</span>
         <h1 class="hero-title" data-en="Transform Classroom Language Education with <span>Blabber AI</span>" data-he="שנו את הוראת השפות בכיתה עם <span>Blabber AI</span>">Transform Classroom Language Education with <span>Blabber AI</span></h1>
-        <p class="hero-subtitle" data-en="Enhance your school's language curriculum with our AI tutor that enables students to practice conversations, receive instant feedback, and build confidence — perfectly integrated with your educational goals." data-he="שפרו את תוכנית לימודי השפות בבית ספרכם עם מורה בינה מלאכותית המאפשר לתלמידים לתרגל שיחות, לקבל משוב מיידי ולבנות ביטחון — משתלב בצורה מושלמת עם המטרות החינוכיות שלכם.">Enhance your school's language curriculum with our AI tutor that enables students to practice conversations, receive instant feedback, and build confidence — perfectly integrated with your educational goals.</p>
+        <p class="hero-subtitle" data-en="Our AI tutor helps students practice conversations, get instant feedback, and build confidence — all aligned with your curriculum goals." data-he="מורה הבינה המלאכותית שלנו עוזר לתלמידים לתרגל שיחות, לקבל משוב מיידי ולבנות ביטחון - הכל בהתאמה ליעדי תוכנית הלימודים.">Our AI tutor helps students practice conversations, get instant feedback, and build confidence — all aligned with your curriculum goals.</p>
         <div class="hero-buttons">
           <a href="#contact" class="btn btn-primary" data-en="Request School Demo" data-he="בקשו הדגמה לבית הספר">Request School Demo</a>
           <a href="#how-it-works" class="btn btn-secondary" data-en="Learn More" data-he="למידע נוסף">Learn More</a>
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
-            <span class="hero-stat-number" id="studentCount" data-value="10000">0</span><span>+</span>
+            <div class="hero-stat-number">
+              <span id="studentCount" data-value="150">0</span><span>+</span>
+            </div>
             <span class="hero-stat-label" data-en="Active Students" data-he="תלמידים פעילים">Active Students</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-number" id="schoolCount" data-value="500">0</span><span>+</span>
+            <div class="hero-stat-number">
+              <span id="schoolCount" data-value="5">0</span><span>+</span>
+            </div>
             <span class="hero-stat-label" data-en="Partner Schools" data-he="בתי ספר שותפים">Partner Schools</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-number" id="satisfactionRate" data-value="98">0</span><span>%</span>
+            <div class="hero-stat-number">
+              <span id="satisfactionRate" data-value="98">0</span><span>%</span>
+            </div>
             <span class="hero-stat-label" data-en="Educator Satisfaction" data-he="שביעות רצון מורים">Educator Satisfaction</span>
           </div>
         </div>
       </div>
-      <img src="assets/your-hero-image.gif" alt="AI Language Tutor" class="hero-image">
+      <img src="assets/Blabber-pic.png" alt="AI Language Tutor" class="hero-image">
     </div>
   </section>
 
@@ -890,11 +1023,11 @@
     <div class="container">
       <h3 class="featured-by-title" data-en="Trusted By Leading Educational Institutions" data-he="מהימן על ידי מוסדות חינוך מובילים">Trusted By Leading Educational Institutions</h3>
       <div class="logos">
-        <img src="assets/schools/school1.png" alt="School Logo" class="logo-item">
-        <img src="assets/schools/school2.png" alt="School Logo" class="logo-item">
-        <img src="assets/schools/school3.png" alt="School Logo" class="logo-item">
-        <img src="assets/schools/school4.png" alt="School Logo" class="logo-item">
-        <img src="assets/schools/school5.png" alt="School Logo" class="logo-item">
+        <img src="assets/schools/gimnasia_logo.png" alt="School Logo" class="logo-item">
+        <img src="assets/schools/logo_rashi.png" alt="School Logo" class="logo-item">
+        <img src="assets/schools/mekif_vav_logo.png" alt="School Logo" class="logo-item">
+        <img src="assets/schools/rager_logo.png" alt="School Logo" class="logo-item">
+        <img src="assets/schools/yatziv_logo.png" alt="School Logo" class="logo-item">
       </div>
     </div>
   </section>
@@ -905,26 +1038,26 @@
       <div class="section-header">
         <span class="section-subtitle" data-en="Implementation Process" data-he="תהליך היישום">Implementation Process</span>
         <h2 class="section-title" data-en="How Blabber Works in Schools" data-he="איך Blabber עובד בבתי ספר">How Blabber Works in Schools</h2>
-        <p class="section-description" data-en="Our AI-powered language tutor integrates with your school curriculum to provide personalized learning experiences that support educators and engage students." data-he="מורה השפות מבוסס הבינה המלאכותית שלנו משתלב בתוכנית הלימודים של בית הספר כדי לספק חוויות למידה מותאמות אישית התומכות במחנכים ומעניינות את התלמידים.">Our AI-powered language tutor integrates with your school curriculum to provide personalized learning experiences that support educators and engage students.</p>
+        <p class="section-description" data-en="Our AI tutor seamlessly integrates with your curriculum, providing personalized learning that supports educators and engages students." data-he="מורה הבינה המלאכותית שלנו משתלב בצורה חלקה בתוכנית הלימודים שלכם, ומספק למידה מותאמת אישית התומכת במחנכים ומעניינת את התלמידים.">Our AI tutor seamlessly integrates with your curriculum, providing personalized learning that supports educators and engages students.</p>
       </div>
       <div class="steps-container">
         <div class="step">
           <div class="step-number">1</div>
           <div class="step-icon"><i class="fas fa-bullseye"></i></div>
           <h3 data-en="Integrate with Your Curriculum" data-he="שילוב עם תכנית הלימודים שלכם">Integrate with Your Curriculum</h3>
-          <p data-en="We work with your school to align Blabber with existing curriculum standards, ensuring seamless integration with your language department's goals and methodologies." data-he="אנו עובדים עם בית הספר שלכם כדי להתאים את Blabber לסטנדרטים של תכנית הלימודים הקיימת, תוך הבטחת שילוב חלק עם היעדים והמתודולוגיות של מחלקת השפות שלכם.">We work with your school to align Blabber with existing curriculum standards, ensuring seamless integration with your language department's goals and methodologies.</p>
+          <p data-en="We align Blabber with your curriculum standards, ensuring seamless integration with your language department's goals." data-he="אנו מתאימים את Blabber לסטנדרטים של תכנית הלימודים שלכם, ומבטיחים שילוב חלק עם יעדי מחלקת השפות.">We align Blabber with your curriculum standards, ensuring seamless integration with your language department's goals.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
           <div class="step-icon"><i class="fas fa-comments"></i></div>
           <h3 data-en="Empower Your Students" data-he="העצימו את התלמידים שלכם">Empower Your Students</h3>
-          <p data-en="Students engage in real-time conversations with our AI avatar. They practice pronunciation, discuss curriculum topics, and build confidence in a safe, judgment-free environment." data-he="תלמידים מקיימים שיחות בזמן אמת עם האווטאר מבוסס הבינה המלאכותית שלנו. הם מתרגלים הגייה, דנים בנושאי תכנית הלימודים ובונים ביטחון בסביבה בטוחה וללא שיפוט.">Students engage in real-time conversations with our AI avatar. They practice pronunciation, discuss curriculum topics, and build confidence in a safe, judgment-free environment.</p>
+          <p data-en="Students practice with our AI avatar, improving pronunciation and building confidence in a judgment-free environment." data-he="תלמידים מתרגלים עם האווטאר שלנו, משפרים הגייה ובונים ביטחון בסביבה ללא שיפוט.">Students practice with our AI avatar, improving pronunciation and building confidence in a judgment-free environment.</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
           <div class="step-icon"><i class="fas fa-chart-line"></i></div>
           <h3 data-en="Track Classroom Progress" data-he="מעקב אחר התקדמות בכיתה">Track Classroom Progress</h3>
-          <p data-en="Teachers receive detailed analytics and insights on student performance. Our system identifies areas for improvement, helps educators target instruction, and provides data to demonstrate learning outcomes." data-he="מורים מקבלים ניתוחים ותובנות מפורטים על ביצועי התלמידים. המערכת שלנו מזהה תחומים לשיפור, עוזרת למחנכים למקד את ההוראה, ומספקת נתונים להדגמת תוצאות הלמידה.">Teachers receive detailed analytics and insights on student performance. Our system identifies areas for improvement, helps educators target instruction, and provides data to demonstrate learning outcomes.</p>
+          <p data-en="Teachers get analytics on student performance, helping target instruction and demonstrate learning outcomes." data-he="מורים מקבלים ניתוחים על ביצועי התלמידים, עוזרים למקד את ההוראה ולהציג תוצאות למידה.">Teachers get analytics on student performance, helping target instruction and demonstrate learning outcomes.</p>
         </div>
       </div>
     </div>
@@ -936,38 +1069,38 @@
       <div class="section-header">
         <span class="section-subtitle" data-en="For Educational Institutions" data-he="למוסדות חינוך">For Educational Institutions</span>
         <h2 class="section-title" data-en="School-Focused Features" data-he="תכונות ממוקדות בתי ספר">School-Focused Features</h2>
-        <p class="section-description" data-en="Discover how Blabber's innovative technology strengthens your language curriculum, improves student outcomes, and provides valuable tools for educators." data-he="גלו כיצד הטכנולוגיה החדשנית של Blabber מחזקת את תכנית הלימודים בשפות, משפרת את תוצאות התלמידים ומספקת כלים יקרי ערך למחנכים.">Discover how Blabber's innovative technology strengthens your language curriculum, improves student outcomes, and provides valuable tools for educators.</p>
+        <p class="section-description" data-en="See how Blabber strengthens your language curriculum, improves outcomes, and provides valuable tools for educators." data-he="ראו כיצד Blabber מחזק את תוכנית הלימודים שלכם, משפר תוצאות ומספק כלים יקרי ערך למחנכים.">See how Blabber strengthens your language curriculum, improves outcomes, and provides valuable tools for educators.</p>
       </div>
       <div class="features-grid">
         <div class="feature-item">
           <div class="feature-icon"><i class="fas fa-robot"></i></div>
-          <h3>AI-Led Conversations</h3>
-          <p>Engage in natural dialogues on grammar, vocabulary, literature, or any class material with our advanced AI tutor.</p>
+          <h3 data-en="AI-Led Conversations" data-he="שיחות מובלות על ידי בינה מלאכותית">AI-Led Conversations</h3>
+          <p data-en="Natural dialogues on grammar, vocabulary, and class material with our advanced AI tutor." data-he="דיאלוגים טבעיים על דקדוק, אוצר מילים וחומר לימוד עם מורה הבינה המלאכותית המתקדם שלנו.">Natural dialogues on grammar, vocabulary, and class material with our advanced AI tutor.</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
-          <h3>Safe Learning Environment</h3>
-          <p>Practice speaking privately without fear of judgment. Perfect for beginners and shy speakers to build confidence.</p>
+          <h3 data-en="Safe Learning Environment" data-he="סביבת למידה בטוחה">Safe Learning Environment</h3>
+          <p data-en="Private practice without judgment. Perfect for beginners and shy students to build confidence." data-he="תרגול פרטי ללא שיפוטיות. מושלם למתחילים ותלמידים ביישנים לבניית ביטחון.">Private practice without judgment. Perfect for beginners and shy students to build confidence.</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon"><i class="fas fa-school"></i></div>
-          <h3>Curriculum Integration</h3>
-          <p>Seamlessly integrate with textbooks, grammar levels, and literature. Perfectly aligned with school requirements.</p>
+          <h3 data-en="Curriculum Integration" data-he="שילוב בתוכנית הלימודים">Curriculum Integration</h3>
+          <p data-en="Seamlessly align with textbooks, grammar, and literature to meet school requirements." data-he="התאמה מלאה לספרי הלימוד, דקדוק וספרות כדי לענות על דרישות בית הספר.">Seamlessly align with textbooks, grammar, and literature to meet school requirements.</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon"><i class="fas fa-clipboard-check"></i></div>
-          <h3>Instant Feedback</h3>
-          <p>Receive real-time corrections and suggestions on pronunciation, grammar, and vocabulary usage.</p>
+          <h3 data-en="Instant Feedback" data-he="משוב מיידי">Instant Feedback</h3>
+          <p data-en="Real-time corrections and suggestions on pronunciation, grammar, and vocabulary." data-he="תיקונים והצעות בזמן אמת על הגייה, דקדוק ואוצר מילים.">Real-time corrections and suggestions on pronunciation, grammar, and vocabulary.</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon"><i class="fas fa-clock"></i></div>
-          <h3>24/7 Availability</h3>
-          <p>Practice anytime, anywhere. Our AI tutor is always ready to help you improve your language skills.</p>
+          <h3 data-en="24/7 Availability" data-he="זמינות 24/7">24/7 Availability</h3>
+          <p data-en="Practice anytime, anywhere with our AI tutor that's always ready to help." data-he="תרגלו בכל זמן, בכל מקום עם מורה הבינה המלאכותית שלנו שתמיד מוכן לעזור.">Practice anytime, anywhere with our AI tutor that's always ready to help.</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon"><i class="fas fa-cogs"></i></div>
-          <h3>Adaptive Learning</h3>
-          <p>Our AI analyzes your performance and adjusts difficulty to provide optimal challenges for your skill level.</p>
+          <h3 data-en="Adaptive Learning" data-he="למידה מסתגלת">Adaptive Learning</h3>
+          <p data-en="AI analyzes performance and adjusts difficulty for optimal learning challenges." data-he="הבינה המלאכותית מנתחת ביצועים ומתאימה את רמת הקושי לאתגרי למידה אופטימליים.">AI analyzes performance and adjusts difficulty for optimal learning challenges.</p>
         </div>
       </div>
     </div>
@@ -979,36 +1112,36 @@
       <div class="section-header">
         <span class="section-subtitle" data-en="School Success Stories" data-he="סיפורי הצלחה של בתי ספר">School Success Stories</span>
         <h2 class="section-title" data-en="What Educators & Administrators Say" data-he="מה מחנכים ומנהלים אומרים">What Educators & Administrators Say</h2>
-        <p class="section-description" data-en="Hear from education professionals who have transformed their language programs with Blabber's AI-powered solution." data-he="שמעו ממקצועני חינוך ששינו את תכניות השפות שלהם עם הפתרון מבוסס הבינה המלאכותית של Blabber.">Hear from education professionals who have transformed their language programs with Blabber's AI-powered solution.</p>
+        <p class="section-description" data-en="Hear from education professionals who have transformed their language programs with Blabber AI." data-he="שמעו ממקצועני חינוך ששינו את תוכניות השפות שלהם עם Blabber AI.">Hear from education professionals who have transformed their language programs with Blabber AI.</p>
       </div>
       <div class="testimonials-container">
         <div class="testimonial-card">
-          <p class="testimonial-quote">Blabber has revolutionized how our students practice English. The AI tutor provides personalized attention that would be impossible for a single teacher to deliver to every student.</p>
+          <p class="testimonial-quote" data-en="Blabber provides personalized attention that would be impossible for a single teacher to deliver to every student." data-he="Blabber מספקת תשומת לב אישית שהיה בלתי אפשרי למורה יחיד להעניק לכל תלמיד.">Blabber provides personalized attention that would be impossible for a single teacher to deliver to every student.</p>
           <div class="testimonial-author">
             <img src="assets/people/people1.png" alt="Avatar" class="testimonial-avatar">
             <div class="testimonial-info">
-              <h4>Michael Cohen</h4>
-              <p>English Department Head, International School</p>
+              <h4 data-en="Adi Turgeman" data-he="עדי תורג'מן">Adi Turgeman</h4>
+              <p data-en="Principal, Gymnasia High School, Be'er Sheva" data-he="מנהלת תיכון גימנסיה באר שבע">Principal, Gymnasia High School, Be'er Sheva</p>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">As someone with social anxiety, I struggled to practice speaking in class. With Blabber, I can practice as much as I need without feeling judged. My confidence has improved tremendously!</p>
+          <p class="testimonial-quote" data-en="With Blabber, I can practice without feeling judged. My confidence has improved tremendously!" data-he="עם Blabber, אני יכולה לתרגל בלי להרגיש נשפטת. הביטחון שלי השתפר באופן משמעותי!">With Blabber, I can practice without feeling judged. My confidence has improved tremendously!</p>
           <div class="testimonial-author">
             <img src="assets/people/people2.png" alt="Avatar" class="testimonial-avatar">
             <div class="testimonial-info">
-              <h4>Sarah Johnson</h4>
-              <p>High School Student</p>
+              <h4 data-en="Tal Mazor" data-he="טל מזור">Tal Mazor</h4>
+              <p data-en="High School Student" data-he="תלמידת תיכון">High School Student, Mekif Vav</p>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Implementing Blabber in our curriculum has led to measurable improvements in our students' speaking abilities. The data insights help us target instruction where it's needed most.</p>
+          <p class="testimonial-quote" data-en="The data insights help us target instruction where it's needed most, leading to measurable improvements." data-he="התובנות מהנתונים עוזרות לנו למקד את ההוראה היכן שהיא נדרשת ביותר, מה שמוביל לשיפורים מדידים.">The data insights help us target instruction where it's needed most, leading to measurable improvements.</p>
           <div class="testimonial-author">
             <img src="assets/people/people3.png" alt="Avatar" class="testimonial-avatar">
             <div class="testimonial-info">
-              <h4>Rebecca Levy</h4>
-              <p>Language Program Director</p>
+              <h4 data-en="Snait Marciano" data-he="סנאית מרציאנו">Snait Marciano</h4>
+              <p data-en="English Coordinator, Ministry of Education, Southern District" data-he="רכזת אנגלית משרד החינוך מחוז דרום">English Coordinator, Ministry of Education, Southern District</p>
             </div>
           </div>
         </div>
@@ -1021,13 +1154,13 @@
     <div class="container">
       <div class="cta-content">
         <h2 data-en="Ready to Transform Your School's Language Program?" data-he="מוכנים לשנות את תכנית השפות של בית הספר שלכם?">Ready to Transform Your School's Language Program?</h2>
-        <p data-en="Schedule a personalized demo for your school administrators and language department. See how Blabber can enhance your curriculum, improve student outcomes, and provide valuable teaching tools." data-he="תזמנו הדגמה מותאמת אישית למנהלי בית הספר ומחלקת השפות שלכם. ראו כיצד Blabber יכול לשפר את תכנית הלימודים שלכם, לשפר את תוצאות התלמידים ולספק כלי הוראה יקרי ערך.">Schedule a personalized demo for your school administrators and language department. See how Blabber can enhance your curriculum, improve student outcomes, and provide valuable teaching tools.</p>
-        <form class="cta-form" id="demoForm">
+        <p data-en="Schedule a demo to see how Blabber can enhance your curriculum, improve student outcomes, and provide valuable teaching tools." data-he="תזמנו הדגמה לראות כיצד Blabber יכול לשפר את תוכנית הלימודים, לשפר את תוצאות התלמידים ולספק כלי הוראה יקרי ערך.">Schedule a demo to see how Blabber can enhance your curriculum, improve student outcomes, and provide valuable teaching tools.</p>
+        <form class="cta-form" id="demoForm" action="https://formspree.io/f/xrgwzarl" method="POST">
           <input type="hidden" name="_subject" value="School Demo Request from Blabber Website">
-          <input type="email" name="userEmail" placeholder="Your School Email Address" data-en-placeholder="Your School Email Address" data-he-placeholder="כתובת האימייל של בית הספר שלך" required class="cta-input">
+          <input type="email" name="email" placeholder="Your School Email Address" data-en-placeholder="Your School Email Address" data-he-placeholder="כתובת האימייל של בית הספר שלך" required class="cta-input">
           <button type="submit" class="cta-button" data-en="Request School Demo" data-he="בקש הדגמה לבית ספר">Request School Demo</button>
         </form>
-        <div id="successMessage">Thank you! We'll be in touch soon.</div>
+        <div id="successMessage" data-en="Thank you! We'll be in touch soon." data-he="תודה! ניצור איתך קשר בקרוב.">Thank you! We'll be in touch soon.</div>
       </div>
     </div>
   </section>
@@ -1037,42 +1170,48 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-about">
-          <img src="assets/your-logo.png" alt="Blabber Logo" class="footer-logo">
-          <p>Blabber is revolutionizing language education with AI-powered tutoring that provides personalized, interactive learning experiences.</p>
+          <img src="assets/Blabber-logo.png" alt="Blabber Logo" class="footer-logo">
+          <p data-en="Blabber revolutionizes language education with AI-powered tutoring for personalized, interactive learning." data-he="Blabber מחוללת מהפכה בחינוך שפה עם הוראה מבוססת בינה מלאכותית ללמידה אישית ואינטראקטיבית.">Blabber revolutionizes language education with AI-powered tutoring for personalized, interactive learning.</p>
         </div>
         <div class="footer-links-column">
-          <h4 class="footer-heading">Quick Links</h4>
+          <h4 class="footer-heading" data-en="Quick Links" data-he="קישורים מהירים">Quick Links</h4>
           <ul class="footer-links">
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="support/">Support</a></li>
+            <li><a href="#how-it-works" data-en="How It Works" data-he="איך זה עובד">How It Works</a></li>
+            <li><a href="#features" data-en="Features" data-he="תכונות">Features</a></li>
+            <li><a href="#testimonials" data-en="Testimonials" data-he="המלצות">Testimonials</a></li>
+            <li><a href="support/" data-en="Support" data-he="תמיכה">Support</a></li>
           </ul>
         </div>
         <div class="footer-links-column">
-          <h4 class="footer-heading">Resources</h4>
+          <h4 class="footer-heading" data-en="Resources" data-he="משאבים">Resources</h4>
           <ul class="footer-links">
-            <li><a href="privacy/">Privacy Policy</a></li>
-            <li><a href="support/">FAQ</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Case Studies</a></li>
+            <li><a href="privacy/" data-en="Privacy Policy" data-he="מדיניות פרטיות">Privacy Policy</a></li>
+            <li><a href="support/" data-en="FAQ" data-he="שאלות נפוצות">FAQ</a></li>
+            <li><a href="#" data-en="Blog" data-he="בלוג">Blog</a></li>
+            <li><a href="#" data-en="Case Studies" data-he="מקרי בוחן">Case Studies</a></li>
           </ul>
         </div>
         <div class="footer-links-column">
-          <h4 class="footer-heading">Contact</h4>
+          <h4 class="footer-heading" data-en="Contact" data-he="צור קשר">Contact</h4>
           <ul class="footer-links">
-            <li><a href="mailto:contact@blabber.site">contact@blabber.site</a></li>
-            <li><a href="tel:+972524278042">+972-52-427-8042</a></li>
+            <li><a href="mailto:contact@blabber.site" data-en="contact@blabber.site" data-he="contact@blabber.site">contact@blabber.site</a></li>
+            <li><a href="tel:+972524278042" data-en="+972-52-427-8042" data-he="+972-52-427-8042">+972-52-427-8042</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">&copy; <span id="year"></span> Blabber. All rights reserved.</p>
+        <p class="footer-copyright" data-en="&copy; <span id='year'></span> Blabber. All rights reserved." data-he="&copy; <span id='year'></span> Blabber. כל הזכויות שמורות.">&copy; <span id="year"></span> Blabber. All rights reserved.</p>
         <div class="footer-social">
-          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/blabberai" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/blabberai?igsh=MXQxOWNhY2l5cjE4bg==" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-apps" style="margin-top: 1rem; display: flex; gap: 1rem; justify-content: center;">
+          <a href="https://apps.apple.com/us/app/blabber-ai/id6740026757" target="_blank" rel="noopener" style="display:inline-block;">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height:40px;">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.app.blabber.blabber" target="_blank" rel="noopener" style="display:inline-block;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height:40px;">
+          </a>
         </div>
       </div>
     </div>
@@ -1112,12 +1251,22 @@
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
         
-        // Simulate form submission
-        successMessage.style.display = 'block';
-        form.reset();
-        
-        // In actual implementation, you would use Formspree or another form handler
-        // Using the code from your original script.js
+        try {
+          const formData = new FormData(form);
+          await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          successMessage.style.display = 'block';
+          form.reset();
+        } catch (error) {
+          console.error('Form submission error:', error);
+          alert('There was a problem sending your request. Please try again.');
+        }
       });
     }
     
@@ -1388,6 +1537,10 @@
         startCountUp();
       }
     });
+
+    // Add this to the successMessage
+    document.getElementById('successMessage').setAttribute('data-en', 'Thank you! We\'ll be in touch soon.');
+    document.getElementById('successMessage').setAttribute('data-he', 'תודה! ניצור איתך קשר בקרוב.');
   </script>
 </body>
 </html>

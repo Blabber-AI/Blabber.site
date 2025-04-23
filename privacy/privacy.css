@@ -1,4 +1,42 @@
 /* -------------------------
+   VARIABLES & ROOT SETTINGS
+-------------------------- */
+:root {
+  /* Color Variables */
+  --primary: #7b3db1;
+  --primary-dark: #452848;
+  --primary-light: #e5dbff;
+  --secondary: #6aa6ff;
+  --success: #34c759;
+  --error: #ff3b30;
+  --dark-gray: #333333;
+  --medium-gray: #666666;
+  --light-gray: #f8f9fc;
+  --offwhite: #f8f9fd;
+  --white: #ffffff;
+  
+  /* Spacing Variables */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-pill: 9999px;
+  
+  /* Shadows */
+  --shadow-light: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-medium: 0 4px 6px rgba(0,0,0,0.08);
+  --shadow-strong: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+/* -------------------------
    GLOBAL
 -------------------------- */
 * {
@@ -8,105 +46,174 @@
 }
 
 body {
-  background-color: #f8f9fc;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  color: #333;
+  background-color: var(--light-gray);
+  font-family: 'Open Sans', sans-serif;
+  color: var(--dark-gray);
   line-height: 1.6;
 }
 
 a {
-  color: #5e17eb;
+  color: var(--primary);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--primary-dark);
 }
 
 /* -------------------------
    HEADER / NAV
 -------------------------- */
 .header {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  padding: 0.5rem;
+  background-color: var(--white);
+  box-shadow: var(--shadow-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  box-shadow: var(--shadow-medium);
 }
 
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1100px;
+  padding: 0;
+  height: 80px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 var(--space-lg);
 }
 
-.nav-logo .logo {
-  height: 50px;
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 40px;
   width: auto;
 }
 
 .nav-menu {
+  display: flex;
   list-style: none;
-  display: inline-flex;
-  gap: 1.5rem;
+  gap: var(--space-lg);
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+.nav-menu li {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .back-link {
-  text-decoration: none;
   font-weight: 600;
-  color: #333;
+  color: var(--dark-gray);
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 var(--space-xs);
 }
 
 .back-link:hover {
-  color: #5e17eb;
+  color: var(--primary);
+}
+
+.back-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  bottom: 28px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.back-link:hover:after {
+  width: 100%;
 }
 
 /* -------------------------
    CONTAINER
 -------------------------- */
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 1.5rem;
-  text-align: left; /* Left align text for policy readability */
+  padding: var(--space-3xl) var(--space-lg);
+  text-align: left;
 }
 
 /* Title & Intro */
 .page-title {
-  font-size: 2rem;
-  color: #5e17eb;
-  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--dark-gray);
+  margin-bottom: var(--space-lg);
 }
 
 .intro-text {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: var(--medium-gray);
+  margin-bottom: var(--space-2xl);
+  max-width: 800px;
 }
 
 /* Section Headings */
+.policy-section {
+  margin-bottom: var(--space-2xl);
+}
+
 .policy-section h2 {
-  font-size: 1.2rem;
-  color: #5e17eb;
-  margin-bottom: 0.5rem;
-  margin-top: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--dark-gray);
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-xl);
 }
 
 /* Paragraphs & Lists */
 .policy-section p,
 .policy-section li {
-  font-size: 0.95rem;
-  color: #333;
-  margin-bottom: 0.75rem;
+  color: var(--medium-gray);
+  margin-bottom: var(--space-md);
+  font-size: 1rem;
+}
+
+.policy-section strong {
+  color: var(--dark-gray);
+  font-weight: 600;
 }
 
 .policy-section ul {
-  list-style: disc inside;
+  list-style: disc;
+  padding-left: var(--space-xl);
+  margin-bottom: var(--space-lg);
 }
 
 /* Contact Info */
 .contact-info {
-  margin-top: 2rem;
+  background-color: var(--white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-light);
+  margin-top: var(--space-3xl);
+}
+
+.contact-info h2 {
+  color: var(--primary);
 }
 
 /* -------------------------
@@ -116,6 +223,66 @@ a:hover {
   text-align: center;
   font-size: 0.9rem;
   color: #aaa;
-  padding: 1rem;
+  padding: var(--space-lg);
   border-top: 1px solid #eee;
+  background-color: var(--dark-gray);
+  color: var(--white);
+}
+
+/* -------------------------
+   RESPONSIVE DESIGN
+-------------------------- */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0 var(--space-md);
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .container {
+    padding: var(--space-xl) var(--space-md);
+  }
+}
+
+/* Language switcher styles (match index.html) */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  margin-left: var(--space-md);
+  height: 100%;
+}
+
+.language-btn {
+  background: transparent;
+  border: none;
+  color: var(--dark-gray);
+  cursor: pointer;
+  padding: var(--space-xs);
+  font-weight: 600;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.language-btn.active {
+  opacity: 1;
+  color: var(--primary);
+}
+
+.language-btn:hover {
+  opacity: 1;
+}
+
+[dir="rtl"] {
+  text-align: right !important;
+}
+
+[dir="rtl"] .container,
+[dir="rtl"] .policy-section,
+[dir="rtl"] .intro-text,
+[dir="rtl"] .page-title,
+[dir="rtl"] .footer,
+[dir="rtl"] .privacy-footer {
+  text-align: right !important;
 }

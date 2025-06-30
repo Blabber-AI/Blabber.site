@@ -50,6 +50,20 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: var(--dark-gray);
   line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+/* Language transition styles */
+.language-transitioning {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.language-transitioning * {
+  transition: text-align 0.3s ease, 
+              margin 0.3s ease, 
+              padding 0.3s ease, 
+              transform 0.3s ease,
+              flex-direction 0.3s ease;
 }
 
 a {
@@ -89,6 +103,12 @@ a:hover {
   padding: 0 var(--space-lg);
 }
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
 .nav-logo {
   display: flex;
   align-items: center;
@@ -100,48 +120,33 @@ a:hover {
   width: auto;
 }
 
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: var(--space-lg);
-  align-items: center;
-  height: 100%;
-  margin: 0;
-}
-
-.nav-menu li {
+.back-button {
   display: flex;
   align-items: center;
-  height: 100%;
-}
-
-.back-link {
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius-pill);
   font-weight: 600;
   color: var(--dark-gray);
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 var(--space-xs);
+  background-color: var(--white);
+  transition: all 0.3s ease;
 }
 
-.back-link:hover {
-  color: var(--primary);
+.back-button:hover {
+  background-color: var(--light-gray);
+  border-color: #ccc;
+  box-shadow: var(--shadow-light);
+  transform: translateY(-2px);
 }
 
-.back-link:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  bottom: 28px;
-  left: 0;
-  transition: width 0.3s ease;
+.back-button i {
+  transition: transform 0.3s ease;
 }
 
-.back-link:hover:after {
-  width: 100%;
+/* Remove old nav-menu and back-link styles if they exist */
+.nav-menu, .back-link {
+  display: none;
 }
 
 /* Container for support page */
@@ -339,17 +344,141 @@ a:hover {
   opacity: 1;
 }
 
+/* -------------------------
+   RTL STYLES
+-------------------------- */
 [dir="rtl"] {
-  text-align: right !important;
+    direction: rtl;
+    text-align: right;
 }
 
-[dir="rtl"] .container,
-[dir="rtl"] .faq-section,
-[dir="rtl"] .support-header,
-[dir="rtl"] .faq-title,
-[dir="rtl"] .faq-answer,
-[dir="rtl"] .faq-question,
-[dir="rtl"] .footer,
-[dir="rtl"] .support-footer {
-  text-align: right !important;
+[dir="rtl"] body {
+    font-family: "Segoe UI", "Tahoma", "Arial", sans-serif;
+}
+
+[dir="rtl"] .navbar {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-menu {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .back-link {
+    text-align: right;
+}
+
+[dir="rtl"] .back-link::before {
+    content: "← ";
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* RTL Input Field Styles */
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="text"],
+[dir="rtl"] input[type="password"],
+[dir="rtl"] textarea {
+    text-align: right;
+    direction: rtl;
+    font-family: "Segoe UI", "Tahoma", "Arial", sans-serif;
+}
+
+[dir="rtl"] input[type="email"]::placeholder,
+[dir="rtl"] input[type="text"]::placeholder,
+[dir="rtl"] input[type="password"]::placeholder,
+[dir="rtl"] textarea::placeholder {
+    text-align: right;
+    direction: rtl;
+}
+
+/* RTL adjustments for elements with special positioning */
+.rtl-adjusted.arrow {
+    margin-left: 0 !important;
+    margin-right: 1rem !important;
+}
+
+.rtl-adjusted.back-link::after {
+    left: auto !important;
+    right: 0 !important;
+}
+
+.rtl-adjusted.language-switcher {
+    flex-direction: row-reverse;
+}
+
+/* Add smooth transitions */
+body, .navbar, .nav-menu, .support-container, .support-content, .faq-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[dir="rtl"] .support-header {
+    text-align: right;
+}
+
+[dir="rtl"] .support-header h1 {
+    font-size: 2.2rem; /* Adjust size for Hebrew */
+}
+
+[dir="rtl"] .support-header p {
+    max-width: 100%; /* Ensure it doesn't overflow */
+}
+
+[dir="rtl"] .faq-title {
+    text-align: right;
+}
+
+[dir="rtl"] .faq-question {
+    text-align: right;
+    justify-content: space-between;
+}
+
+[dir="rtl"] .faq-answer {
+    text-align: right;
+}
+
+[dir="rtl"] .arrow {
+    margin-right: 0;
+    margin-left: var(--space-md);
+}
+
+[dir="rtl"] .back-link::before {
+    content: "→"; /* Right arrow for RTL */
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+[dir="rtl"] .container {
+    text-align: right;
+}
+
+[dir="rtl"] .faq-section {
+    text-align: right;
+}
+
+[dir="rtl"] .nav-left {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .back-button i {
+    transform: rotate(180deg);
+}
+
+/* Focus states for accessibility */
+.btn:focus-visible, .cta-button:focus-visible, .language-btn:focus-visible, 
+.back-button:focus-visible, input:focus-visible, .faq-question:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+/* General Interactive Elements */
+a, button, [role="button"] {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+    font-weight: 700;
+    color: var(--primary-dark);
 }

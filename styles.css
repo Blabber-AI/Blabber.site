@@ -13,9 +13,24 @@ html {
 }
 
 body {
-  background-color: #f8f9fc;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  color: #333;
+  background-color: var(--offwhite);
+  font-family: 'Open Sans', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+  color: var(--dark-gray);
+  line-height: 1.7;
+  transition: all 0.3s ease;
+}
+
+/* Language transition styles */
+.language-transitioning {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.language-transitioning * {
+  transition: text-align 0.3s ease, 
+              margin 0.3s ease, 
+              padding 0.3s ease, 
+              transform 0.3s ease,
+              flex-direction 0.3s ease;
 }
 
 /* Container for main content */
@@ -24,6 +39,7 @@ body {
   margin: 0 auto;
   padding: 1rem;
   text-align: center; /* Center text for main content */
+  transition: text-align 0.3s ease, padding 0.3s ease;
 }
 
 /* -------------------------
@@ -43,6 +59,7 @@ body {
   justify-content: space-between;
   max-width: 1100px;
   margin: 0 auto;
+  transition: flex-direction 0.3s ease;
 }
 
 .nav-logo .logo {
@@ -54,6 +71,7 @@ body {
   list-style: none;
   display: inline-flex;
   gap: 1.5rem;
+  transition: flex-direction 0.3s ease, gap 0.3s ease;
 }
 
 .nav-menu li a {
@@ -294,4 +312,206 @@ body {
     display: flex;
     align-items: center;
   }
+}
+
+/* -------------------------
+   LANGUAGE SWITCHER
+-------------------------- */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.language-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0.25rem;
+}
+
+.language-btn.active {
+    color: #5e17eb;
+    text-decoration: underline;
+}
+
+.language-btn:hover {
+    opacity: 0.7;
+}
+
+/* -------------------------
+   RTL STYLES
+-------------------------- */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="rtl"] body {
+    font-family: "Segoe UI", "Tahoma", "Arial", sans-serif; /* Better Hebrew font support */
+}
+
+[dir="rtl"] .navbar {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-menu {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero {
+    text-align: right;
+}
+
+[dir="rtl"] .steps-container,
+[dir="rtl"] .features-grid {
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+}
+
+[dir="rtl"] .step,
+[dir="rtl"] .feature-item {
+    text-align: right;
+}
+
+[dir="rtl"] .contact-form {
+    flex-direction: row-reverse;
+}
+
+/* RTL Input Field Styles */
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="text"],
+[dir="rtl"] input[type="password"],
+[dir="rtl"] textarea,
+[dir="rtl"] .cta-input {
+    text-align: right;
+    direction: rtl;
+    font-family: "Segoe UI", "Tahoma", "Arial", sans-serif;
+}
+
+[dir="rtl"] input[type="email"]::placeholder,
+[dir="rtl"] input[type="text"]::placeholder,
+[dir="rtl"] input[type="password"]::placeholder,
+[dir="rtl"] textarea::placeholder,
+[dir="rtl"] .cta-input::placeholder {
+    text-align: right;
+    direction: rtl;
+}
+
+/* Timeline RTL styles */
+[dir="rtl"] .timeline-steps {
+  padding-right: 0;
+  padding-left: 2rem;
+}
+
+[dir="rtl"] .timeline-step {
+  text-align: right;
+}
+
+[dir="rtl"] .timeline-step ul {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+/* RTL adjustments for elements with special positioning */
+.rtl-adjusted.arrow {
+    margin-left: 0 !important;
+    margin-right: 1rem !important;
+}
+
+.rtl-adjusted.back-link::after {
+    left: auto !important;
+    right: 0 !important;
+}
+
+.rtl-adjusted.language-switcher {
+    flex-direction: row-reverse;
+}
+
+/* Add smooth transitions */
+body, .navbar, .nav-menu, .hero, .step, .feature-item, .contact-form, .timeline-step {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* General Interactive Elements */
+a, button, [role="button"], input[type="submit"] {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+/* Headings & Text Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+h1 { font-size: 2.8rem; margin-bottom: var(--space-md); }
+h2 { font-size: 2.2rem; margin-bottom: var(--space-lg); }
+h3 { font-size: 1.5rem; margin-bottom: var(--space-md); }
+p { margin-bottom: var(--space-md); color: var(--medium-gray); }
+
+
+/* Scroll-Reveal Animation */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced Button & Link Styles */
+.btn, .cta-button, .language-btn {
+  display: inline-block;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  padding: var(--space-sm) var(--space-xl);
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-light);
+}
+
+.btn:hover, .cta-button:hover, .language-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn:active, .cta-button:active, .language-btn:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: var(--shadow-light);
+}
+
+/* Focus states for accessibility */
+.btn:focus-visible, .cta-button:focus-visible, .language-btn:focus-visible, 
+.back-button:focus-visible, input:focus-visible, .faq-question:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    color: var(--white);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background-color: var(--white);
+    color: var(--primary);
+    border: 1px solid #e0e0e0;
+}
+.btn-secondary:hover {
+    background-color: var(--light-gray);
+    border-color: #ccc;
 }

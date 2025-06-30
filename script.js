@@ -62,3 +62,246 @@ if (form) {
     }
   });
 }
+
+// Mobile menu toggle
+const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+if (mobileNavToggle) {
+  mobileNavToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    mobileNavToggle.querySelector('i').classList.toggle('fa-bars');
+    mobileNavToggle.querySelector('i').classList.toggle('fa-times');
+  });
+}
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      // Close mobile menu if open
+      if(navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        mobileNavToggle.querySelector('i').classList.remove('fa-times');
+        mobileNavToggle.querySelector('i').classList.add('fa-bars');
+      }
+      
+      window.scrollTo({
+        top: targetElement.offsetTop - 80, // Adjusted for sticky header
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Scroll animation
+document.addEventListener("DOMContentLoaded", () => {
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); 
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  revealElements.forEach(element => {
+    observer.observe(element);
+  });
+
+    // Count-up animation
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCountUp();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.hero-stats');
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
+
+    // Scroll-triggered timeline logic
+    const timelineSteps = document.querySelectorAll('.timeline-step');
+    const timelineImages = document.querySelectorAll('.timeline-images .timeline-image');
+    const progressSteps = document.querySelectorAll('.timeline-progress-step');
+    const progressLineFill = document.querySelector('.timeline-progress-line-fill');
+
+    function setActiveStep(stepIndex) {
+        // Activate image
+        timelineImages.forEach((img, i) => {
+            img.classList.toggle('active', i + 1 === stepIndex);
+        });
+
+        // Activate progress step
+        progressSteps.forEach((step, i) => {
+            step.classList.toggle('active', i + 1 === stepIndex);
+        });
+
+        // Update progress line
+        if (progressLineFill) {
+            const percentage = (stepIndex - 1) * 50; // 0% for step 1, 50% for 2, 100% for 3
+            progressLineFill.style.height = `${percentage}%`;
+        }
+    }
+
+    // Set step 1 as active by default
+    setActiveStep(1);
+
+    if (window.matchMedia("(min-width: 993px)").matches) {
+        const stepObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stepNumber = parseInt(entry.target.dataset.step, 10);
+                    setActiveStep(stepNumber);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.5 // Trigger when 50% of the step is visible
+        });
+
+        timelineSteps.forEach(step => {
+            stepObserver.observe(step);
+        });
+    }
+});
+
+
+function startCountUp() {
+    const countElements = document.querySelectorAll('[id$="Count"], [id$="Rate"]');
+    countElements.forEach(element => {
+        const targetValue = parseInt(element.getAttribute('data-value'), 10);
+        const duration = 2000;
+        let start = 0;
+        const stepTime = 20;
+        const steps = duration / stepTime;
+        const increment = targetValue / steps;
+
+        function updateCount() {
+            start += increment;
+            if (start < targetValue) {
+                element.textContent = Math.ceil(start);
+                setTimeout(updateCount, stepTime);
+            } else {
+                element.textContent = targetValue;
+            }
+        }
+        updateCount();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Animated Counters
+  const counters = [
+    { id: 'studentCount', endValue: 150, duration: 2000 },
+    { id: 'schoolCount', endValue: 5, duration: 1500 },
+    { id: 'satisfactionRate', endValue: 98, duration: 2200 }
+  ];
+
+  const animateCounter = (element, endValue, duration) => {
+    let startTime = null;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      element.textContent = Math.floor(progress * endValue);
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  };
+
+  // Intersection Observer for animations
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Handle scroll-reveal elements
+        if (entry.target.classList.contains('reveal-on-scroll')) {
+          entry.target.classList.add('is-visible');
+        }
+        
+        // Handle animated counters
+        const counter = counters.find(c => c.id === entry.target.id);
+        if (counter) {
+          animateCounter(entry.target, counter.endValue, counter.duration);
+          observer.unobserve(entry.target); // Animate only once
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements that need animation
+  document.querySelectorAll('.reveal-on-scroll, #studentCount, #schoolCount, #satisfactionRate').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Mobile navigation toggle
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+  mobileNavToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  // Formspree success message
+  const demoForm = document.getElementById('demoForm');
+  const successMessage = document.getElementById('successMessage');
+
+  demoForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(demoForm);
+    fetch(demoForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        demoForm.style.display = 'none';
+        successMessage.style.display = 'block';
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            alert(data["errors"].map(error => error["message"]).join(", "));
+          } else {
+            alert('Oops! There was a problem submitting your form');
+          }
+        })
+      }
+    }).catch(error => {
+      alert('Oops! There was a problem submitting your form');
+    });
+  });
+
+  // Set current year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+});

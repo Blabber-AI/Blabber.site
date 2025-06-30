@@ -63,58 +63,68 @@ if (form) {
   });
 }
 
-// Mobile menu toggle
-const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
+document.addEventListener('DOMContentLoaded', () => {
+  // Mobile Menu Toggle
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const navLinks = document.querySelectorAll('.nav-menu a');
 
-if (mobileNavToggle) {
-  mobileNavToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileNavToggle.querySelector('i').classList.toggle('fa-bars');
-    mobileNavToggle.querySelector('i').classList.toggle('fa-times');
-  });
-}
+  if (mobileNavToggle && navMenu) {
+    mobileNavToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
+      mobileNavToggle.classList.toggle('is-active');
+    });
 
-// Header scroll effect
-window.addEventListener('scroll', () => {
-  const header = document.getElementById('header');
-  if (window.scrollY > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return;
-    
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      // Close mobile menu if open
-      if(navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        mobileNavToggle.querySelector('i').classList.remove('fa-times');
-        mobileNavToggle.querySelector('i').classList.add('fa-bars');
-      }
-      
-      window.scrollTo({
-        top: targetElement.offsetTop - 80, // Adjusted for sticky header
-        behavior: 'smooth'
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          mobileNavToggle.classList.remove('is-active');
+        }
       });
-    }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && e.target !== mobileNavToggle) {
+        navMenu.classList.remove('active');
+        mobileNavToggle.classList.remove('is-active');
+      }
+    });
+  }
+
+  // Header scroll effect
+  const header = document.getElementById('header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80, // Adjust for sticky header
+          behavior: 'smooth'
+        });
+      }
+    });
   });
-});
 
-// Scroll animation
-document.addEventListener("DOMContentLoaded", () => {
+  // Scroll animation for reveal elements
   const revealElements = document.querySelectorAll('.reveal-on-scroll');
-
-  const observer = new IntersectionObserver((entries, observer) => {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
@@ -126,92 +136,91 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   revealElements.forEach(element => {
-    observer.observe(element);
+    revealObserver.observe(element);
   });
 
-    // Count-up animation
-    const statsObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                startCountUp();
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
+  // Count-up animation
+  const statsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startCountUp();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
 
-    const statsSection = document.querySelector('.hero-stats');
-    if (statsSection) {
-        statsObserver.observe(statsSection);
+  const statsSection = document.querySelector('.hero-stats');
+  if (statsSection) {
+    statsObserver.observe(statsSection);
+  }
+
+  // Scroll-triggered timeline logic
+  const timelineSteps = document.querySelectorAll('.timeline-step');
+  const timelineImages = document.querySelectorAll('.timeline-images .timeline-image');
+  const progressSteps = document.querySelectorAll('.timeline-progress-step');
+  const progressLineFill = document.querySelector('.timeline-progress-line-fill');
+
+  function setActiveStep(stepIndex) {
+    // Activate image
+    timelineImages.forEach((img, i) => {
+      img.classList.toggle('active', i + 1 === stepIndex);
+    });
+
+    // Activate progress step
+    progressSteps.forEach((step, i) => {
+      step.classList.toggle('active', i + 1 === stepIndex);
+    });
+
+    // Update progress line
+    if (progressLineFill) {
+      const percentage = (stepIndex - 1) * 50; // 0% for step 1, 50% for 2, 100% for 3
+      progressLineFill.style.height = `${percentage}%`;
     }
+  }
 
-    // Scroll-triggered timeline logic
-    const timelineSteps = document.querySelectorAll('.timeline-step');
-    const timelineImages = document.querySelectorAll('.timeline-images .timeline-image');
-    const progressSteps = document.querySelectorAll('.timeline-progress-step');
-    const progressLineFill = document.querySelector('.timeline-progress-line-fill');
+  // Set step 1 as active by default
+  setActiveStep(1);
 
-    function setActiveStep(stepIndex) {
-        // Activate image
-        timelineImages.forEach((img, i) => {
-            img.classList.toggle('active', i + 1 === stepIndex);
-        });
-
-        // Activate progress step
-        progressSteps.forEach((step, i) => {
-            step.classList.toggle('active', i + 1 === stepIndex);
-        });
-
-        // Update progress line
-        if (progressLineFill) {
-            const percentage = (stepIndex - 1) * 50; // 0% for step 1, 50% for 2, 100% for 3
-            progressLineFill.style.height = `${percentage}%`;
+  if (window.matchMedia("(min-width: 993px)").matches) {
+    const stepObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const stepNumber = parseInt(entry.target.dataset.step, 10);
+          setActiveStep(stepNumber);
         }
-    }
+      });
+    }, {
+      root: null,
+      threshold: 0.5 // Trigger when 50% of the step is visible
+    });
 
-    // Set step 1 as active by default
-    setActiveStep(1);
-
-    if (window.matchMedia("(min-width: 993px)").matches) {
-        const stepObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const stepNumber = parseInt(entry.target.dataset.step, 10);
-                    setActiveStep(stepNumber);
-                }
-            });
-        }, {
-            root: null,
-            threshold: 0.5 // Trigger when 50% of the step is visible
-        });
-
-        timelineSteps.forEach(step => {
-            stepObserver.observe(step);
-        });
-    }
+    timelineSteps.forEach(step => {
+      stepObserver.observe(step);
+    });
+  }
 });
 
-
 function startCountUp() {
-    const countElements = document.querySelectorAll('[id$="Count"], [id$="Rate"]');
-    countElements.forEach(element => {
-        const targetValue = parseInt(element.getAttribute('data-value'), 10);
-        const duration = 2000;
-        let start = 0;
-        const stepTime = 20;
-        const steps = duration / stepTime;
-        const increment = targetValue / steps;
+  const countElements = document.querySelectorAll('[id$="Count"], [id$="Rate"]');
+  countElements.forEach(element => {
+    const targetValue = parseInt(element.getAttribute('data-value'), 10);
+    const duration = 2000;
+    let start = 0;
+    const stepTime = 20;
+    const steps = duration / stepTime;
+    const increment = targetValue / steps;
 
-        function updateCount() {
-            start += increment;
-            if (start < targetValue) {
-                element.textContent = Math.ceil(start);
-                setTimeout(updateCount, stepTime);
-            } else {
-                element.textContent = targetValue;
-            }
-        }
-        updateCount();
-    });
+    function updateCount() {
+      start += increment;
+      if (start < targetValue) {
+        element.textContent = Math.ceil(start);
+        setTimeout(updateCount, stepTime);
+      } else {
+        element.textContent = targetValue;
+      }
+    }
+    updateCount();
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -263,12 +272,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Observe all elements that need animation
   document.querySelectorAll('.reveal-on-scroll, #studentCount, #schoolCount, #satisfactionRate').forEach(el => {
     observer.observe(el);
-  });
-
-  // Mobile navigation toggle
-  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-  mobileNavToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
   });
 
   // Formspree success message

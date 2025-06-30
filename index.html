@@ -941,6 +941,14 @@
       height: 100%;
     }
     
+    .desktop-only {
+      display: flex;
+    }
+    
+    .nav-language {
+      display: none;
+    }
+    
     [dir="rtl"] .language-switcher {
       margin-left: 0;
       margin-right: var(--space-md);
@@ -1051,6 +1059,7 @@
       
       .mobile-nav-toggle {
         display: block;
+        z-index: 1001;
       }
       
       .nav-menu {
@@ -1061,10 +1070,12 @@
         background-color: var(--white);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: right 0.3s ease;
         box-shadow: var(--shadow-medium);
-        padding: var(--space-lg) 0;
-        height: auto;
+        padding: var(--space-xl) 0;
+        height: calc(100vh - 80px);
+        z-index: 1000;
+        overflow-y: auto;
       }
       
       .nav-menu.active {
@@ -1073,16 +1084,45 @@
       
       .nav-menu li {
         height: auto;
-        margin: var(--space-sm) 0;
+        margin: var(--space-lg) 0;
+        width: 100%;
       }
       
       .nav-menu li a {
         height: auto;
-        padding: var(--space-sm) 0;
+        padding: var(--space-md) var(--space-lg);
+        display: block;
+        width: 100%;
+        font-size: 1.1rem;
+        border-bottom: 1px solid var(--light-gray);
       }
       
       .nav-menu li a:after {
-        bottom: 0;
+        display: none;
+      }
+      
+      .nav-menu li a.btn {
+        margin: var(--space-lg) var(--space-xl);
+        width: calc(100% - 2 * var(--space-xl));
+        border-bottom: none;
+        border-radius: var(--radius-md);
+      }
+      
+      .desktop-only {
+        display: none;
+      }
+      
+      .nav-language {
+        display: block;
+        border-top: 2px solid var(--primary-light);
+        padding-top: var(--space-lg);
+        margin-top: var(--space-lg);
+      }
+      
+      .nav-language .language-switcher {
+        margin: 0;
+        justify-content: center;
+        height: auto;
       }
       
       .hero {
@@ -1117,8 +1157,40 @@
         width: 100%;
       }
       
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        text-align: center;
+      }
+      
+      .footer-about {
+        margin-bottom: var(--space-lg);
+      }
+      
+      .footer-links-column {
+        margin-bottom: var(--space-lg);
+      }
+      
       .footer-bottom {
         flex-direction: column;
+        text-align: center;
+        gap: var(--space-lg);
+      }
+      
+      .footer-social {
+        order: -1;
+        margin-bottom: var(--space-md);
+      }
+      
+      .footer-apps {
+        margin-top: 0 !important;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-md) !important;
+      }
+      
+      .footer-apps a {
+        display: block;
         text-align: center;
       }
     }
@@ -1159,13 +1231,20 @@
           <img src="assets/Blabber-logo.png" alt="Blabber Logo" class="logo">
         </div>
         <ul class="nav-menu">
-                      <li><a href="#how-it-works" data-en="How It Works" data-he="איך זה עובד">How It Works</a></li>
-            <li><a href="#features" data-en="Features" data-he="יכולות ותכונות">Features</a></li>
-            <li><a href="#testimonials" data-en="Testimonials" data-he="עדויות והמלצות">Testimonials</a></li>
-            <li><a href="support/" data-en="Support" data-he="תמיכה ושירות">Support</a></li>
-            <li><a href="#contact" class="btn btn-primary" data-en="Get Started" data-he="בואו נתחיל">Get Started</a></li>
+          <li><a href="#how-it-works" data-en="How It Works" data-he="איך זה עובד">How It Works</a></li>
+          <li><a href="#features" data-en="Features" data-he="יכולות ותכונות">Features</a></li>
+          <li><a href="#testimonials" data-en="Testimonials" data-he="עדויות והמלצות">Testimonials</a></li>
+          <li><a href="support/" data-en="Support" data-he="תמיכה ושירות">Support</a></li>
+          <li><a href="#contact" class="btn btn-primary" data-en="Get Started" data-he="בואו נתחיל">Get Started</a></li>
+          <li class="nav-language">
+            <div class="language-switcher">
+              <button class="language-btn active" data-lang="en">EN</button>
+              <span>|</span>
+              <button class="language-btn" data-lang="he">עב</button>
+            </div>
+          </li>
         </ul>
-        <div class="language-switcher">
+        <div class="language-switcher desktop-only">
           <button class="language-btn active" data-lang="en">EN</button>
           <span>|</span>
           <button class="language-btn" data-lang="he">עב</button>

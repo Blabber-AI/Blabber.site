@@ -1,6 +1,6 @@
 /* -------------------------
    VARIABLES & ROOT SETTINGS
--------------------------- */
+---------------------------- */
 :root {
   /* Color Variables */
   --primary: #7b3db1;
@@ -15,6 +15,7 @@
   --offwhite: #f8f9fd;
   --white: #ffffff;
   
+
   /* Spacing Variables */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;

@@ -68,12 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-menu a');
+  const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
 
-  if (mobileNavToggle && navMenu) {
+  if (mobileNavToggle && navMenu && mobileMenuOverlay) {
     // Logic to open/close the menu
     mobileNavToggle.addEventListener('click', (e) => {
       e.stopPropagation(); // Prevents the 'document' click listener from firing immediately
       navMenu.classList.toggle('active');
+      mobileMenuOverlay.classList.toggle('active');
       mobileNavToggle.querySelector('.fa-bars').classList.toggle('hidden');
       mobileNavToggle.querySelector('.fa-times').classList.toggle('hidden');
     });
@@ -83,16 +85,26 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         if (navMenu.classList.contains('active')) {
           navMenu.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
           mobileNavToggle.querySelector('.fa-bars').classList.remove('hidden');
           mobileNavToggle.querySelector('.fa-times').classList.add('hidden');
         }
       });
     });
 
+    // Close the menu when clicking on overlay or outside of it
+    mobileMenuOverlay.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+      mobileNavToggle.querySelector('.fa-bars').classList.remove('hidden');
+      mobileNavToggle.querySelector('.fa-times').classList.add('hidden');
+    });
+
     // Close the menu when clicking outside of it
     document.addEventListener('click', (e) => {
       if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileNavToggle.contains(e.target)) {
         navMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
         mobileNavToggle.querySelector('.fa-bars').classList.remove('hidden');
         mobileNavToggle.querySelector('.fa-times').classList.add('hidden');
       }

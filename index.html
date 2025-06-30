@@ -1055,63 +1055,82 @@
       
       .nav-menu {
         position: fixed !important;
-        top: 0 !important;
-        right: -100% !important;
+        top: 70px !important;
+        right: -300px !important;
         flex-direction: column !important;
         background-color: var(--white) !important;
-        width: 75% !important;
-        max-width: 280px !important;
-        min-height: 100vh !important;
+        width: 240px !important;
+        height: auto !important;
+        min-height: auto !important;
         text-align: left !important;
-        transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
-        box-shadow: -4px 0px 15px rgba(0,0,0,0.1) !important;
-        padding: var(--space-xl) var(--space-lg) !important;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+        padding: var(--space-md) 0 !important;
         justify-content: flex-start !important;
         align-items: stretch !important;
         gap: 0 !important;
         z-index: 100 !important;
+        border-radius: var(--radius-lg) !important;
+        opacity: 0 !important;
+        transform: translateY(-10px) scale(0.95) !important;
+        backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(123, 61, 177, 0.1) !important;
       }
       
       .nav-menu.active {
-        right: 0 !important;
+        right: var(--space-lg) !important;
+        opacity: 1 !important;
+        transform: translateY(0) scale(1) !important;
       }
 
       [dir="rtl"] .nav-menu {
         right: auto !important;
-        left: -100% !important;
+        left: -300px !important;
         text-align: right !important;
-        box-shadow: 4px 0px 15px rgba(0,0,0,0.1) !important;
-        transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
       }
       
       [dir="rtl"] .nav-menu.active {
-        left: 0 !important;
+        left: var(--space-lg) !important;
+        right: auto !important;
       }
 
       .nav-menu li {
         width: 100%;
         margin: 0;
-        border-bottom: 1px solid var(--light-gray);
+      }
+      
+      .nav-menu li:not(.mobile-language-switcher) {
+        border-bottom: 1px solid rgba(123, 61, 177, 0.08);
       }
       
       .nav-menu li:last-child {
         border-bottom: none;
-        margin-top: var(--space-md);
+        margin-top: var(--space-sm);
+        padding: 0 var(--space-md);
       }
       
       .nav-menu li a {
         display: block;
-        padding: var(--space-md) 0;
-        font-size: 1rem;
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.9rem;
         font-weight: 500;
         width: 100%;
         border-radius: 0;
-        transition: color 0.3s ease;
+        transition: all 0.2s ease;
+        position: relative;
       }
       
       .nav-menu li a:hover {
-        background-color: transparent;
+        background-color: rgba(123, 61, 177, 0.05);
         color: var(--primary);
+        padding-right: calc(var(--space-md) + 8px);
+      }
+      
+      [dir="rtl"] .nav-menu li a:hover {
+        padding-right: var(--space-md);
+        padding-left: calc(var(--space-md) + 8px);
       }
 
       .nav-menu li a:after {
@@ -1119,30 +1138,41 @@
       }
 
       .nav-menu li a.btn {
-        margin-top: 0;
+        margin: 0;
         text-align: center;
-        background-color: var(--primary);
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
         color: var(--white);
-        padding: var(--space-md) var(--space-lg);
+        padding: var(--space-sm) var(--space-md);
         border-radius: var(--radius-md);
         font-weight: 600;
+        font-size: 0.85rem;
+        box-shadow: 0 4px 12px rgba(123, 61, 177, 0.3);
+        border: none;
       }
       
       .nav-menu li a.btn:hover {
-        background-color: var(--primary-dark);
+        background: linear-gradient(135deg, var(--primary-dark), var(--primary));
         color: var(--white);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(123, 61, 177, 0.4);
+        padding-right: var(--space-md);
+      }
+      
+      [dir="rtl"] .nav-menu li a.btn:hover {
+        padding-left: var(--space-md);
       }
       
       .mobile-language-switcher {
-        padding: var(--space-md) 0 !important;
-        border-bottom: 1px solid var(--light-gray) !important;
+        padding: var(--space-sm) var(--space-md) !important;
+        border-bottom: 1px solid rgba(123, 61, 177, 0.08) !important;
+        background-color: rgba(123, 61, 177, 0.02) !important;
       }
       
       .mobile-language-switcher span {
         display: block;
         font-weight: 600;
         color: var(--medium-gray);
-        font-size: 0.875rem;
+        font-size: 0.75rem;
         margin-bottom: var(--space-xs);
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -1150,36 +1180,59 @@
       
       .mobile-language-buttons {
         display: flex;
-        gap: var(--space-sm);
+        gap: 6px;
       }
       
       .mobile-language-buttons .language-btn {
         background: transparent;
-        border: 1px solid var(--light-gray);
+        border: 1px solid rgba(123, 61, 177, 0.2);
         color: var(--medium-gray);
         cursor: pointer;
-        padding: var(--space-xs) var(--space-sm);
+        padding: 4px 10px;
         font-weight: 500;
-        font-size: 0.875rem;
+        font-size: 0.75rem;
         border-radius: var(--radius-sm);
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
         flex: 1;
+        text-align: center;
       }
       
       .mobile-language-buttons .language-btn.active {
         background-color: var(--primary);
         color: var(--white);
         border-color: var(--primary);
+        box-shadow: 0 2px 8px rgba(123, 61, 177, 0.3);
       }
       
       .mobile-language-buttons .language-btn:hover {
         border-color: var(--primary);
         color: var(--primary);
+        background-color: rgba(123, 61, 177, 0.05);
       }
       
       .mobile-language-buttons .language-btn.active:hover {
         background-color: var(--primary-dark);
         color: var(--white);
+      }
+      
+      /* Add overlay for mobile menu */
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 99;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(2px);
+      }
+      
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
       }
       
       .mobile-nav-toggle {
@@ -1304,6 +1357,8 @@
         </button>
       </nav>
     </div>
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu-overlay"></div>
   </header>
 
   <!-- Hero Section -->

@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedLang) {
         setLanguage(savedLang);
     } else {
-        // Default to English if no language is saved
-        setLanguage('en');
+        // Default to Hebrew if no language is saved
+        setLanguage('he');
     }
 }); 

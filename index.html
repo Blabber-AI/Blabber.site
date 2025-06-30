@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-language="en">
+<html lang="he" dir="rtl" data-language="he">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1059,16 +1059,16 @@
         right: -100% !important;
         flex-direction: column !important;
         background-color: var(--white) !important;
-        width: 80% !important;
-        max-width: 320px !important;
+        width: 75% !important;
+        max-width: 280px !important;
         min-height: 100vh !important;
         text-align: left !important;
         transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
         box-shadow: -4px 0px 15px rgba(0,0,0,0.1) !important;
-        padding: var(--space-2xl) var(--space-xl) !important;
+        padding: var(--space-xl) var(--space-lg) !important;
         justify-content: flex-start !important;
-        align-items: flex-start !important;
-        gap: var(--space-sm) !important;
+        align-items: stretch !important;
+        gap: 0 !important;
         z-index: 100 !important;
       }
       
@@ -1077,33 +1077,41 @@
       }
 
       [dir="rtl"] .nav-menu {
-        right: auto;
-        left: -100%;
-        text-align: right;
-        box-shadow: 4px 0px 15px rgba(0,0,0,0.1);
-        transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        right: auto !important;
+        left: -100% !important;
+        text-align: right !important;
+        box-shadow: 4px 0px 15px rgba(0,0,0,0.1) !important;
+        transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
       }
       
       [dir="rtl"] .nav-menu.active {
-        left: 0;
+        left: 0 !important;
       }
 
       .nav-menu li {
         width: 100%;
         margin: 0;
+        border-bottom: 1px solid var(--light-gray);
+      }
+      
+      .nav-menu li:last-child {
+        border-bottom: none;
+        margin-top: var(--space-md);
       }
       
       .nav-menu li a {
         display: block;
-        padding: var(--space-md) var(--space-sm);
-        border-radius: var(--radius-sm);
-        font-size: 1.125rem;
-        font-weight: 600;
+        padding: var(--space-md) 0;
+        font-size: 1rem;
+        font-weight: 500;
         width: 100%;
+        border-radius: 0;
+        transition: color 0.3s ease;
       }
       
       .nav-menu li a:hover {
-        background-color: var(--light-gray);
+        background-color: transparent;
+        color: var(--primary);
       }
 
       .nav-menu li a:after {
@@ -1111,8 +1119,67 @@
       }
 
       .nav-menu li a.btn {
-        margin-top: var(--space-lg);
+        margin-top: 0;
         text-align: center;
+        background-color: var(--primary);
+        color: var(--white);
+        padding: var(--space-md) var(--space-lg);
+        border-radius: var(--radius-md);
+        font-weight: 600;
+      }
+      
+      .nav-menu li a.btn:hover {
+        background-color: var(--primary-dark);
+        color: var(--white);
+      }
+      
+      .mobile-language-switcher {
+        padding: var(--space-md) 0 !important;
+        border-bottom: 1px solid var(--light-gray) !important;
+      }
+      
+      .mobile-language-switcher span {
+        display: block;
+        font-weight: 600;
+        color: var(--medium-gray);
+        font-size: 0.875rem;
+        margin-bottom: var(--space-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      .mobile-language-buttons {
+        display: flex;
+        gap: var(--space-sm);
+      }
+      
+      .mobile-language-buttons .language-btn {
+        background: transparent;
+        border: 1px solid var(--light-gray);
+        color: var(--medium-gray);
+        cursor: pointer;
+        padding: var(--space-xs) var(--space-sm);
+        font-weight: 500;
+        font-size: 0.875rem;
+        border-radius: var(--radius-sm);
+        transition: all 0.3s ease;
+        flex: 1;
+      }
+      
+      .mobile-language-buttons .language-btn.active {
+        background-color: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+      }
+      
+      .mobile-language-buttons .language-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+      
+      .mobile-language-buttons .language-btn.active:hover {
+        background-color: var(--primary-dark);
+        color: var(--white);
       }
       
       .mobile-nav-toggle {
@@ -1214,15 +1281,22 @@
           <img src="assets/Blabber-logo.png" alt="Blabber Logo" class="logo">
         </div>
         <ul class="nav-menu">
-                      <li><a href="#how-it-works" data-en="How It Works" data-he="איך זה עובד">How It Works</a></li>
-            <li><a href="#testimonials" data-en="Testimonials" data-he="עדויות והמלצות">Testimonials</a></li>
-            <li><a href="support/" data-en="Support" data-he="תמיכה ושירות">Support</a></li>
-            <li><a href="#contact" class="btn btn-primary" data-en="Get Started" data-he="בואו נתחיל">Get Started</a></li>
+                      <li><a href="#how-it-works" data-en="How It Works" data-he="איך זה עובד">איך זה עובד</a></li>
+            <li><a href="#testimonials" data-en="Testimonials" data-he="עדויות והמלצות">עדויות והמלצות</a></li>
+            <li><a href="support/" data-en="Support" data-he="תמיכה ושירות">תמיכה ושירות</a></li>
+            <li class="mobile-language-switcher">
+              <span data-en="Language" data-he="שפה">שפה</span>
+              <div class="mobile-language-buttons">
+                <button class="language-btn" data-lang="en">EN</button>
+                <button class="language-btn active" data-lang="he">עב</button>
+              </div>
+            </li>
+            <li><a href="#contact" class="btn btn-primary" data-en="Get Started" data-he="בואו נתחיל">בואו נתחיל</a></li>
         </ul>
         <div class="language-switcher">
-          <button class="language-btn active" data-lang="en">EN</button>
+          <button class="language-btn" data-lang="en">EN</button>
           <span>|</span>
-          <button class="language-btn" data-lang="he">עב</button>
+          <button class="language-btn active" data-lang="he">עב</button>
         </div>
         <button class="mobile-nav-toggle">
           <i class="fas fa-bars"></i>

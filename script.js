@@ -73,7 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Logic to open/close the menu
     mobileNavToggle.addEventListener('click', (e) => {
       e.stopPropagation(); // Prevents the 'document' click listener from firing immediately
+      console.log('Mobile nav toggle clicked'); // Debug log
       navMenu.classList.toggle('active');
+      console.log('Nav menu active class:', navMenu.classList.contains('active')); // Debug log
       mobileNavToggle.querySelector('.fa-bars').classList.toggle('hidden');
       mobileNavToggle.querySelector('.fa-times').classList.toggle('hidden');
     });

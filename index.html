@@ -1055,34 +1055,82 @@
       
       .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 0;
         right: -100%;
         flex-direction: column;
         background-color: var(--white);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: var(--shadow-medium);
-        padding: var(--space-lg) 0;
-        height: auto;
+        width: 80%;
+        max-width: 320px;
+        min-height: 100vh;
+        text-align: left;
+        transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        box-shadow: -4px 0px 15px rgba(0,0,0,0.1);
+        padding: var(--space-2xl) var(--space-xl);
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        z-index: 100;
       }
       
       .nav-menu.active {
         right: 0;
       }
+
+      [dir="rtl"] .nav-menu {
+        right: auto;
+        left: -100%;
+        text-align: right;
+        box-shadow: 4px 0px 15px rgba(0,0,0,0.1);
+        transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      }
       
+      [dir="rtl"] .nav-menu.active {
+        left: 0;
+      }
+
       .nav-menu li {
-        height: auto;
-        margin: var(--space-sm) 0;
+        width: 100%;
+        margin: 0;
       }
       
       .nav-menu li a {
-        height: auto;
-        padding: var(--space-sm) 0;
+        display: block;
+        padding: var(--space-md) var(--space-sm);
+        border-radius: var(--radius-sm);
+        font-size: 1.125rem;
+        font-weight: 600;
+        width: 100%;
       }
       
+      .nav-menu li a:hover {
+        background-color: var(--light-gray);
+      }
+
       .nav-menu li a:after {
-        bottom: 0;
+        display: none;
+      }
+
+      .nav-menu li a.btn {
+        margin-top: var(--space-lg);
+        text-align: center;
+      }
+      
+      .mobile-nav-toggle {
+        z-index: 101; /* Ensure it's above the menu */
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+      }
+
+      .footer-about {
+        grid-column: 1 / -1; /* Make the about section span both columns */
+        text-align: center;
+      }
+      
+      .footer-links-column {
+        text-align: center;
       }
       
       .hero {
@@ -1148,6 +1196,9 @@
       justify-content: center !important;
       text-align: center !important;
     }
+    .hidden {
+      display: none !important;
+    }
   </style>
 </head>
 <body>
@@ -1171,6 +1222,7 @@
         </div>
         <button class="mobile-nav-toggle">
           <i class="fas fa-bars"></i>
+          <i class="fas fa-times hidden"></i>
         </button>
       </nav>
     </div>

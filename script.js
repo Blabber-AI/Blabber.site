@@ -70,27 +70,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-menu a');
 
   if (mobileNavToggle && navMenu) {
+    // Logic to open/close the menu
     mobileNavToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
+      e.stopPropagation(); // Prevents the 'document' click listener from firing immediately
       navMenu.classList.toggle('active');
-      mobileNavToggle.classList.toggle('is-active');
+      mobileNavToggle.querySelector('.fa-bars').classList.toggle('hidden');
+      mobileNavToggle.querySelector('.fa-times').classList.toggle('hidden');
     });
 
-    // Close menu when a link is clicked
+    // Close the menu when a link is clicked
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         if (navMenu.classList.contains('active')) {
           navMenu.classList.remove('active');
-          mobileNavToggle.classList.remove('is-active');
+          mobileNavToggle.querySelector('.fa-bars').classList.remove('hidden');
+          mobileNavToggle.querySelector('.fa-times').classList.add('hidden');
         }
       });
     });
 
-    // Close menu when clicking outside
+    // Close the menu when clicking outside of it
     document.addEventListener('click', (e) => {
-      if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && e.target !== mobileNavToggle) {
+      if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileNavToggle.contains(e.target)) {
         navMenu.classList.remove('active');
-        mobileNavToggle.classList.remove('is-active');
+        mobileNavToggle.querySelector('.fa-bars').classList.remove('hidden');
+        mobileNavToggle.querySelector('.fa-times').classList.add('hidden');
       }
     });
   }

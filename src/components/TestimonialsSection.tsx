@@ -1,0 +1,220 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../hooks/useLanguage';
+
+import person1 from '../assets/people/people1.png';
+import person2 from '../assets/people/people2.png';
+import person3 from '../assets/people/people3.png';
+
+const TestimonialsSection: React.FC = () => {
+  const { t } = useLanguage();
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  const testimonials = [
+    {
+      id: 1,
+      name: t('testimonials.person1.name'),
+      role: t('testimonials.person1.role'),
+      content: t('testimonials.person1.content'),
+      image: person1,
+      rating: 5,
+    },
+    {
+      id: 2,
+      name: t('testimonials.person2.name'),
+      role: t('testimonials.person2.role'),
+      content: t('testimonials.person2.content'),
+      image: person2,
+      rating: 5,
+    },
+    {
+      id: 3,
+      name: t('testimonials.person3.name'),
+      role: t('testimonials.person3.role'),
+      content: t('testimonials.person3.content'),
+      image: person3,
+      rating: 5,
+    },
+  ];
+
+  // Auto-rotate testimonials every 5 seconds
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  const currentData = testimonials[currentTestimonial];
+
+  return (
+    <section 
+      id="testimonials" 
+      className="py-16 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-3">
+        <motion.div 
+          className="absolute inset-0 bg-gradient-to-br from-blue-200 to-purple-200"
+          animate={{ 
+            backgroundPosition: ['0% 0%', '100% 100%'],
+          }}
+          transition={{ 
+            duration: 25, 
+            repeat: Infinity, 
+            repeatType: "reverse" 
+          }}
+          style={{ 
+            backgroundSize: '200% 200%' 
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 text-center relative z-10">
+        {/* Title Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
+        >
+          <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm px-3 py-1.5 rounded-full mb-3">
+            {t('testimonials.badge')}
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-3">
+            {t('testimonials.title')}
+          </h2>
+          <p className="text-base text-gray-600 max-w-2xl mx-auto">
+            {t('testimonials.subtitle')}
+          </p>
+        </motion.div>
+
+        {/* Main Testimonial Display */}
+        <div className="max-w-4xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentTestimonial}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+              className="relative"
+            >
+              {/* Main Testimonial Card */}
+              <div className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl border border-gray-100 relative mx-auto max-w-3xl">
+                {/* Quote Icon */}
+                <div className="absolute -top-4 left-8">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                    <i className="fas fa-quote-right text-white text-sm"></i>
+                  </div>
+                </div>
+
+                {/* Stars Rating */}
+                <div className="flex justify-center mb-6">
+                  {[...Array(currentData.rating)].map((_, i) => (
+                    <motion.i
+                      key={i}
+                      className="fas fa-star text-yellow-400 text-lg mx-0.5"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: i * 0.1, duration: 0.3 }}
+                    />
+                  ))}
+                </div>
+
+                {/* Testimonial Content */}
+                <blockquote className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 font-medium italic">
+                  "{currentData.content}"
+                </blockquote>
+
+                {/* Author Info */}
+                <div className="flex items-center justify-center space-x-4 rtl:space-x-reverse">
+                  <div className="relative">
+                    <img
+                      src={currentData.image}
+                      alt={currentData.name}
+                      className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg"
+                    />
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 border-2 border-white rounded-full"></div>
+                  </div>
+                  <div className="text-right">
+                    <h4 className="font-bold text-gray-800 text-lg">{currentData.name}</h4>
+                    <p className="text-gray-600 text-sm">{currentData.role}</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Navigation Controls */}
+          <div className="flex items-center justify-center mt-8 space-x-6">
+            {/* Previous Button */}
+            <button
+              onClick={() => setCurrentTestimonial(prev => prev === 0 ? testimonials.length - 1 : prev - 1)}
+              className="w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 group"
+              aria-label="Previous testimonial"
+            >
+              <i className="fas fa-chevron-right group-hover:scale-110 transition-transform"></i>
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="flex space-x-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    currentTestimonial === index 
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 scale-125 shadow-lg' 
+                      : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={() => setCurrentTestimonial(prev => (prev + 1) % testimonials.length)}
+              className="w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 group"
+              aria-label="Next testimonial"
+            >
+              <i className="fas fa-chevron-left group-hover:scale-110 transition-transform"></i>
+            </button>
+          </div>
+
+          {/* Preview Thumbnails */}
+          <div className="flex justify-center mt-6 space-x-3">
+            {testimonials.map((testimonial, index) => (
+              <button
+                key={testimonial.id}
+                onClick={() => setCurrentTestimonial(index)}
+                className={`relative transition-all duration-300 ${
+                  currentTestimonial === index ? 'scale-110' : 'scale-95 opacity-60 hover:opacity-80 hover:scale-100'
+                }`}
+              >
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-lg"
+                />
+                {currentTestimonial === index && (
+                  <div className="absolute inset-0 rounded-full border-2 border-blue-500 animate-pulse"></div>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TestimonialsSection; 

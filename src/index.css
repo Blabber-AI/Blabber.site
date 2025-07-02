@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth language transition styles */
+.language-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+.language-transition-text {
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.language-switching {
+  opacity: 0.9;
+  transform: scale(0.99);
+}
+
+/* Fixed width elements to prevent layout shifts */
+.lang-switcher {
+  min-width: 96px; /* w-24 equivalent */
+  justify-content: center;
+}
+
+.cta-button {
+  min-width: 140px;
+  justify-content: center;
+}
+
+/* Smooth content transitions */
+body {
+  transition: direction 0.3s ease-in-out;
+}
+
+/* Prevent text flashing during transitions */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

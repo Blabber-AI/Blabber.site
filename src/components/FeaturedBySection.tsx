@@ -19,12 +19,12 @@ const FeaturedBySection: React.FC = () => {
     { src: yatzivLogo, alt: 'Yatziv Logo', name: 'יציב שדרות' },
   ];
 
-  // Duplicate logos for seamless loop
-  const duplicatedLogos = [...logos, ...logos, ...logos];
+  // Duplicate logos for seamless loop - increased duplication
+  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 
   return (
     <motion.section
-      className="py-12 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden"
+      className="py-16 sm:py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -42,15 +42,15 @@ const FeaturedBySection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-8"
+          className="mb-12"
         >
-          <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-xs px-3 py-1 rounded-full mb-3 shadow-lg">
+          <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm px-4 py-2 rounded-full mb-4 shadow-lg">
             {t('featured.badge')}
           </span>
-          <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             {t('featured.title')}
           </h3>
-          <p className="text-sm text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
             {t('featured.subtitle')}
           </p>
         </motion.div>
@@ -63,15 +63,13 @@ const FeaturedBySection: React.FC = () => {
           
           {/* Moving Container */}
           <motion.div
-            className="flex items-center space-x-8 md:space-x-12"
-            animate={{
-              x: [0, -100 * logos.length]
-            }}
+            className="flex items-center space-x-10 md:space-x-16"
+            animate={{ x: [0, -100 * logos.length] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 20,
+                duration: 25,
                 ease: "linear",
               },
             }}
@@ -81,23 +79,18 @@ const FeaturedBySection: React.FC = () => {
               <motion.div
                 key={`${logo.alt}-${index}`}
                 className="group flex-shrink-0 flex flex-col items-center"
-                whileHover={{ 
-                  scale: 1.1,
-                  transition: { duration: 0.2 }
-                }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
               >
-                {/* Small Logo Container */}
-                <div className="bg-white rounded-xl p-3 md:p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 group-hover:border-blue-200">
+                <div className="bg-white rounded-2xl p-4 md:p-5 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 group-hover:border-blue-200">
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-8 md:h-10 w-auto mx-auto filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="h-10 sm:h-12 md:h-14 w-auto mx-auto filter grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 
-                {/* School Name - Hidden on mobile, visible on hover */}
                 <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block">
-                  <p className="text-xs font-medium text-gray-600 whitespace-nowrap">
+                  <p className="text-sm font-medium text-gray-600 whitespace-nowrap">
                     {logo.name}
                   </p>
                 </div>
@@ -105,17 +98,6 @@ const FeaturedBySection: React.FC = () => {
             ))}
           </motion.div>
         </div>
-
-        {/* Optional: Small indicator text */}
-        <motion.p 
-          className="text-xs text-gray-500 mt-4"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          ועוד עשרות מוסדות חינוך נוספים • And dozens more educational institutions
-        </motion.p>
       </div>
     </motion.section>
   );

@@ -54,7 +54,7 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section 
       id="testimonials" 
-      className="py-16 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden"
+      className="py-16 sm:py-24 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
@@ -76,22 +76,22 @@ const TestimonialsSection: React.FC = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Title Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-8"
+          className="mb-12 md:mb-16"
         >
-          <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm px-3 py-1.5 rounded-full mb-3">
+          <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm px-4 py-2 rounded-full mb-4 shadow-lg">
             {t('testimonials.badge')}
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-4">
             {t('testimonials.title')}
           </h2>
-          <p className="text-base text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
             {t('testimonials.subtitle')}
           </p>
         </motion.div>
@@ -108,20 +108,20 @@ const TestimonialsSection: React.FC = () => {
               className="relative"
             >
               {/* Main Testimonial Card */}
-              <div className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl border border-gray-100 relative mx-auto max-w-3xl">
+              <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-6 sm:p-8 md:p-12 shadow-2xl border border-gray-100/50 relative mx-auto max-w-3xl">
                 {/* Quote Icon */}
-                <div className="absolute -top-4 left-8">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
-                    <i className="fas fa-quote-right text-white text-sm"></i>
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 sm:left-8 sm:translate-x-0">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                    <i className="fas fa-quote-right text-white text-xl"></i>
                   </div>
                 </div>
 
                 {/* Stars Rating */}
-                <div className="flex justify-center mb-6">
+                <div className="flex justify-center mb-6 pt-8 sm:pt-0">
                   {[...Array(currentData.rating)].map((_, i) => (
                     <motion.i
                       key={i}
-                      className="fas fa-star text-yellow-400 text-lg mx-0.5"
+                      className="fas fa-star text-yellow-400 text-xl mx-1"
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: i * 0.1, duration: 0.3 }}
@@ -130,23 +130,25 @@ const TestimonialsSection: React.FC = () => {
                 </div>
 
                 {/* Testimonial Content */}
-                <blockquote className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 font-medium italic">
+                <blockquote className="text-lg sm:text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 font-medium italic">
                   "{currentData.content}"
                 </blockquote>
 
                 {/* Author Info */}
-                <div className="flex items-center justify-center space-x-4 rtl:space-x-reverse">
+                <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 rtl:sm:space-x-reverse">
                   <div className="relative">
                     <img
                       src={currentData.image}
                       alt={currentData.name}
-                      className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg"
+                      className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
                     />
-                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 border-2 border-white rounded-full"></div>
+                    <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-green-500 border-2 border-white rounded-full flex items-center justify-center">
+                      <i className="fas fa-check text-white text-xs"></i>
+                    </div>
                   </div>
-                  <div className="text-right">
-                    <h4 className="font-bold text-gray-800 text-lg">{currentData.name}</h4>
-                    <p className="text-gray-600 text-sm">{currentData.role}</p>
+                  <div className="text-center sm:text-left rtl:sm:text-right">
+                    <h4 className="font-bold text-gray-800 text-xl">{currentData.name}</h4>
+                    <p className="text-gray-600 text-base">{currentData.role}</p>
                   </div>
                 </div>
               </div>
@@ -158,7 +160,7 @@ const TestimonialsSection: React.FC = () => {
             {/* Previous Button */}
             <button
               onClick={() => setCurrentTestimonial(prev => prev === 0 ? testimonials.length - 1 : prev - 1)}
-              className="w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 group"
+              className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 group"
               aria-label="Previous testimonial"
             >
               <i className="fas fa-chevron-right group-hover:scale-110 transition-transform"></i>
@@ -183,7 +185,7 @@ const TestimonialsSection: React.FC = () => {
             {/* Next Button */}
             <button
               onClick={() => setCurrentTestimonial(prev => (prev + 1) % testimonials.length)}
-              className="w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 group"
+              className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 group"
               aria-label="Next testimonial"
             >
               <i className="fas fa-chevron-left group-hover:scale-110 transition-transform"></i>
@@ -191,23 +193,21 @@ const TestimonialsSection: React.FC = () => {
           </div>
 
           {/* Preview Thumbnails */}
-          <div className="flex justify-center mt-6 space-x-3">
+          <div className="hidden sm:flex justify-center mt-8 space-x-4">
             {testimonials.map((testimonial, index) => (
               <button
                 key={testimonial.id}
                 onClick={() => setCurrentTestimonial(index)}
-                className={`relative transition-all duration-300 ${
-                  currentTestimonial === index ? 'scale-110' : 'scale-95 opacity-60 hover:opacity-80 hover:scale-100'
+                className={`relative transition-all duration-300 rounded-full ${
+                  currentTestimonial === index ? 'scale-110 ring-2 ring-blue-500 ring-offset-2 ring-offset-blue-50' : 'scale-95 opacity-60 hover:opacity-100 hover:scale-100'
                 }`}
               >
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-lg"
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.name} 
+                  className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover shadow-md"
                 />
-                {currentTestimonial === index && (
-                  <div className="absolute inset-0 rounded-full border-2 border-blue-500 animate-pulse"></div>
-                )}
+                <div className={`absolute inset-0 bg-white/30 rounded-full transition-opacity duration-300 ${currentTestimonial === index ? 'opacity-0' : 'opacity-100'}`}></div>
               </button>
             ))}
           </div>

@@ -1,21 +1,20 @@
 import React from 'react';
-import SEO from '../components/SEO';
 import HeroSection from '../components/HeroSection';
-import FeaturedBySection from '../components/FeaturedBySection';
 import HowItWorksSection from '../components/HowItWorksSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import CallToActionSection from '../components/CallToActionSection';
+import FeaturedBySection from '../components/FeaturedBySection';
+import SEO from '../components/SEO';
 
 const HomePage: React.FC = () => {
   return (
     <>
-      <SEO 
-        title="Blabber | AI-Powered English Learning for Schools"
-        description="Transform English education with AI technology. Help students improve pronunciation, fluency, and confidence with personalized feedback and real-time analysis."
-        keywords="AI English learning, school education, pronunciation training, language learning, educational technology, blabber ai"
+      <SEO
+        title="Blabber - AI-Powered Language Learning"
+        description="Transform your classroom with Blabber, the AI platform for practicing and mastering new languages."
         canonical="https://blabber.site/"
       />
-      <div className="bg-white">
+      <div className="flex flex-col">
         <HeroSection />
         <FeaturedBySection />
         <HowItWorksSection />

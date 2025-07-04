@@ -69,16 +69,16 @@ const Navbar: React.FC = () => {
       isScrolled 
         ? 'shadow-xl bg-white/95 backdrop-blur-lg border-b border-gray-100' 
         : 'bg-white/90 backdrop-blur-sm'
-    } ${isRTL ? 'rtl' : 'ltr'} pb-4`}>
-      <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between h-24">
+    } ${isRTL ? 'rtl' : 'ltr'} pb-2 md:pb-4`}>
+      <div className="container mx-auto px-3 md:px-4">
+        <nav className="flex items-center justify-between h-16 md:h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="relative">
               <img 
                 src={logo} 
                 alt="Blabber Logo" 
-                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
+                className="h-8 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
               />
               {/* Glow effect on hover */}
               <div className="absolute inset-0 bg-blue-400 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl"></div>
@@ -86,8 +86,8 @@ const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Menu - Fully Centered */}
-          <div className="hidden lg:flex items-center justify-center flex-1 mx-12">
-            <div className="flex items-center justify-center space-x-10">
+          <div className="hidden lg:flex items-center justify-center flex-1 mx-8 xl:mx-12">
+            <div className="flex items-center justify-center space-x-8 xl:space-x-10">
               {navLinks.map((item, index) => (
                 <NavLinkComponent key={index} item={item} />
               ))}
@@ -95,12 +95,12 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Right Side Actions */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
             {/* Language Switcher - Fixed Width */}
-            <div className="relative flex items-center bg-gray-100 rounded-full p-1 border border-gray-200 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 w-24 justify-center">
+            <div className="relative flex items-center bg-gray-100 rounded-full p-1 border border-gray-200 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 w-20 xl:w-24 justify-center">
               <button 
                 onClick={() => setLanguage('en')} 
-                className={`relative px-3 py-2 text-sm font-medium rounded-full transition-all duration-300 min-w-[40px] text-center ${
+                className={`relative px-2 xl:px-3 py-1.5 xl:py-2 text-sm font-medium rounded-full transition-all duration-300 min-w-[36px] xl:min-w-[40px] text-center ${
                   language === 'en' 
                     ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg transform scale-105' 
                     : 'text-gray-600 hover:text-blue-600 hover:bg-white'
@@ -113,7 +113,7 @@ const Navbar: React.FC = () => {
               </button>
               <button 
                 onClick={() => setLanguage('he')} 
-                className={`relative px-3 py-2 text-sm font-medium rounded-full transition-all duration-300 min-w-[40px] text-center ${
+                className={`relative px-2 xl:px-3 py-1.5 xl:py-2 text-sm font-medium rounded-full transition-all duration-300 min-w-[36px] xl:min-w-[40px] text-center ${
                   language === 'he' 
                     ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg transform scale-105' 
                     : 'text-gray-600 hover:text-blue-600 hover:bg-white'
@@ -133,22 +133,22 @@ const Navbar: React.FC = () => {
                 smooth={true} 
                 duration={500} 
                 offset={-80} 
-                className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-6 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer flex items-center space-x-2 min-w-[140px] justify-center"
+                className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-2 xl:py-3 px-4 xl:px-6 text-sm xl:text-base rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer flex items-center space-x-2 min-w-[120px] xl:min-w-[140px] justify-center"
               >
                 <span className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-70' : 'opacity-100'}`}>
                   {t('nav.letsStart')}
                 </span>
-                <i className="fas fa-arrow-left group-hover:translate-x-1 transition-transform duration-300"></i>
+                <i className="fas fa-arrow-left group-hover:translate-x-1 transition-transform duration-300 text-xs xl:text-sm"></i>
               </ScrollLink>
             ) : (
               <Link 
                 to="/#contact" 
-                className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-6 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2 min-w-[140px] justify-center"
+                className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-2 xl:py-3 px-4 xl:px-6 text-sm xl:text-base rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2 min-w-[120px] xl:min-w-[140px] justify-center"
               >
                 <span className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-70' : 'opacity-100'}`}>
                   {t('nav.letsStart')}
                 </span>
-                <i className="fas fa-arrow-left group-hover:translate-x-1 transition-transform duration-300"></i>
+                <i className="fas fa-arrow-left group-hover:translate-x-1 transition-transform duration-300 text-xs xl:text-sm"></i>
               </Link>
             )}
           </div>
@@ -157,16 +157,16 @@ const Navbar: React.FC = () => {
           <div className="lg:hidden">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)} 
-              className="relative w-10 h-10 bg-gray-100 rounded-lg flex flex-col items-center justify-center space-y-1 transition-all duration-300 hover:bg-blue-50 group"
+              className="relative w-8 md:w-10 h-8 md:h-10 bg-gray-100 rounded-lg flex flex-col items-center justify-center space-y-1 transition-all duration-300 hover:bg-blue-50 group"
               aria-label="Toggle menu"
             >
-              <span className={`w-6 h-0.5 bg-gray-600 rounded-full transition-all duration-300 ${
+              <span className={`w-5 md:w-6 h-0.5 bg-gray-600 rounded-full transition-all duration-300 ${
                 isMenuOpen ? 'rotate-45 translate-y-1.5' : ''
               } group-hover:bg-blue-600`}></span>
-              <span className={`w-6 h-0.5 bg-gray-600 rounded-full transition-all duration-300 ${
+              <span className={`w-5 md:w-6 h-0.5 bg-gray-600 rounded-full transition-all duration-300 ${
                 isMenuOpen ? 'opacity-0' : ''
               } group-hover:bg-blue-600`}></span>
-              <span className={`w-6 h-0.5 bg-gray-600 rounded-full transition-all duration-300 ${
+              <span className={`w-5 md:w-6 h-0.5 bg-gray-600 rounded-full transition-all duration-300 ${
                 isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''
               } group-hover:bg-blue-600`}></span>
             </button>
@@ -178,8 +178,8 @@ const Navbar: React.FC = () => {
       <div className={`lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-lg shadow-xl border-b border-gray-100 transition-all duration-500 ease-in-out ${
         isMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'
       }`}>
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center space-y-4 py-8">
+        <div className="container mx-auto px-3 md:px-4">
+          <div className="flex flex-col items-center space-y-3 md:space-y-4 py-6 md:py-8">
             {/* Mobile Navigation Links */}
             {navLinks.map((item, index) => (
               <div key={index} className="w-full text-center">
@@ -188,10 +188,10 @@ const Navbar: React.FC = () => {
             ))}
             
             {/* Mobile Language Switcher - Fixed Width */}
-            <div className="flex items-center bg-gray-100 rounded-full p-1 mt-6 w-32 justify-center">
+            <div className="flex items-center bg-gray-100 rounded-full p-1 mt-4 md:mt-6 w-24 md:w-32 justify-center">
               <button 
                 onClick={() => setLanguage('en')} 
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 min-w-[50px] text-center ${
+                className={`px-3 md:px-4 py-1.5 md:py-2 text-sm font-medium rounded-full transition-all duration-300 min-w-[40px] md:min-w-[50px] text-center ${
                   language === 'en' 
                     ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg' 
                     : 'text-gray-600 hover:text-blue-600'
@@ -204,7 +204,7 @@ const Navbar: React.FC = () => {
               </button>
               <button 
                 onClick={() => setLanguage('he')} 
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 min-w-[50px] text-center ${
+                className={`px-3 md:px-4 py-1.5 md:py-2 text-sm font-medium rounded-full transition-all duration-300 min-w-[40px] md:min-w-[50px] text-center ${
                   language === 'he' 
                     ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg' 
                     : 'text-gray-600 hover:text-blue-600'
@@ -224,22 +224,24 @@ const Navbar: React.FC = () => {
                 smooth={true} 
                 duration={500} 
                 offset={-80} 
-                onClick={() => setIsMenuOpen(false)} 
-                className="w-full max-w-xs mx-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg text-center cursor-pointer mt-4"
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-2.5 md:py-3 px-6 md:px-8 text-sm md:text-base rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg transform hover:scale-105 cursor-pointer flex items-center gap-2 mt-2"
               >
                 <span className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-70' : 'opacity-100'}`}>
                   {t('nav.letsStart')}
                 </span>
+                <i className="fas fa-arrow-left text-xs md:text-sm"></i>
               </ScrollLink>
             ) : (
               <Link 
                 to="/#contact" 
-                onClick={() => setIsMenuOpen(false)} 
-                className="w-full max-w-xs mx-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg text-center block mt-4"
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-2.5 md:py-3 px-6 md:px-8 text-sm md:text-base rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg transform hover:scale-105 flex items-center gap-2 mt-2"
               >
                 <span className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-70' : 'opacity-100'}`}>
                   {t('nav.letsStart')}
                 </span>
+                <i className="fas fa-arrow-left text-xs md:text-sm"></i>
               </Link>
             )}
           </div>

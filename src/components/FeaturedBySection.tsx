@@ -35,7 +35,7 @@ const FeaturedBySection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100" />
       </div>
 
-      <div className={`container mx-auto px-4 text-center relative z-10 font-assistant ${isRTL ? 'rtl:text-right' : ''}`}>
+      <div className="container mx-auto px-4 text-center relative z-10 font-assistant">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -47,10 +47,10 @@ const FeaturedBySection: React.FC = () => {
           <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm px-4 py-2 rounded-full mb-4 shadow-lg font-assistant">
             {t('featured.badge')}
           </span>
-          <h3 className={`text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-assistant font-extrabold ${isRTL ? 'rtl:text-right' : 'text-center'}`}>
+          <h3 className={`text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-assistant font-extrabold text-center ${isRTL ? 'direction-rtl' : 'direction-ltr'}`}>
             {t('featured.title')}
           </h3>
-          <p className={`text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-assistant ${isRTL ? 'rtl:text-right' : 'text-center'}`}>
+          <p className={`text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-assistant text-center ${isRTL ? 'direction-rtl' : 'direction-ltr'}`}>
             {t('featured.subtitle')}
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ const FeaturedBySection: React.FC = () => {
           
           {/* Moving Container */}
           <motion.div
-            className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-10 md:space-x-16`}
+            className="flex items-center space-x-10 md:space-x-16"
             animate={{ x: [0, -100 * logos.length] }}
             transition={{
               x: {
@@ -90,7 +90,7 @@ const FeaturedBySection: React.FC = () => {
                 </div>
                 
                 <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block">
-                  <p className={`text-sm font-medium text-gray-600 whitespace-nowrap font-assistant ${isRTL ? 'rtl:text-right' : 'text-center'}`}>
+                  <p className={`text-sm font-medium text-gray-600 whitespace-nowrap font-assistant ${isRTL ? 'text-right direction-rtl' : 'text-left direction-ltr'}`}>
                     {logo.name}
                   </p>
                 </div>

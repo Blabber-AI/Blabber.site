@@ -8,10 +8,10 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { isTransitioning, isRTL } = useLanguage();
+  const { isTransitioning } = useLanguage();
 
   return (
-    <div className={`bg-white min-h-screen flex flex-col language-transition ${isTransitioning ? 'language-switching' : ''} ${isRTL ? 'rtl' : 'ltr'}`}>
+    <div className={`bg-white min-h-screen flex flex-col language-transition ${isTransitioning ? 'language-switching' : ''}`}>
       <Navbar />
       <main className={`flex-1 language-transition-text ${isTransitioning ? 'opacity-90' : 'opacity-100'}`}>
         {children}

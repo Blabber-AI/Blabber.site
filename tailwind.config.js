@@ -38,15 +38,6 @@ export default {
     'font-assistant',
     {
       pattern: /font-assistant/,
-    },
-    // RTL utilities
-    'rtl',
-    'ltr', 
-    'text-right',
-    'text-left',
-    'text-center',
-    {
-      pattern: /rtl:(text-right|text-left|text-center|space-x-reverse|mr-\d+|ml-\d+|pr-\d+|pl-\d+)/,
     }
   ],
 } 

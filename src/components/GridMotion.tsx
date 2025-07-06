@@ -56,19 +56,24 @@ const GridMotion: React.FC<GridMotionProps> = ({ items = [], gradientColor = 'wh
                 const content = combinedItems[rowIndex * 7 + itemIndex];
                 const isImagePath = typeof content === 'string' && (content.startsWith('http') || content.startsWith('/') || content.startsWith('src/'));
                 
+                let itemContent;
+                if (isImagePath) {
+                  itemContent = (
+                    <div
+                      className="row__item-img"
+                      style={{
+                        backgroundImage: `url(${content})`,
+                      }}
+                    ></div>
+                  );
+                } else {
+                  itemContent = <div className="row__item-content">{content}</div>;
+                }
+
                 return (
                   <div key={itemIndex} className="row__item">
                     <div className="row__item-inner">
-                      {isImagePath ? (
-                        <div
-                          className="row__item-img"
-                          style={{
-                            backgroundImage: `url(${content})`,
-                          }}
-                        ></div>
-                      ) : (
-                        <div className="row__item-content">{content}</div>
-                      )}
+                      {itemContent}
                     </div>
                   </div>
                 );

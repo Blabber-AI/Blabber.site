@@ -9,7 +9,7 @@ import SEO from '../components/SEO';
 const HomePage: React.FC = () => {
   return (
     <>
-      <SEO
+      <SEO 
         title="Blabber - AI-Powered Language Learning"
         description="Transform your classroom with Blabber, the AI platform for practicing and mastering new languages."
         canonical="https://blabber.site/"

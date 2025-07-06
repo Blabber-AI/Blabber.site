@@ -106,10 +106,10 @@ const SupportPage: React.FC = () => {
               </div>
             </motion.div>
             
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight">
               {t('support.title')}
             </h1>
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-white/90 font-light max-w-3xl mx-auto mb-4 md:mb-6 px-4">
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-white/90 max-w-3xl mx-auto mb-4 md:mb-6 px-4">
               {t('support.subtitle')}
             </p>
             
@@ -148,9 +148,9 @@ const SupportPage: React.FC = () => {
             <div className="w-10 md:w-12 h-10 md:h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
               <i className="fas fa-phone text-primary text-base md:text-lg"></i>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">דרכי יצירת קשר מהירות</h2>
+            <h2 className="text-2xl md:text-3xl text-gray-800 mb-3 md:mb-4">{t('support.contact.title')}</h2>
             <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-              צרו איתנו קשר בדרך הנוחה לכם ביותר - אנחנו כאן לעזור
+              {t('support.contact.subtitle')}
             </p>
             <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-3 md:mt-4"></div>
           </motion.div>
@@ -171,10 +171,10 @@ const SupportPage: React.FC = () => {
               <div className="w-10 md:w-12 h-10 md:h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                 <i className="fas fa-phone text-white text-base md:text-lg"></i>
               </div>
-              <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2">תמיכה טלפונית</h3>
-              <p className="text-gray-600 text-sm mb-3">שירות מהיר ואישי בשעות העבודה</p>
-              <a href="tel:+972-50-123-4567" className="text-blue-600 font-semibold hover:text-blue-700 transition-colors text-sm md:text-base">
-                050-123-4567
+              <h3 className="text-base md:text-lg text-gray-800 mb-2">{t('support.contact.phoneTitle')}</h3>
+              <p className="text-gray-600 text-sm mb-3">{t('support.contact.phoneDesc')}</p>
+              <a href="tel:0524278042" className="text-blue-600 hover:text-blue-700 transition-colors text-sm md:text-base">
+                052-427-8042
               </a>
             </motion.div>
 
@@ -185,10 +185,10 @@ const SupportPage: React.FC = () => {
               <div className="w-10 md:w-12 h-10 md:h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                 <i className="fas fa-envelope text-white text-base md:text-lg"></i>
               </div>
-              <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2">תמיכה באימייל</h3>
-              <p className="text-gray-600 text-sm mb-3">מענה מפורט תוך 24 שעות</p>
-              <a href="mailto:support@blabber.site" className="text-purple-600 font-semibold hover:text-purple-700 transition-colors text-sm md:text-base">
-                support@blabber.site
+              <h3 className="text-base md:text-lg text-gray-800 mb-2">{t('support.contact.emailTitle')}</h3>
+              <p className="text-gray-600 text-sm mb-3">{t('support.contact.emailDesc')}</p>
+              <a href="mailto:contact@blabber.site" className="text-purple-600 hover:text-purple-700 transition-colors text-sm md:text-base">
+                contact@blabber.site
               </a>
             </motion.div>
 
@@ -199,10 +199,10 @@ const SupportPage: React.FC = () => {
               <div className="w-10 md:w-12 h-10 md:h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                 <i className="fas fa-comments text-white text-base md:text-lg"></i>
               </div>
-              <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2">צ'אט חי</h3>
-              <p className="text-gray-600 text-sm mb-3">שירות מיידי בשעות העבודה</p>
-              <button className="text-green-600 font-semibold hover:text-green-700 transition-colors text-sm md:text-base">
-                התחל צ'אט
+              <h3 className="text-base md:text-lg text-gray-800 mb-2">{t('support.contact.chatTitle')}</h3>
+              <p className="text-gray-600 text-sm mb-3">{t('support.contact.chatDesc')}</p>
+              <button className="text-green-600 hover:text-green-700 transition-colors text-sm md:text-base">
+                {t('support.contact.chatButton')}
               </button>
             </motion.div>
           </motion.div>
@@ -223,7 +223,7 @@ const SupportPage: React.FC = () => {
             <div className="w-10 md:w-12 h-10 md:h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
               <i className="fas fa-question-circle text-primary text-base md:text-lg"></i>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">{t('support.faq.title')}</h2>
+            <h2 className="text-2xl md:text-3xl text-gray-800 mb-3">{t('support.faq.title')}</h2>
             <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4 md:mb-6 px-4">
               {t('support.faq.subtitle')}
             </p>
@@ -232,7 +232,7 @@ const SupportPage: React.FC = () => {
 
           {/* FAQ Categories - Redesigned for 3 categories */}
           <div className="mb-6 md:mb-8">
-            <h3 className="text-lg md:text-xl font-bold text-gray-800 text-center mb-4 md:mb-6">בחרו נושא</h3>
+            <h3 className="text-lg md:text-xl text-gray-800 text-center mb-4 md:mb-6">{t('support.faq.selectTopic')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
               {faqCategories.map((category) => {
                 const isActive = activeCategory === category.id;
@@ -240,7 +240,7 @@ const SupportPage: React.FC = () => {
                   <motion.button
                     key={category.id}
                     onClick={() => setActiveCategory(category.id)}
-                    className={`p-4 md:p-6 rounded-xl font-semibold transition-all duration-300 border-2 text-center group ${
+                    className={`p-4 md:p-6 rounded-xl transition-all duration-300 border-2 text-center group ${
                       isActive
                         ? `${category.bgColor} border-gray-300 shadow-lg transform scale-105`
                         : 'bg-white border-gray-200 hover:border-gray-300 hover:shadow-md'
@@ -248,11 +248,11 @@ const SupportPage: React.FC = () => {
                     whileHover={{ scale: isActive ? 1.05 : 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div className={`w-12 md:w-16 h-12 md:h-16 ${isActive ? category.iconBg : 'bg-gray-100'} rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform`}>
-                      <i className={`fas ${category.icon} text-lg md:text-xl ${isActive ? category.textColor : 'text-gray-500'}`}></i>
+                    <div className="flex flex-col items-center">
+                      <div className={`w-10 h-10 md:w-12 md:h-12 ${isActive ? category.iconBg : 'bg-gray-100'} rounded-lg flex items-center justify-center mb-3 transition-all duration-300`}>
+                        <i className={`fas ${category.icon} text-base md:text-lg ${isActive ? category.textColor : 'text-gray-500'}`}></i>
                     </div>
-                    <div className={`text-sm md:text-base font-medium ${isActive ? 'text-gray-800' : 'text-gray-600'}`}>
-                      {category.title}
+                      <span className={`text-sm md:text-base transition-colors duration-300 ${isActive ? category.textColor : 'text-gray-700'}`}>{category.title}</span>
                     </div>
                   </motion.button>
                 );
@@ -331,7 +331,7 @@ const SupportPage: React.FC = () => {
       </section>
 
       {/* Contact Form Section - Mobile Responsive */}
-      <section className="py-8 md:py-16 bg-white">
+      <section className="py-8 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-8 md:mb-12"
@@ -340,81 +340,84 @@ const SupportPage: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-10 md:w-12 h-10 md:h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-              <i className="fas fa-paper-plane text-primary text-base md:text-lg"></i>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">עדיין יש שאלות?</h2>
+            <h2 className="text-2xl md:text-3xl text-gray-800 mb-4">{t('support.form.title')}</h2>
             <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-              שלחו לנו הודעה ונחזור אליכם בהקדם האפשרי
+              {t('support.form.subtitle')}
             </p>
-            <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-3 md:mt-4"></div>
           </motion.div>
 
-          <motion.div 
-            className="max-w-2xl mx-auto bg-gradient-to-br from-gray-50 to-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100"
-            variants={fadeInUp}
-            initial="initial"
-            whileInView="animate"
+          <motion.form
+            className="max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-2xl shadow-lg border border-gray-100"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <form className="space-y-4 md:space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+              {/* Full Name */}
                 <div>
-                  <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base">שם מלא</label>
+                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.fullName')}</label>
                   <input 
                     type="text" 
-                    className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                    placeholder="השם המלא שלכם"
+                  placeholder={t('support.form.fullNamePlaceholder')}
+                  className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
                   />
                 </div>
+
+              {/* Email */}
                 <div>
-                  <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base">אימייל</label>
+                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.email')}</label>
                   <input 
                     type="email" 
-                    className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                    placeholder="example@school.edu"
+                  placeholder={t('support.form.emailPlaceholder')}
+                  className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
                   />
                 </div>
               </div>
               
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+              {/* School Name */}
               <div>
-                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base">בית ספר</label>
+                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.schoolName')}</label>
                 <input 
                   type="text" 
-                  className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                  placeholder="שם בית הספר שלכם"
+                  placeholder={t('support.form.schoolNamePlaceholder')}
+                  className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
                 />
               </div>
 
+              {/* Subject */}
               <div>
-                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base">נושא הפנייה</label>
-                <select className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
-                  <option>שאלה כללית</option>
-                  <option>תמיכה טכנית</option>
-                  <option>בעיה במערכת</option>
-                  <option>ניהול חשבון</option>
-                  <option>אחר</option>
+                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right font-assistant">{t('support.form.subject')}</label>
+                <select className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right font-assistant">
+                  <option className="font-assistant">{t('support.form.subjectGeneral')}</option>
+                  <option className="font-assistant">{t('support.form.subjectTechnical')}</option>
+                  <option className="font-assistant">{t('support.form.subjectBilling')}</option>
+                  <option className="font-assistant">{t('support.form.subjectFeedback')}</option>
                 </select>
               </div>
+              </div>
 
-              <div>
-                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base">הודעה</label>
+            {/* Message */}
+            <div className="mb-4 md:mb-6">
+              <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.message')}</label>
                 <textarea 
-                  rows={4}
-                  className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
-                  placeholder="פרטו את שאלתכם או בקשתכם..."
+                rows={6}
+                placeholder={t('support.form.messagePlaceholder')}
+                className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
                 ></textarea>
               </div>
 
+            {/* Submit Button */}
+            <div className="text-center">
               <button 
                 type="submit"
-                className="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 md:py-4 px-6 md:px-8 text-sm md:text-base rounded-lg hover:shadow-lg transition-all transform hover:scale-105 shadow-md border-2 border-transparent hover:border-primary/20"
+                className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-sm md:text-base"
               >
-                <i className="fas fa-paper-plane mr-2 text-white"></i>
-                <span>שלח הודעה</span>
+                {t('support.form.submitButton')}
               </button>
-            </form>
-          </motion.div>
+            </div>
+          </motion.form>
         </div>
       </section>
     </div>

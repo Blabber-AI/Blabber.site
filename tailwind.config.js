@@ -6,6 +6,19 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Assistant', 'sans-serif'],
+        assistant: ['Assistant', 'sans-serif'],
+      },
+      fontWeight: {
+        'extralight': '200',
+        'light': '300',
+        'normal': '400',
+        'medium': '500',
+        'semibold': '600',
+        'bold': '700',
+        'extrabold': '800',
+      },
       colors: {
         primary: '#7b3db1',
         'primary-dark': '#452848',
@@ -21,4 +34,10 @@ export default {
     },
   },
   plugins: [],
+  safelist: [
+    'font-assistant',
+    {
+      pattern: /font-assistant/,
+    }
+  ],
 } 

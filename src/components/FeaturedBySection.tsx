@@ -24,7 +24,7 @@ const FeaturedBySection: React.FC = () => {
 
   return (
     <motion.section
-      className="py-16 sm:py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden"
+      className="py-12 sm:py-16 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -35,7 +35,7 @@ const FeaturedBySection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100" />
       </div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto px-4 text-center relative z-10 font-assistant">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -44,13 +44,13 @@ const FeaturedBySection: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm px-4 py-2 rounded-full mb-4 shadow-lg">
+          <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm px-4 py-2 rounded-full mb-4 shadow-lg font-assistant">
             {t('featured.badge')}
           </span>
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-assistant font-extrabold">
             {t('featured.title')}
           </h3>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-assistant">
             {t('featured.subtitle')}
           </p>
         </motion.div>
@@ -90,7 +90,7 @@ const FeaturedBySection: React.FC = () => {
                 </div>
                 
                 <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block">
-                  <p className="text-sm font-medium text-gray-600 whitespace-nowrap">
+                  <p className="text-sm font-medium text-gray-600 whitespace-nowrap font-assistant">
                     {logo.name}
                   </p>
                 </div>

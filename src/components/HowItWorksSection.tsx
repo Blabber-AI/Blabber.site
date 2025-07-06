@@ -4,6 +4,7 @@ import { useLanguage } from '../hooks/useLanguage';
 import hiw1 from '../assets/HIW1.png';
 import hiw2 from '../assets/HIW2.png';
 import hiw3 from '../assets/HIW3.png';
+import { Link } from 'react-scroll';
 
 const HowItWorksSection: React.FC = () => {
   const { t, isRTL } = useLanguage();
@@ -65,35 +66,35 @@ const HowItWorksSection: React.FC = () => {
   ];
   
   return (
-    <section id="how-it-works" className={`py-16 sm:py-24 bg-white ${isRTL ? 'rtl' : 'ltr'}`}>
+    <section id="how-it-works" className={`py-12 sm:py-16 bg-white ${isRTL ? 'rtl' : 'ltr'}`}>
       {/* Clean Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-0 w-72 h-72 bg-blue-500/3 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-0 w-96 h-96 bg-purple-500/3 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 font-assistant">
         {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }} 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto mb-12 md:mb-20"
-        >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-gray-700 text-sm font-medium mb-4 md:mb-6">
+          >
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-gray-700 text-sm mb-4 md:mb-6 font-assistant">
             <div className="w-2 h-2 bg-gray-500 rounded-full mr-2"></div>
-            {t('hiw.badge')}
+              {t('hiw.badge')}
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
-            {t('hiw.title')}
-          </h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4 md:mb-6 font-assistant font-extrabold">
+              {t('hiw.title')}
+            </h2>
           
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-            {t('hiw.subtitle')}
-          </p>
-        </motion.div>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed font-assistant">
+              {t('hiw.subtitle')}
+            </p>
+          </motion.div>
 
         {/* Steps Grid */}
         <div className="max-w-7xl mx-auto">
@@ -111,44 +112,42 @@ const HowItWorksSection: React.FC = () => {
                 <div className="relative bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col">
                   {/* Number Badge */}
                   <div className="absolute top-4 right-4 md:top-6 md:right-6 z-20">
-                    <div className={`w-10 h-10 md:w-12 md:h-12 ${step.numberBg} rounded-full flex items-center justify-center text-white font-bold text-base md:text-lg shadow-lg`}>
+                    <div className={`w-10 h-10 md:w-12 md:h-12 ${step.numberBg} rounded-full flex items-center justify-center text-white text-base md:text-lg shadow-lg`}>
                       {step.number}
                     </div>
-                  </div>
+                            </div>
 
                   {/* Visual Section */}
-                  <div className={`bg-gradient-to-br ${step.bgColor} p-6 relative`}>
+                  <div className={`bg-gradient-to-br ${step.bgColor} p-6 relative flex flex-col items-center justify-center`}>
                     {/* Icon */}
                     <div className={`w-14 h-14 md:w-16 md:h-16 bg-white rounded-xl flex items-center justify-center ${step.iconColor} shadow-lg mb-4`}>
                       {icons[index]}
                     </div>
 
                     {/* Mobile Image */}
-                    <div className="flex justify-center mt-4">
-                      <div className="w-32 h-44 sm:w-36 sm:h-48 md:w-40 md:h-56 bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100">
-                        <img 
-                          src={step.img} 
-                          alt={step.title} 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
+                    <div className="flex justify-center items-center mt-4 h-56">
+                              <img 
+                                src={step.img} 
+                                alt={step.title} 
+                        className="w-auto h-full object-contain"
+                              />
                     </div>
-                  </div>
-
+                        </div>
+                        
                   {/* Content Section */}
                   <div className="p-6 flex-grow">
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-xl md:text-2xl text-gray-900 mb-4 font-assistant font-bold">
                       {step.title}
                     </h3>
                     
                     <div className="space-y-3">
-                      {step.description.map((desc, i) => (
-                        <p key={i} className="text-gray-600 leading-relaxed text-sm md:text-base">
+                        {step.description.map((desc, i) => (
+                        <p key={i} className="text-gray-600 leading-relaxed text-base md:text-lg font-assistant">
                           {desc}
                         </p>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
                   {/* Bottom Accent */}
                   <div className={`h-1 bg-gradient-to-r ${step.bgColor}`}></div>
@@ -174,12 +173,18 @@ const HowItWorksSection: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12 md:mt-20"
         >
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-gray-200">
-            <span className="text-gray-700 font-medium text-base">Ready to transform your classroom?</span>
+          <Link 
+            to="contact" 
+            smooth={true} 
+            duration={800} 
+            offset={-80} 
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+          >
+            <span className="text-gray-700 text-base font-assistant">Ready to transform your classroom?</span>
             <svg className="w-5 h-5 ml-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </div>
+          </Link>
         </motion.div>
       </div>
     </section>

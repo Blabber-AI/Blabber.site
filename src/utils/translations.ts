@@ -67,8 +67,8 @@ export const translations: Translations = {
 
   // Contact Section
   'contact.badge': { he: 'בואו נתחיל יחד', en: "Let's Start Together" },
-  'contact.mainTitle1': { he: 'גלו איך Blabber יכול', en: 'Discover How Blabber Can' },
-  'contact.mainTitle2': { he: 'לשנות את בית הספר שלכם', en: 'Transform Your School' },
+  'contact.mainTitle1': { he: 'רוצים לדבר? קבעו שיחת וידאו עם יועץ', en: 'Want to talk? Schedule a video call with a consultant' },
+  'contact.mainTitle2': { he: '', en: '' },
   'contact.subtitle': { he: 'מלאו את הפרטים ונחזור אליכם תוך 24 שעות', en: 'Fill in the details and we\'ll get back to you within 24 hours' },
   'contact.feature1.title': { he: 'שיעורים מותאמים אישית', en: 'AI-Customized Lessons' },
   'contact.feature1.desc': { he: 'הבינה המלאכותית שלנו מתאימה את עצמה לקצב של כל תלמיד ויוצרת תרגילים אישיים לשיפור ההגייה והשטף.', en: 'Our AI adapts to each student\'s pace, creating personalized exercises for pronunciation and fluency.' },
@@ -85,7 +85,7 @@ export const translations: Translations = {
   'contact.phone': { he: 'מספר טלפון', en: 'Phone Number' },
   'contact.phonePlaceholder': { he: '05X-XXX-XXXX', en: '05X-XXX-XXXX' },
   'contact.message': { he: 'הודעה', en: 'Message' },
-  'contact.messagePlaceholder': { he: 'כתבו כאן את הודעתכם או שאלותיכם...', en: 'Write your message or questions here...' },
+  'contact.messagePlaceholder': { he: '(אופציונלי)', en: '(Optional)' },
   'contact.submitButton': { he: 'שליחת בקשה להדגמה', en: 'Send Demo Request' },
   'contact.submitting': { he: 'שולח...', en: 'Sending...' },
   'contact.successTitle': { he: 'ההודעה נשלחה בהצלחה!', en: 'Message Sent Successfully!' },
@@ -103,8 +103,8 @@ export const translations: Translations = {
   'footer.downloadApp': { he: 'הורדת האפליקציה', en: 'Download the App' },
   'footer.appDescription': { he: 'הורידו את האפליקציה שלנו לניהול נוח יותר', en: 'Download our app for more convenient management' },
   'footer.downloadFrom': { he: 'הורדה מ', en: 'Download from' },
-  'footer.newsletter': { he: 'הישארו מעודכנים', en: 'Stay Updated' },
-  'footer.newsletterDesc': { he: 'קבלו עדכונים על תכונות חדשות וטיפים לשיפור הוראת האנגלית', en: 'Get updates on new features and tips for improving English teaching' },
+  'footer.newsletterTitle': { he: 'הישארו מעודכנים', en: 'Stay Updated' },
+  'footer.newsletterDescription': { he: 'קבלו עדכונים על תכונות חדשות וטיפים לשיפור הוראת האנגלית', en: 'Get updates on new features and tips for improving English teaching' },
   'footer.emailPlaceholder': { he: 'כתובת האימייל שלכם', en: 'Your email address' },
   'footer.subscribe': { he: 'הרשמה', en: 'Subscribe' },
   'footer.rights': { he: 'כל הזכויות שמורות', en: 'All rights reserved' },
@@ -147,6 +147,8 @@ export const translations: Translations = {
   'support.faq.categories.implementation': { he: 'יישום והתחלה', en: 'Implementation & Getting Started' },
   'support.faq.categories.support': { he: 'תמיכה ותשלומים', en: 'Support & Payments' },
 
+  'support.faq.selectTopic': { he: 'בחרו נושא', en: 'Select a Topic' },
+
   // General Information FAQ
   'support.faq.basics.q1': { he: 'מה זה Blabber ואיך זה עובד?', en: 'What is Blabber and how does it work?' },
   'support.faq.basics.a1': { he: 'Blabber הוא מורה דיגיטלי מונע בינה מלאכותית ללמידת אנגלית. התלמידים מתרגלים דיבור, האזנה ואוצר מילים דרך אינטראקציות טבעיות ומקבלים משוב מיידי להגייה ודקדוק. המערכת מותאמת אישית לכל תלמיד ומשתלבת בתוכנית הלימודים של משרד החינוך.', en: 'Blabber is an AI-powered digital teacher for English learning. Students practice speaking, listening, and vocabulary through natural interactions and receive instant feedback on pronunciation and grammar. The system is personalized for each student and integrates with the Education Ministry curriculum.' },
@@ -178,7 +180,7 @@ export const translations: Translations = {
   'support.faq.support.a1': { he: 'התמחור מבוסס על מספר התלמידים הרשומים במערכת עם הנחות לבתי ספר גדולים יותר. התשלום מתבצע דרך מערכת "גפן" המוכרת לבתי הספר. המחיר כולל: גישה מלאה לכל התכנים, ממשק מורים מתקדם, דוחות התקדמות, תמיכה טכנית רציפה ועדכונים אוטומטיים.', en: 'Pricing is based on the number of registered students with discounts for larger schools. Payment is made through the "Gefen" system familiar to schools. The price includes: full access to all content, advanced teacher interface, progress reports, continuous technical support, and automatic updates.' },
   
   'support.faq.support.q2': { he: 'איך מקבלים תמיכה טכנית?', en: 'How do I get technical support?' },
-  'support.faq.support.a2': { he: 'אנחנו מספקים מספר ערוצי תמיכה: צ\'אט חי באתר בשעות העבודה, תמיכה טלפונית ייעודית לבתי ספר, מענה למייל תוך 24 שעות, מדריכים מפורטים באתר ווידאו הדרכה. יש לנו גם נציג תמיכה ייעודי לכל בית ספר.', en: 'We provide multiple support channels: live chat on the website during business hours, dedicated phone support for schools, email response within 24 hours, detailed guides on the site and training videos. We also have a dedicated support representative for each school.' },
+  'support.faq.support.a2': { he: 'אנחנו מספקים מספר ערוצי תמיכה: צ\'אט חי באתר בשעות העבודה, תמיכה טלפונית ייעודית לבתי ספר, מענה למייל תוך 24 שעות, מדריכים מפורטים באתר ווידאו הדרכה. יש לנו גם נציג תמיכה ייעודי לכל בית ספר.', en: 'We provide multiple support channels: live chat on the website during business hours, dedicated phone support for schools, email response within 24 hours, detailed guides on the site and training videos. We have a dedicated support representative for each school.' },
 
   'support.faq.support.q3': { he: 'מה קורה אם יש בעיה טכנית?', en: 'What happens if there\'s a technical problem?' },
   'support.faq.support.a3': { he: 'ברוב המקרים בעיות טכניות נפתרות בצעדים פשוטים: הפעלה מחדש של הדפדפן, בדיקת חיבור אינטרנט, ועדכון הרשאות (מיקרופון/מצלמה). אם הבעיה מורכבת יותר, צוות התמיכה שלנו זמין לסיוע מיידי וניתן לפתור רוב הבעיות מרחוק.', en: 'Most technical issues are resolved with simple steps: restarting the browser, checking internet connection, and updating permissions (microphone/camera). If the problem is more complex, our support team is available for immediate assistance and most issues can be resolved remotely.' },
@@ -188,6 +190,35 @@ export const translations: Translations = {
 
   'support.faq.support.q5': { he: 'יש אפשרות לתקופת ניסיון?', en: 'Is there a trial period available?' },
   'support.faq.support.a5': { he: 'כן! אנחנו מציעים תקופת פיילוט של חודש אחד לכל בית ספר החדש. במהלך התקופה ניתן לבחון את המערכת עם קבוצה מצומצמת של תלמידים, לבדוק את התאמת התוכן ולהעריך את התוצאות. התקופה כוללת תמיכה מלאה והכשרת מורים.', en: 'Yes! We offer a one-month pilot period for every new school. During this period you can test the system with a limited group of students, check content compatibility, and evaluate results. The period includes full support and teacher training.' },
+
+  // Support Page Contact Methods
+  'support.contact.title': { he: 'דרכי יצירת קשר מהירות', en: 'Quick Contact Methods' },
+  'support.contact.subtitle': { he: 'צרו איתנו קשר בדרך הנוחה לכם ביותר - אנחנו כאן לעזור', en: 'Contact us in the way that is most convenient for you - we are here to help' },
+  'support.contact.phoneTitle': { he: 'תמיכה טלפונית', en: 'Phone Support' },
+  'support.contact.phoneDesc': { he: 'שירות מהיר ואישי בשעות העבודה', en: 'Fast and personal service during business hours' },
+  'support.contact.emailTitle': { he: 'תמיכה באימייל', en: 'Email Support' },
+  'support.contact.emailDesc': { he: 'מענה מפורט תוך 24 שעות', en: 'Detailed response within 24 hours' },
+  'support.contact.chatTitle': { he: 'צ\'אט חי', en: 'Live Chat' },
+  'support.contact.chatDesc': { he: 'שירות מיידי בשעות העבודה', en: 'Immediate service during business hours' },
+  'support.contact.chatButton': { he: 'התחל צ\'אט', en: 'Start Chat' },
+
+  // Support Page Form
+  'support.form.title': { he: 'עדיין יש שאלות?', en: 'Still have questions?' },
+  'support.form.subtitle': { he: 'שלחו לנו הודעה ונציג שלנו יחזור אליכם בהקדם האפשרי.', en: 'Send us a message and a representative will get back to you as soon as possible.' },
+  'support.form.fullName': { he: 'שם מלא', en: 'Full Name' },
+  'support.form.fullNamePlaceholder': { he: 'השם המלא שלכם', en: 'Your full name' },
+  'support.form.email': { he: 'אימייל', en: 'Email' },
+  'support.form.emailPlaceholder': { he: 'example@school.edu', en: 'example@school.edu' },
+  'support.form.schoolName': { he: 'בית ספר', en: 'School' },
+  'support.form.schoolNamePlaceholder': { he: 'שם בית הספר שלכם', en: 'Your school\'s name' },
+  'support.form.subject': { he: 'נושא הפנייה', en: 'Subject' },
+  'support.form.subjectGeneral': { he: 'שאלה כללית', en: 'General Question' },
+  'support.form.subjectTechnical': { he: 'תמיכה טכנית', en: 'Technical Support' },
+  'support.form.subjectBilling': { he: 'חיובים ותשלומים', en: 'Billing and Payments' },
+  'support.form.subjectFeedback': { he: 'משוב והצעות', en: 'Feedback and Suggestions' },
+  'support.form.message': { he: 'הודעה', en: 'Message' },
+  'support.form.messagePlaceholder': { he: 'פרטו כאן את שאלתכם...', en: 'Detail your question here...' },
+  'support.form.submitButton': { he: 'שלח הודעה', en: 'Send Message' },
 
   // Privacy Page
   'privacy.title': { he: 'מדיניות פרטיות', en: 'Privacy Policy' },
@@ -232,33 +263,4 @@ export const translations: Translations = {
   'about.technology.analytics.description': { he: 'מעקב מפורט אחר התקדמות וביצועים', en: 'Detailed progress and performance tracking' },
   'about.technology.accessibility.title': { he: 'נגישות מלאה', en: 'Full Accessibility' },
   'about.technology.accessibility.description': { he: 'מותאם לכל סוגי הלומדים ויכולות שונות', en: 'Adapted for all types of learners and different abilities' },
-
-  // Privacy Page
-  'privacy.title': { he: 'מדיניות פרטיות', en: 'Privacy Policy' },
-  'privacy.lastUpdated': { he: 'עודכן לאחרונה', en: 'Last updated' },
-  'privacy.dataCollection.title': { he: 'איסוף מידע', en: 'Data Collection' },
-  'privacy.dataUsage.title': { he: 'שימוש במידע', en: 'Data Usage' },
-  'privacy.dataSecurity.title': { he: 'אבטחת מידע', en: 'Data Security' },
-
-  // Common
-  'common.loading': { he: 'טוען...', en: 'Loading...' },
-  'common.error': { he: 'שגיאה', en: 'Error' },
-  'common.success': { he: 'הצלחה', en: 'Success' },
-  'common.required': { he: 'שדה חובה', en: 'This field is required' },
-  'common.emailRequired': { he: 'כתובת אימייל נדרשת', en: 'Email address required' },
-  'common.emailInvalid': { he: 'כתובת אימייל לא תקינה', en: 'Invalid email address' },
-  'common.phoneRequired': { he: 'מספר טלפון נדרש', en: 'Phone number required' },
-  'common.phoneInvalid': { he: 'מספר טלפון לא תקין', en: 'Invalid phone number' },
-  'common.back': { he: 'חזור', en: 'Back' },
-  'common.next': { he: 'הבא', en: 'Next' },
-  'common.previous': { he: 'הקודם', en: 'Previous' },
-  'common.close': { he: 'סגור', en: 'Close' },
-  'common.readMore': { he: 'קרא עוד', en: 'Read More' },
-  'common.learnMore': { he: 'למד עוד', en: 'Learn More' },
-  'common.optional': { he: 'אופציונלי', en: 'Optional' },
-  'common.cancel': { he: 'ביטול', en: 'Cancel' },
-  'common.save': { he: 'שמור', en: 'Save' },
-  'common.edit': { he: 'ערוך', en: 'Edit' },
-  'common.delete': { he: 'מחק', en: 'Delete' },
-  'common.confirm': { he: 'אשר', en: 'Confirm' },
 }; 

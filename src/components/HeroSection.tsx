@@ -10,13 +10,13 @@ const gridItems = Array.from({ length: 28 }, (_, i) => {
 });
 
 const HeroSection: React.FC = () => {
-    const { t } = useLanguage();
+    const { t, isRTL } = useLanguage();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
         <section 
             id="hero" 
-            className="relative flex items-center justify-center bg-slate-50 overflow-hidden min-h-[60vh] md:py-40 font-assistant"
+            className={`relative flex items-center justify-center bg-slate-50 overflow-hidden min-h-[60vh] md:py-40 font-assistant ${isRTL ? 'rtl' : 'ltr'}`}
         >
             {/* Background Animation */}
             <div className="absolute inset-0 z-0 opacity-40">
@@ -27,13 +27,13 @@ const HeroSection: React.FC = () => {
             <div className="relative z-10 flex flex-col items-center justify-center text-center p-4">
                 <div className="bg-white/30 backdrop-blur-xl rounded-2xl sm:rounded-[3rem] border border-white/40 shadow-2xl p-6 sm:p-12 md:p-16 text-center w-full max-w-lg sm:max-w-5xl">
                     <h1 
-                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 text-slate-800 font-assistant font-extrabold"
+                        className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 text-slate-800 font-assistant font-extrabold ${isRTL ? 'rtl:text-right' : 'text-center'}`}
                         style={{ textShadow: '0 2px 10px rgba(0,0,0,0.1)' }}
               >
                 {t('hero.title')}
                     </h1>
                     <p 
-                        className="text-base sm:text-lg lg:text-xl text-slate-600 mb-8 sm:mb-10 max-w-3xl mx-auto font-assistant"
+                        className={`text-base sm:text-lg lg:text-xl text-slate-600 mb-8 sm:mb-10 max-w-3xl mx-auto font-assistant ${isRTL ? 'rtl:text-right' : 'text-center'}`}
               >
                 {t('hero.subtitle')}
                     </p>

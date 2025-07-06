@@ -73,28 +73,28 @@ const HowItWorksSection: React.FC = () => {
         <div className="absolute bottom-20 right-0 w-96 h-96 bg-purple-500/3 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 font-assistant">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 font-sans">
         {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }} 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto mb-12 md:mb-20"
-        >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-gray-700 text-sm mb-4 md:mb-6 font-assistant">
+          >
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-gray-700 text-sm mb-4 md:mb-6 font-sans">
             <div className="w-2 h-2 bg-gray-500 rounded-full mr-2"></div>
-            {t('hiw.badge')}
+              {t('hiw.badge')}
           </div>
           
-          <h2 className={`text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4 md:mb-6 font-assistant font-extrabold text-center ${isRTL ? 'direction-rtl' : 'direction-ltr'}`}>
-            {t('hiw.title')}
-          </h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4 md:mb-6 font-sans font-extrabold">
+              {t('hiw.title')}
+            </h2>
           
-          <p className={`text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed font-assistant text-center ${isRTL ? 'direction-rtl' : 'direction-ltr'}`}>
-            {t('hiw.subtitle')}
-          </p>
-        </motion.div>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed font-sans">
+              {t('hiw.subtitle')}
+            </p>
+          </motion.div>
 
         {/* Steps Grid */}
         <div className="max-w-7xl mx-auto">
@@ -111,11 +111,11 @@ const HowItWorksSection: React.FC = () => {
                 {/* Card Container */}
                 <div className="relative bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col">
                   {/* Number Badge */}
-                  <div className={`absolute top-4 ${isRTL ? 'left-4 md:left-6' : 'right-4 md:right-6'} z-20`}>
+                  <div className="absolute top-4 right-4 md:top-6 md:right-6 z-20">
                     <div className={`w-10 h-10 md:w-12 md:h-12 ${step.numberBg} rounded-full flex items-center justify-center text-white text-base md:text-lg shadow-lg`}>
                       {step.number}
                     </div>
-                  </div>
+                            </div>
 
                   {/* Visual Section */}
                   <div className={`bg-gradient-to-br ${step.bgColor} p-6 relative flex flex-col items-center justify-center`}>
@@ -126,28 +126,28 @@ const HowItWorksSection: React.FC = () => {
 
                     {/* Mobile Image */}
                     <div className="flex justify-center items-center mt-4 h-56">
-                      <img 
-                        src={step.img} 
-                        alt={step.title} 
+                              <img 
+                                src={step.img} 
+                                alt={step.title} 
                         className="w-auto h-full object-contain"
-                      />
+                              />
                     </div>
-                  </div>
+                        </div>
                         
                   {/* Content Section */}
-                  <div className="p-6 flex-grow text-center">
-                    <h3 className={`text-xl md:text-2xl text-gray-900 mb-4 font-assistant font-bold text-center ${isRTL ? 'direction-rtl' : 'direction-ltr'}`}>
+                  <div className="p-6 flex-grow">
+                    <h3 className="text-xl md:text-2xl text-gray-900 mb-4 font-sans font-bold">
                       {step.title}
                     </h3>
                     
                     <div className="space-y-3">
-                      {step.description.map((desc, i) => (
-                        <p key={i} className={`text-gray-600 leading-relaxed text-base md:text-lg font-assistant text-center ${isRTL ? 'direction-rtl' : 'direction-ltr'}`}>
+                        {step.description.map((desc, i) => (
+                        <p key={i} className="text-gray-600 leading-relaxed text-base md:text-lg font-sans">
                           {desc}
                         </p>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
                   {/* Bottom Accent */}
                   <div className={`h-1 bg-gradient-to-r ${step.bgColor}`}></div>
@@ -155,9 +155,9 @@ const HowItWorksSection: React.FC = () => {
 
                 {/* Connection Line (Desktop only) */}
                 {index < steps.length - 1 && (
-                  <div className={`hidden lg:block absolute top-1/2 ${isRTL ? '-left-4' : '-right-4'} transform -translate-y-1/2 z-10`}>
+                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
                     <div className="w-8 h-0.5 bg-gray-200"></div>
-                    <div className={`w-3 h-3 bg-gray-300 rounded-full absolute ${isRTL ? 'left-0 -translate-x-1/2' : 'right-0 translate-x-1/2'} top-1/2 transform -translate-y-1/2`}></div>
+                    <div className={`w-3 h-3 bg-gray-300 rounded-full absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2`}></div>
                   </div>
                 )}
               </motion.div>
@@ -178,10 +178,10 @@ const HowItWorksSection: React.FC = () => {
             smooth={true} 
             duration={800} 
             offset={-80} 
-            className={`inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow ${isRTL ? 'flex-row-reverse' : ''}`}
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
           >
-            <span className={`text-gray-700 text-base font-assistant ${isRTL ? 'direction-rtl' : 'direction-ltr'}`}>Ready to transform your classroom?</span>
-            <svg className={`w-5 h-5 ${isRTL ? 'mr-2 rotate-180' : 'ml-2'} text-blue-600`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span className="text-gray-700 text-base font-sans">Ready to transform your classroom?</span>
+            <svg className="w-5 h-5 ml-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>

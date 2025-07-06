@@ -163,8 +163,8 @@ const CallToActionSection: React.FC = () => {
                   </div>
                   </div>
                   <div>
-                                          <h4 className="text-lg text-white mb-1 font-assistant font-bold">{t('contact.feature1.title')}</h4>
-                      <p className="text-indigo-200 text-sm leading-relaxed font-assistant">{t('contact.feature1.desc')}</p>
+                                          <h4 className="text-lg text-white mb-1 font-sans font-bold">{t('contact.feature1.title')}</h4>
+                      <p className="text-indigo-200 text-sm leading-relaxed font-sans">{t('contact.feature1.desc')}</p>
                 </div>
               </motion.div>
               <motion.div
@@ -180,8 +180,8 @@ const CallToActionSection: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                                          <h4 className="text-lg text-white mb-1 font-assistant font-bold">{t('contact.feature2.title')}</h4>
-                      <p className="text-indigo-200 text-sm leading-relaxed font-assistant">{t('contact.feature2.desc')}</p>
+                                          <h4 className="text-lg text-white mb-1 font-sans font-bold">{t('contact.feature2.title')}</h4>
+                      <p className="text-indigo-200 text-sm leading-relaxed font-sans">{t('contact.feature2.desc')}</p>
                     </div>
                 </motion.div>
                 <motion.div 
@@ -197,8 +197,8 @@ const CallToActionSection: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                                          <h4 className="text-lg text-white mb-1 font-assistant font-bold">{t('contact.feature3.title')}</h4>
-                      <p className="text-indigo-200 text-sm leading-relaxed font-assistant">{t('contact.feature3.desc')}</p>
+                                          <h4 className="text-lg text-white mb-1 font-sans font-bold">{t('contact.feature3.title')}</h4>
+                      <p className="text-indigo-200 text-sm leading-relaxed font-sans">{t('contact.feature3.desc')}</p>
                 </div>
               </motion.div>
               </div>

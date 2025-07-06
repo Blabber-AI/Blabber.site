@@ -8,7 +8,6 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Assistant', 'sans-serif'],
-        assistant: ['Assistant', 'sans-serif'],
       },
       fontWeight: {
         'extralight': '200',
@@ -34,10 +33,4 @@ export default {
     },
   },
   plugins: [],
-  safelist: [
-    'font-assistant',
-    {
-      pattern: /font-assistant/,
-    }
-  ],
 } 

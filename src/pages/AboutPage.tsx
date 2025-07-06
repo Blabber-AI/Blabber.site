@@ -55,10 +55,10 @@ const AboutPage: React.FC = () => {
               </div>
             </motion.div>
             
-            <h1 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight font-assistant font-extrabold">
+            <h1 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight font-sans font-extrabold">
               {t('about.title')}
             </h1>
-            <p className="text-lg md:text-xl leading-relaxed text-white/90 max-w-3xl mx-auto mb-6 font-assistant">
+            <p className="text-lg md:text-xl leading-relaxed text-white/90 max-w-3xl mx-auto mb-6 font-sans">
               {t('about.subtitle')}
             </p>
             
@@ -101,8 +101,8 @@ const AboutPage: React.FC = () => {
               <div className="w-12 h-12 bg-gradient-to-r from-primary to-purple-600 rounded-lg flex items-center justify-center mb-4">
                 <i className="fas fa-bullseye text-white text-lg"></i>
               </div>
-              <h2 className="text-2xl text-gray-800 mb-3 font-assistant font-bold">{t('about.mission.title')}</h2>
-              <p className="text-gray-600 leading-relaxed font-assistant">
+              <h2 className="text-2xl text-gray-800 mb-3 font-sans font-bold">{t('about.mission.title')}</h2>
+              <p className="text-gray-600 leading-relaxed font-sans">
                 {t('about.mission.description')}
               </p>
             </motion.div>
@@ -114,8 +114,8 @@ const AboutPage: React.FC = () => {
               <div className="w-12 h-12 bg-gradient-to-r from-secondary to-blue-600 rounded-lg flex items-center justify-center mb-4">
                 <i className="fas fa-eye text-white text-lg"></i>
               </div>
-              <h2 className="text-2xl text-gray-800 mb-3 font-assistant font-bold">{t('about.vision.title')}</h2>
-              <p className="text-gray-600 leading-relaxed font-assistant">
+              <h2 className="text-2xl text-gray-800 mb-3 font-sans font-bold">{t('about.vision.title')}</h2>
+              <p className="text-gray-600 leading-relaxed font-sans">
                 {t('about.vision.description')}
               </p>
             </motion.div>
@@ -181,8 +181,8 @@ const AboutPage: React.FC = () => {
             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <i className="fas fa-cogs text-primary text-lg"></i>
             </div>
-            <h2 className="text-3xl text-gray-800 mb-4 font-assistant font-extrabold">{t('about.technology.title')}</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-assistant">
+            <h2 className="text-3xl text-gray-800 mb-4 font-sans font-extrabold">{t('about.technology.title')}</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans">
               {t('about.technology.subtitle')}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4"></div>
@@ -229,8 +229,8 @@ const AboutPage: React.FC = () => {
                 <div className={`w-12 h-12 bg-gradient-to-r ${tech.color} rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform`}>
                   <i className={`fas ${tech.icon} text-white text-lg`}></i>
                 </div>
-                <h3 className="text-lg text-gray-800 mb-2 font-assistant font-bold">{tech.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed font-assistant">{tech.description}</p>
+                <h3 className="text-lg text-gray-800 mb-2 font-sans font-bold">{tech.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed font-sans">{tech.description}</p>
               </motion.div>
             ))}
           </motion.div>

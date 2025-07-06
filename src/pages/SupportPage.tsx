@@ -388,12 +388,12 @@ const SupportPage: React.FC = () => {
 
               {/* Subject */}
               <div>
-                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right font-assistant">{t('support.form.subject')}</label>
-                <select className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right font-assistant">
-                  <option className="font-assistant">{t('support.form.subjectGeneral')}</option>
-                  <option className="font-assistant">{t('support.form.subjectTechnical')}</option>
-                  <option className="font-assistant">{t('support.form.subjectBilling')}</option>
-                  <option className="font-assistant">{t('support.form.subjectFeedback')}</option>
+                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right font-sans">{t('support.form.subject')}</label>
+                <select className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right font-sans">
+                  <option className="font-sans">{t('support.form.subjectGeneral')}</option>
+                  <option className="font-sans">{t('support.form.subjectTechnical')}</option>
+                  <option className="font-sans">{t('support.form.subjectBilling')}</option>
+                  <option className="font-sans">{t('support.form.subjectFeedback')}</option>
                 </select>
               </div>
               </div>

@@ -1,0 +1,34 @@
+/* Font styles */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Reset all font families */
+html {
+  font-family: 'Rubik', sans-serif !important;
+}
+
+body {
+  font-family: 'Rubik', sans-serif !important;
+}
+
+/* Apply Rubik to all elements except icons */
+*:not(.fas):not(.far):not(.fal):not(.fad):not(.fab):not(i),
+*:not(.fas):not(.far):not(.fal):not(.fad):not(.fab):not(i)::before,
+*:not(.fas):not(.far):not(.fal):not(.fad):not(.fab):not(i)::after {
+  font-family: 'Rubik', sans-serif !important;
+}
+
+/* Target specific elements */
+h1, h2, h3, h4, h5, h6, 
+p, span:not(.fas):not(.far):not(.fal):not(.fad):not(.fab), 
+div:not(.fas):not(.far):not(.fal):not(.fad):not(.fab), 
+a:not(.fas):not(.far):not(.fal):not(.fad):not(.fab), 
+button:not(.fas):not(.far):not(.fal):not(.fad):not(.fab), 
+input, textarea, label, 
+li, ul, ol, table, tr, td, th {
+  font-family: 'Rubik', sans-serif !important;
+}
+
+/* Override Tailwind's font-sans utility */
+.font-sans:not(.fas):not(.far):not(.fal):not(.fad):not(.fab):not(i) {
+  font-family: 'Rubik', sans-serif !important;
+} 

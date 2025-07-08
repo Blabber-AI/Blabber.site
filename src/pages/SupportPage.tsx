@@ -111,9 +111,6 @@ const SupportPage: React.FC = () => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight">
               {t('support.title')}
             </h1>
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-white/90 max-w-3xl mx-auto mb-4 md:mb-6 px-4">
-              {t('support.subtitle')}
-            </p>
             
             {/* Floating Action Dots */}
             <div className="flex items-center justify-center gap-3 md:gap-4 mt-6 md:mt-8">

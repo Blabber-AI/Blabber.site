@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 * {
-  font-family: 'Assistant', sans-serif;
+  font-family: 'Rubik', sans-serif !important;
 }
 
 body {
@@ -14,10 +14,12 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   @apply font-sans font-extrabold;
+  font-family: 'Rubik', sans-serif !important;
 }
 
 p, span, div, a, button, input, textarea, label {
   @apply font-sans;
+  font-family: 'Rubik', sans-serif !important;
 }
 
 /* Smooth language transition styles */

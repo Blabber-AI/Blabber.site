@@ -1,0 +1,38 @@
+/* Icon styles */
+
+/* Reset Font Awesome icons to use their own font family */
+.fas,
+.far,
+.fal,
+.fad,
+.fab {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+}
+
+.fas {
+  font-weight: 900 !important;
+}
+
+.far {
+  font-weight: 400 !important;
+}
+
+.fab {
+  font-family: "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
+}
+
+/* Ensure icons have proper sizing */
+i.fas, i.far, i.fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fix specific icon alignment issues */
+.btn i, 
+.nav-link i,
+.card i {
+  vertical-align: middle;
+  line-height: inherit;
+} 

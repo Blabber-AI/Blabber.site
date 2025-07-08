@@ -19,12 +19,9 @@ const FeaturedBySection: React.FC = () => {
     { src: yatzivLogo, alt: 'Yatziv Logo', name: 'בית יציב' },
   ];
 
-  // Duplicate logos for seamless loop - increased duplication
-  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
-
   return (
     <motion.section
-      className="py-12 sm:py-16 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden"
+      className="py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -38,65 +35,47 @@ const FeaturedBySection: React.FC = () => {
       <div className="container mx-auto px-4 text-center relative z-10 font-sans">
         {/* Title */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
+          transition={{ duration: 0.5 }}
+          className="mb-8"
         >
-          <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm px-4 py-2 rounded-full mb-4 shadow-lg font-sans">
+          <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-xs px-3 py-1 rounded-full mb-3 shadow-md font-sans">
             {t('featured.badge')}
           </span>
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-sans font-extrabold">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-800 font-sans font-extrabold">
             {t('featured.title')}
           </h3>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-sans">
-            {t('featured.subtitle')}
-          </p>
         </motion.div>
 
-        {/* Moving Carousel */}
-        <div className="relative overflow-hidden py-4">
-          {/* Gradient Fade Edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
-          
-          {/* Moving Container */}
-          <motion.div
-            className="flex items-center space-x-10 md:space-x-16"
-            animate={{ x: [0, -100 * logos.length] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 25,
-                ease: "linear",
-              },
-            }}
-            style={{ width: `${100 * duplicatedLogos.length}%` }}
-          >
-            {duplicatedLogos.map((logo, index) => (
-              <motion.div
-                key={`${logo.alt}-${index}`}
-                className="group flex-shrink-0 flex flex-col items-center"
-                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-              >
-                <div className="bg-white rounded-2xl p-4 md:p-5 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 group-hover:border-blue-200">
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="h-10 sm:h-12 md:h-14 w-auto mx-auto filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
-                
-                <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block">
-                  <p className="text-sm font-medium text-gray-600 whitespace-nowrap font-sans">
-                    {logo.name}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+        {/* Static Logos Grid */}
+        <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-10 max-w-5xl mx-auto overflow-x-auto pb-4">
+          {logos.map((logo, index) => (
+            <motion.div
+              key={logo.alt}
+              className="group flex flex-col items-center flex-shrink-0"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            >
+              <div className="bg-white rounded-xl p-3 sm:p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 group-hover:border-blue-200 group-hover:bg-blue-50">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-8 sm:h-10 md:h-12 w-auto mx-auto transition-all duration-300"
+                />
+              </div>
+              
+              <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
+                <p className="text-xs font-medium text-gray-600 whitespace-nowrap font-sans">
+                  {logo.name}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </motion.section>

@@ -62,9 +62,6 @@ const AboutPage: React.FC = () => {
             <h1 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight font-extrabold">
               {t('about.title')}
             </h1>
-            <p className="text-lg md:text-xl leading-relaxed text-white/90 max-w-3xl mx-auto">
-              {t('about.subtitle')}
-            </p>
           </motion.div>
         </div>
       </section>
@@ -115,25 +112,25 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 md:py-28 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-8"
             variants={fadeInUp}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, amount: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">{t('about.stats.title')}</h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full"></div>
+            <h2 className="text-xl md:text-2xl font-extrabold text-gray-800 mb-2">{t('about.stats.title')}</h2>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full"></div>
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-3 gap-4 max-w-2xl mx-auto"
             variants={stagger}
             initial="initial"
             whileInView="animate"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.5 }}
           >
             {[
               { icon: 'fa-users', number: '500+', label: t('hero.stats.students'), color: 'text-green-500', bg: 'bg-green-100' },
@@ -142,14 +139,14 @@ const AboutPage: React.FC = () => {
             ].map((stat, index) => (
               <motion.div 
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300"
+                className="bg-white p-4 rounded-lg shadow-sm text-center transform hover:-translate-y-1 transition-transform duration-300"
                 variants={fadeInUp}
               >
-                <div className={`w-20 h-20 ${stat.bg} rounded-full flex items-center justify-center mx-auto mb-5`}>
-                  <i className={`fas ${stat.icon} ${stat.color} text-4xl`}></i>
+                <div className={`w-12 h-12 ${stat.bg} rounded-full flex items-center justify-center mx-auto mb-3`}>
+                  <i className={`fas ${stat.icon} ${stat.color} text-xl`}></i>
                 </div>
-                <p className="text-5xl font-bold text-gray-800 mb-2">{stat.number}</p>
-                <p className="text-lg text-gray-600">{stat.label}</p>
+                <p className="text-2xl font-bold text-gray-800 mb-1">{stat.number}</p>
+                <p className="text-xs text-gray-600">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>

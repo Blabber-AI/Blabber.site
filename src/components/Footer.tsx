@@ -126,18 +126,18 @@ const Footer: React.FC = () => {
                 <h3 className="text-lg mb-4 text-white font-sans font-bold">{t('footer.downloadApp')}</h3>
                 <p className="text-gray-300 mb-4 text-sm leading-relaxed font-sans">{t('footer.appDescription')}</p>
               <div className="space-y-2">
-                  <motion.a href="https://apps.apple.com/us/app/blabber-ai/id6740026757" target="_blank" rel="noopener noreferrer" className="block w-full bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <motion.a href="https://apps.apple.com/us/app/blabber-ai/id6740026757" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
                   <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                    <i className="fab fa-apple text-white text-lg"></i>
+                    <i className="fab fa-apple text-white text-lg px-1"></i>
                     <div>
                       <p className="text-xs text-gray-400 font-sans">{t('footer.downloadFrom')}</p>
                         <p className="text-white text-sm group-hover:text-blue-400 transition-colors font-sans">App Store</p>
                     </div>
                   </div>
                 </motion.a>
-                  <motion.a href="https://play.google.com/store/apps/details?id=com.app.blabber.blabber" target="_blank" rel="noopener noreferrer" className="block w-full bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <motion.a href="https://play.google.com/store/apps/details?id=com.app.blabber.blabber" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
                   <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                    <i className="fab fa-google-play text-white text-lg"></i>
+                    <i className="fab fa-google-play text-white text-lg px-1"></i>
                     <div>
                       <p className="text-xs text-gray-400 font-sans">{t('footer.downloadFrom')}</p>
                         <p className="text-white text-sm group-hover:text-blue-400 transition-colors font-sans">Google Play</p>

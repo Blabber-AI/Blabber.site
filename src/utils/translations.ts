@@ -18,12 +18,16 @@ export const translations: Translations = {
 
   // Hero Section
   'hero.title': { 
-    he: 'לימוד אנגלית באמצעות דיבור עם AI', 
-    en: 'Learn English by Speaking with AI' 
+    he: 'לומדים אנגלית עם Blabber', 
+    en: 'Learning English with Blabber' 
+  },
+  'hero.subtitle2': { 
+    he: 'פשוט לדבר.', 
+    en: 'Simply speak.' 
   },
   'hero.subtitle': { 
-    he: 'שדרג את ההוראה שלך עם מורה פרטי מבוסס AI המותאם לכל תלמיד', 
-    en: 'Transform your class teaching with live AI lessons tailored to each student' 
+    he: 'בואו להיות חלק משינוי.<br className="block md:hidden" /> מורה פרטי לכל תלמיד.', 
+    en: 'Be part of the change, private tutor for every student.' 
   },
   'hero.cta.primary': { he: 'התחילו עכשיו', en: 'Get Started' },
   'hero.cta.secondary': { he: 'צפו בהדגמה', en: 'Watch Demo' },
@@ -32,13 +36,13 @@ export const translations: Translations = {
   'hero.stats.satisfaction': { he: 'שביעות רצון', en: 'Satisfaction' },
 
   // Featured By Section
-  'featured.title': { he: 'מוסדות חינוך מובילים בוטחים בנו', en: 'Leading Educational Institutions Trust Us' },
+  'featured.title': { he: 'מוסדות חינוך מובילים משתמשים ב-Blabber', en: 'Leading Educational Institutions Use Blabber' },
   'featured.subtitle': { he: 'בתי ספר מובילים ברחבי הארץ כבר חוו את הכוח המשנה של הטכנולוגיה שלנו', en: 'Leading schools across the country have already experienced the transformative power of our technology' },
   'featured.badge': { he: 'השותפים שלנו', en: 'Our Partners' },
 
   // How It Works Section
   'hiw.title': { he: 'איך Blabber עובד', en: 'How Blabber Works' },
-  'hiw.subtitle': { he: 'המורה הדיגיטלי המתקדם שלנו תומך במחנכים ומעניק חוויה אישית לתלמידים.', en: 'Our advanced digital teacher supports educators and provides a personalized experience for students.' },
+  'hiw.subtitle': { he: 'המורה הדיגיטלי המתקדם שלנו תומך בצוות החינוכי ומעניק חוויה אישית לתלמידים.', en: 'Our advanced digital teacher supports educators and provides a personalized experience for students.' },
   'hiw.badge': { he: 'תהליך השילוב', en: 'Integration Process' },
   'hiw.step1.title': { he: 'בנו את השיעור המושלם', en: 'Build the Perfect Lesson' },
   'hiw.step1.desc1': { he: 'התכנים של Blabber מותאמים במלואם לתקני משרד החינוך, לספרי הלימוד ולדרישות הליבה.', en: 'Blabber\'s content is fully aligned with Ministry of Education standards, textbooks, and core requirements.' },
@@ -67,18 +71,18 @@ export const translations: Translations = {
 
   // Contact Section
   'contact.badge': { he: 'בואו נתחיל יחד', en: "Let's Start Together" },
-  'contact.mainTitle1': { he: 'רוצים לדבר? קבעו שיחה עם יועץ', en: 'Want to talk? Schedule a call with a consultant' },
+  'contact.mainTitle1': { he: 'מתחילים לדבר.', en: 'Starting to speak.' },
   'contact.mainTitle2': { he: '', en: '' },
-  'contact.subtitle': { he: 'מלאו את הפרטים ונחזור אליכם תוך 24 שעות', en: 'Fill in the details and we\'ll get back to you within 24 hours' },
+  'contact.subtitle': { he: 'מלאו את הפרטים ונחזור אליכם', en: 'Fill in the details and we\'ll get back to you' },
   'contact.feature1.title': { he: 'שיעורים מותאמים אישית', en: 'AI-Customized Lessons' },
-  'contact.feature1.desc': { he: 'הבינה המלאכותית שלנו מתאימה את עצמה לקצב של כל תלמיד ויוצרת תרגילים אישיים לשיפור ההגייה והשטף.', en: 'Our AI adapts to each student\'s pace, creating personalized exercises for pronunciation and fluency.' },
+  'contact.feature1.desc': { he: 'הטכנולוגיה שלנו מתאימה את עצמה לכל תלמיד באופן אישי.', en: 'Our technology adapts itself to each student personally.' },
   'contact.feature2.title': { he: 'מעקב ביצועים בזמן אמת', en: 'Real-Time Performance Tracking' },
-  'contact.feature2.desc': { he: 'מורים מקבלים דאשבורדים מפורטים למעקב אחר התקדמות התלמידים, בעוד שהתלמידים מקבלים משוב מיידי.', en: 'Teachers get detailed dashboards to monitor student progress, while students receive immediate feedback.' },
+  'contact.feature2.desc': { he: 'המורים מקבלים ניתוחים מפורטים למעקב אחר התקדמות התלמיד.', en: 'Teachers receive detailed analytics to track student progress.' },
   'contact.feature3.title': { he: 'יישום ללא מאמץ', en: 'Effortless Implementation' },
-  'contact.feature3.desc': { he: 'Blabber משתלב בצורה חלקה בתוכנית הלימודים הקיימת ומספק תמיכה מלאה למורים ולצוות.', en: 'Blabber integrates smoothly with your existing curriculum and provides full support for teachers and staff.' },
+  'contact.feature3.desc': { he: 'Blabber משתלבת בצורה מדויקת כחלק מתכנית הלימודים ומספקת תמיכה מלאה לצוות החינוכי ולתלמידים.', en: 'Blabber integrates precisely as part of the curriculum and provides full support for educational staff and students.' },
   'contact.schoolName': { he: 'שם המוסד החינוכי', en: 'School Name' },
   'contact.schoolNamePlaceholder': { he: 'לדוגמה: גימנסיה ריאלית', en: 'e.g., Gymnasia Realit' },
-  'contact.contactName': { he: 'שם איש קשר', en: 'Contact Name' },
+  'contact.contactName': { he: 'שם איש הקשר', en: 'Contact Name' },
   'contact.contactNamePlaceholder': { he: 'שם מלא', en: 'Full Name' },
   'contact.email': { he: 'כתובת אימייל', en: 'Email Address' },
   'contact.emailPlaceholder': { he: 'your-email@school.ac.il', en: 'your-email@school.ac.il' },
@@ -86,7 +90,7 @@ export const translations: Translations = {
   'contact.phonePlaceholder': { he: '05X-XXX-XXXX', en: '05X-XXX-XXXX' },
   'contact.message': { he: 'הודעה', en: 'Message' },
   'contact.messagePlaceholder': { he: '(אופציונלי)', en: '(Optional)' },
-  'contact.submitButton': { he: 'שליחת בקשה להדגמה', en: 'Send Demo Request' },
+  'contact.submitButton': { he: 'שליחת בקשה ליצירת קשר', en: 'Send Demo Request' },
   'contact.submitting': { he: 'שולח...', en: 'Sending...' },
   'contact.successTitle': { he: 'ההודעה נשלחה בהצלחה!', en: 'Message Sent Successfully!' },
   'contact.successMessage': { he: 'תודה על פנייתך. נציג שלנו יחזור אליך בהקדם.', en: 'Thank you for your inquiry. Our representative will get back to you shortly.' },
@@ -117,7 +121,7 @@ export const translations: Translations = {
   },
   'about.mission.title': { he: 'המשימה שלנו', en: 'Our Mission' },
   'about.mission.description': { 
-    he: 'להעצים כל תלמיד לדבר אנגלית בביטחון. אנו מפתחים כלים חדשניים שהופכים את הלמידה לחוויה מהנה, אישית ומותאמת לקצב של כולם.', 
+    he: 'להעצים כל תלמיד לדבר אנגלית בביטחון. לפתח כלים חדשניים שהופכים את הלמידה לחוויה מהנה, ומותאמת אישית לקצב של כל תלמיד.', 
     en: 'To empower every student to speak English with confidence. We build innovative tools that make learning fun, personal, and paced for everyone.' 
   },
   'about.vision.title': { he: 'החזון שלנו', en: 'Our Vision' },
@@ -141,7 +145,7 @@ export const translations: Translations = {
 
   // FAQ Categories - Redesigned with only 3 main categories
   'support.faq.title': { he: 'שאלות נפוצות', en: 'Frequently Asked Questions' },
-  'support.faq.subtitle': { he: 'הנה התשובות לשאלות הנפוצות ביותר שמקבלות בתי הספר והמורים שלנו', en: 'Here are answers to the most frequently asked questions from our schools and teachers' },
+  'support.faq.subtitle': { he: 'יש לנו גם תשובות 😊', en: 'Here are answers to the most frequently asked questions from our schools and teachers' },
   
   'support.faq.categories.basics': { he: 'מידע כללי', en: 'General Information' },
   'support.faq.categories.implementation': { he: 'יישום והתחלה', en: 'Implementation & Getting Started' },
@@ -192,14 +196,14 @@ export const translations: Translations = {
   'support.faq.support.a5': { he: 'כן! אנחנו מציעים תקופת פיילוט של חודש אחד לכל בית ספר החדש. במהלך התקופה ניתן לבחון את המערכת עם קבוצה מצומצמת של תלמידים, לבדוק את התאמת התוכן ולהעריך את התוצאות. התקופה כוללת תמיכה מלאה והכשרת מורים.', en: 'Yes! We offer a one-month pilot period for every new school. During this period you can test the system with a limited group of students, check content compatibility, and evaluate results. The period includes full support and teacher training.' },
 
   // Support Page Contact Methods
-  'support.contact.title': { he: 'דרכי יצירת קשר מהירות', en: 'Quick Contact Methods' },
+  'support.contact.title': { he: 'יצירת קשר', en: 'Contact Methods' },
   'support.contact.subtitle': { he: 'צרו איתנו קשר בדרך הנוחה לכם ביותר - אנחנו כאן לעזור', en: 'Contact us in the way that is most convenient for you - we are here to help' },
   'support.contact.phoneTitle': { he: 'תמיכה טלפונית', en: 'Phone Support' },
-  'support.contact.phoneDesc': { he: 'שירות מהיר ואישי בשעות העבודה', en: 'Fast and personal service during business hours' },
+  'support.contact.phoneDesc': { he: '', en: 'Fast and personal service during business hours' },
   'support.contact.emailTitle': { he: 'תמיכה באימייל', en: 'Email Support' },
-  'support.contact.emailDesc': { he: 'מענה מפורט תוך 24 שעות', en: 'Detailed response within 24 hours' },
+  'support.contact.emailDesc': { he: '', en: 'Detailed response within 24 hours' },
   'support.contact.chatTitle': { he: 'שירות לקוחות WhatsApp', en: 'WhatsApp Support' },
-  'support.contact.chatDesc': { he: 'זמין החל מה-01/09/2025', en: 'Available from 01/09/2025' },
+  'support.contact.chatDesc': { he: '', en: 'Available from 01/09/2025' },
   'support.contact.chatButton': { he: 'שליחת הודעה ב-WhatsApp', en: 'Send WhatsApp Message' },
 
   // Support Page Form
@@ -348,12 +352,12 @@ export const translations: Translations = {
   'about.technology.subtitle': { he: 'טכנולוגיה מתקדמת שנועדה להפוך כל שיעור לחוויה ייחודית.', en: 'Advanced technology designed to make every lesson a unique experience.' },
   
   // Technology Features
-  'about.technology.ai.title': { he: 'בינה מלאכותית שיחתית', en: 'Conversational AI' },
-  'about.technology.ai.description': { he: 'שיחות טבעיות ודינמיות שמתאימות את עצמן לכל תלמיד.', en: 'Natural, dynamic conversations that adapt to each student.' },
-  'about.technology.audio.title': { he: 'ניתוח הגייה חכם', en: 'Smart Pronunciation Analysis' },
-  'about.technology.audio.description': { he: 'משוב מיידי ומדויק לחיזוק הביטחון והשטף בדיבור.', en: 'Instant, precise feedback to build confidence and fluency in speaking.' },
-  'about.technology.analytics.title': { he: 'תובנות מבוססות נתונים', en: 'Data-Driven Insights' },
-  'about.technology.analytics.description': { he: 'מעקב אחר התקדמות אישית וזיהוי הזדמנויות לשיפור.', en: 'Track personal progress and identify opportunities for improvement.' },
-  'about.technology.accessibility.title': { he: 'סביבה מכילה ונגישה', en: 'Inclusive & Accessible Environment' },
+  'about.technology.ai.title': { he: 'שיחה אמיתית עם AI', en: 'Conversational AI' },
+  'about.technology.ai.description': { he: 'מורה דיגיטלי המבוסס על בינה מלאכותית מתקדמת המאפשרת שיחות טבעיות ופידבק מיידי לשיפור מיומנויות האנגלית.', en: 'A digital teacher based on advanced artificial intelligence that enables natural conversations and immediate feedback to improve English skills.' },
+  'about.technology.audio.title': { he: 'ניתוח ביצועים מתקדם', en: 'Smart Pronunciation Analysis' },
+  'about.technology.audio.description': { he: 'טכנולוגיית עיבוד קול מתקדמת המנתחת הגייה, דקדוק ושטף במטרה לספק משוב מדויק ומותאם אישית.', en: 'Advanced voice processing technology that analyzes pronunciation, grammar, and fluency to provide accurate and personalized feedback.' },
+  'about.technology.analytics.title': { he: 'מעקב התקדמות מפורט', en: 'Data-Driven Insights' },
+  'about.technology.analytics.description': { he: 'דוחות מתקדמים המאפשרים למורים ולתלמידים לעקוב אחר התקדמות ולזהות תחומים לשיפור.', en: 'Advanced reports that allow teachers and students to track progress and identify areas for improvement.' },
+  'about.technology.accessibility.title': { he: 'סביבה בטוחה ונגישה', en: 'Inclusive & Accessible Environment' },
   'about.technology.accessibility.description': { he: 'מותאם לכלל הלומדים ומספק מרחב בטוח לתרגול.', en: 'Adapted for all learners, providing a safe space for practice.' },
 }; 

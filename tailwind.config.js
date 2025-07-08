@@ -5,10 +5,10 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ['Rubik', 'sans-serif'],
+    },
     extend: {
-      fontFamily: {
-        sans: ['Assistant', 'sans-serif'],
-      },
       fontWeight: {
         'extralight': '200',
         'light': '300',

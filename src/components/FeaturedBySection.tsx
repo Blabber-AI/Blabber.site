@@ -13,10 +13,10 @@ const FeaturedBySection: React.FC = () => {
 
   const logos = [
     { src: gimnasiaLogo, alt: 'Gimnasia Logo', name: 'גימנסיה באר שבע' },
-    { src: rashiLogo, alt: 'Rashi Logo', name: 'רש"י נתיבות' },
-    { src: mekifVavLogo, alt: 'Mekif Vav Logo', name: 'מקיף ו\' אשדוד' },
-    { src: ragerLogo, alt: 'Rager Logo', name: 'רגר מתקדמים' },
-    { src: yatzivLogo, alt: 'Yatziv Logo', name: 'יציב שדרות' },
+    { src: rashiLogo, alt: 'Rashi Logo', name: 'קרן רש"י' },
+    { src: mekifVavLogo, alt: 'Mekif Vav Logo', name: 'מקיף ו\' באר שבע' },
+    { src: ragerLogo, alt: 'Rager Logo', name: 'תיכון מקיף רגר' },
+    { src: yatzivLogo, alt: 'Yatziv Logo', name: 'בית יציב' },
   ];
 
   // Duplicate logos for seamless loop - increased duplication

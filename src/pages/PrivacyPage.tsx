@@ -5,223 +5,177 @@ import { useLanguage } from '../hooks/useLanguage';
 const PrivacyPage: React.FC = () => {
   const { t, isRTL } = useLanguage();
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+  const handleTocClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 100, // Offset for sticky header
+        behavior: 'smooth'
+      });
+    }
   };
 
   const sections = [
-    {
-      title: 'איסוף מידע',
-      icon: 'fa-database',
-      content: [
-        'אנו אוספים מידע שאתם מספקים לנו ישירות, כגון שם, כתובת דואר אלקטרוני, ושם בית הספר.',
-        'מידע על השימוש באפליקציה, כולל הקלטות קוליות לצורך ניתוח וחיזוי.',
-        'מידע טכני כגון כתובת IP, סוג דפדפן, ונתוני השימוש באתר.',
-        'המידע נאסף בהסכמתכם המפורשת ובהתאם לחוקי הגנת הפרטיות הישראליים והבינלאומיים.'
-      ]
-    },
-    {
-      title: 'שימוש במידע',
-      icon: 'fa-cogs',
-      content: [
-        'מידע אישי משמש לצורך מתן השירות, יצירת קשר, ושיפור החוויה האישית.',
-        'הקלטות קוליות מנותחות באמצעות בינה מלאכותית לצורך מתן משוב על הגייה ושטף דיבור.',
-        'נתונים מצטברים ואנונימיים משמשים לצורך מחקר ופיתוח המוצר.',
-        'לא נשתף מידע אישי עם צדדים שלישיים ללא הסכמתכם המפורשת.'
-      ]
-    },
-    {
-      title: 'אבטחת מידע',
-      icon: 'fa-shield-alt',
-      content: [
-        'אנו משתמשים בטכנולוגיות הצפנה מתקדמות להגנה על המידע שלכם.',
-        'השרתים שלנו ממוקמים במרכזי נתונים מאובטחים עם הגנות פיזיות ודיגיטליות.',
-        'גישה למידע מוגבלת לעובדים מורשים בלבד ובהתאם לצורך תפקידי.',
-        'אנו מבצעים ביקורות אבטחה קבועות ומעדכנים את הגנותינו.'
-      ]
-    },
-    {
-      title: 'זכויותיכם',
-      icon: 'fa-user-shield',
-      content: [
-        'זכות עיון במידע האישי השמור עליכם במערכות שלנו.',
-        'זכות לתיקון או עדכון של מידע לא מדויק.',
-        'זכות למחיקת המידע שלכם (זכות להיותר זכות).',
-        'זכות להגבלת עיבוד המידע או התנגדות לעיבוד מסוים.',
-        'זכות לקבלת העתק של המידע שלכם בפורמט נגיש.'
-      ]
-    },
-    {
-      title: 'קבצי Cookie',
-      icon: 'fa-cookie-bite',
-      content: [
-        'אנו משתמשים בקבצי Cookie לשיפור חוויית הגלישה ולמתן שירות מותאם אישית.',
-        'קבצי Cookie עוזרים לנו לזכור את העדפותיכם ולנתח את דפוסי השימוש באתר.',
-        'ניתן להגדיר את הדפדפן שלכם לחסום או למחוק קבצי Cookie.',
-        'חלק מהפונקציות באתר עלולות שלא לפעול כראוי ללא קבצי Cookie.'
-      ]
-    },
-    {
-      title: 'עדכונים למדיניות',
-      icon: 'fa-sync-alt',
-      content: [
-        'אנו עשויים לעדכן מדיניות פרטיות זו מעת לעת.',
-        'עדכונים משמעותיים יובאו לידיעתכם באמצעות הודעה באתר או בדואר אלקטרוני.',
-        'המשך השימוש באתר לאחר עדכון המדיניות מהווה הסכמה לשינויים.',
-        'תאריך העדכון האחרון מופיע בראש הדף.'
-      ]
-    }
+    { id: 'section1', title: t('privacy.section1.title'), icon: 'fa-database', content: [t('privacy.section1.p1'), t('privacy.section1.p2'), t('privacy.section1.p3')] },
+    { id: 'section2', title: t('privacy.section2.title'), icon: 'fa-cogs', content: [t('privacy.section2.p1'), t('privacy.section2.p2'), t('privacy.section2.p3')] },
+    { id: 'section3', title: t('privacy.section3.title'), icon: 'fa-share-alt', content: [t('privacy.section3.p1'), t('privacy.section3.p2'), t('privacy.section3.p3')] },
+    { id: 'section4', title: t('privacy.section4.title'), icon: 'fa-shield-alt', content: [t('privacy.section4.p1'), t('privacy.section4.p2'), t('privacy.section4.p3')] },
+    { id: 'section5', title: t('privacy.section5.title'), icon: 'fa-user-check', content: [t('privacy.section5.p1'), t('privacy.section5.p2')] },
+    { id: 'section6', title: t('privacy.section6.title'), icon: 'fa-history', content: [t('privacy.section6.p1')] },
+    { id: 'section7', title: t('privacy.section7.title'), icon: 'fa-cookie-bite', content: [t('privacy.section7.p1')] },
+    { id: 'section8', title: t('privacy.section8.title'), icon: 'fa-sync-alt', content: [t('privacy.section8.p1')] },
   ];
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 40 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: 'easeOut' }
+  };
+
   return (
-    <div className={`py-16 ${isRTL ? 'rtl' : 'ltr'}`}>
+    <div className={`bg-gray-50 font-sans ${isRTL ? 'rtl' : 'ltr'}`}>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary text-white py-16">
-        <div className="container mx-auto px-4">
+      <motion.section 
+        className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-800 text-white"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
           >
-            <h1 className="text-4xl font-bold mb-4">{t('privacy.title')}</h1>
-            <p className="text-lg leading-relaxed mb-4">
-              אנו מחויבים להגן על הפרטיות שלכם ולשמור על המידע שלכם בבטחה
+            <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 ring-4 ring-white/30">
+              <i className="fas fa-user-secret text-white text-4xl"></i>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">{t('privacy.title')}</h1>
+            <p className="text-lg md:text-xl text-blue-200 leading-relaxed mb-6 max-w-3xl mx-auto">
+              {t('privacy.hero.subtitle')}
             </p>
-            <div className="bg-white/20 rounded-lg p-3 inline-block">
+            <div className="bg-white/10 rounded-lg p-3 inline-block backdrop-blur-sm border border-white/20">
               <p className="text-base">
-                <i className="fas fa-calendar-alt mr-2"></i>
-                {t('privacy.lastUpdated')}: 1 בינואר 2024
+                <i className={`fas fa-calendar-alt ${isRTL ? 'ml-2' : 'mr-2'}`}></i>
+                {t('privacy.lastUpdated')}: July 08, 2025
               </p>
             </div>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Table of Contents */}
-      <section className="py-12 bg-offwhite">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-2xl font-bold text-dark-gray mb-3">תוכן עניינים</h2>
-          </motion.div>
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-16 md:py-24">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+          
+          {/* Sticky Table of Contents */}
+          <aside className="lg:w-1/4 lg:sticky top-24 self-start">
+            <motion.div 
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+              initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <h2 className="text-xl font-bold text-gray-800 mb-4 pb-3 border-b-2 border-gray-100">{t('privacy.toc.title')}</h2>
+              <ul className="space-y-2">
+                {sections.map((section) => (
+                  <li key={section.id}>
+                    <a 
+                      href={`#${section.id}`} 
+                      onClick={(e) => handleTocClick(e, section.id)}
+                      className="flex items-center text-gray-600 hover:text-blue-600 font-medium transition-colors group text-sm"
+                    >
+                      <span className={`w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center ${isRTL ? 'ml-3' : 'mr-3'} group-hover:bg-blue-100 group-hover:text-blue-600 transition-all`}>
+                        <i className={`fas ${section.icon} text-xs`}></i>
+                      </span>
+                      {section.title}
+                    </a>
+                  </li>
+                ))}
+                <li>
+                  <a 
+                    href="#contact" 
+                    onClick={(e) => handleTocClick(e, 'contact')}
+                    className="flex items-center text-gray-600 hover:text-blue-600 font-medium transition-colors group text-sm"
+                  >
+                    <span className={`w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center ${isRTL ? 'ml-3' : 'mr-3'} group-hover:bg-blue-100 group-hover:text-blue-600 transition-all`}>
+                      <i className="fas fa-envelope text-xs"></i>
+                    </span>
+                    {t('privacy.contact.title')}
+                  </a>
+                </li>
+              </ul>
+            </motion.div>
+          </aside>
 
-          <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, staggerChildren: 0.1 }}
-          >
-            {sections.map((section, index) => (
-              <motion.a
-                key={index}
-                href={`#section-${index}`}
-                className="bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-secondary transition-colors">
-                  <i className={`fas ${section.icon} text-white text-sm`}></i>
-                </div>
-                <h3 className="font-semibold text-dark-gray group-hover:text-primary transition-colors text-sm">
-                  {section.title}
-                </h3>
-              </motion.a>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Privacy Sections */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto space-y-12">
-            {sections.map((section, index) => (
-              <motion.div
-                key={index}
-                id={`section-${index}`}
-                className="bg-white p-6 rounded-xl shadow-lg"
-                variants={fadeInUp}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-3">
-                    <i className={`fas ${section.icon} text-white text-lg`}></i>
+          {/* Policy Sections */}
+          <main className="lg:w-3/4">
+            <motion.div 
+              className="space-y-12"
+              variants={{
+                animate: { transition: { staggerChildren: 0.2 } }
+              }}
+              initial="initial"
+              animate="animate"
+            >
+              {sections.map((section) => (
+                <motion.div
+                  key={section.id}
+                  id={section.id}
+                  className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100 scroll-mt-24"
+                  variants={fadeInUp}
+                >
+                  <div className={`flex items-center mb-6 pb-4 border-b border-gray-200 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                    <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center ${isRTL ? 'ml-4' : 'mr-4'}`}>
+                      <i className={`fas ${section.icon} text-white text-xl`}></i>
+                    </div>
+                    <h2 className={`flex-1 text-xl md:text-2xl font-bold text-gray-800 ${isRTL ? 'text-right' : 'text-left'}`}>{section.title}</h2>
                   </div>
-                  <h2 className="text-2xl font-bold text-dark-gray">{section.title}</h2>
-                </div>
 
-                <div className="space-y-3">
-                  {section.content.map((paragraph, pIndex) => (
-                    <p key={pIndex} className="text-medium-gray leading-relaxed">
-                      <i className="fas fa-check-circle text-success mr-2"></i>
-                      {paragraph}
-                    </p>
-                  ))}
+                  <div className="text-gray-600 leading-relaxed space-y-4 text-lg">
+                    {section.content.map((paragraph, pIndex) => (
+                      <div key={pIndex} className={`flex items-start ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                        <i className={`fas fa-check-circle text-blue-500 ${isRTL ? 'ml-3' : 'mr-3'} mt-1.5 flex-shrink-0`}></i>
+                        <p className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>{paragraph}</p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+
+              {/* Contact Section */}
+              <motion.div
+                id="contact"
+                className="bg-gradient-to-br from-gray-800 to-black p-6 md:p-8 rounded-2xl shadow-2xl text-white scroll-mt-24"
+                variants={fadeInUp}
+              >
+                <div className={`flex items-center mb-6 pb-4 border-b border-white/20 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                  <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center ${isRTL ? 'ml-4' : 'mr-4'}`}>
+                    <i className="fas fa-headset text-white text-xl"></i>
+                  </div>
+                  <h2 className={`flex-1 text-xl md:text-2xl font-bold ${isRTL ? 'text-right' : 'text-left'}`}>{t('privacy.contact.title')}</h2>
+                </div>
+                <div className={`prose prose-lg max-w-none text-gray-300 leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>
+                  <p>{t('privacy.contact.p1')}</p>
+                  <p>
+                    <a 
+                      href={`mailto:${t('privacy.contact.email')}`} 
+                      className="text-green-400 font-bold hover:text-green-300 transition-colors break-all"
+                    >
+                      {t('privacy.contact.email')}
+                    </a>
+                  </p>
                 </div>
               </motion.div>
-            ))}
-          </div>
+            </motion.div>
+          </main>
         </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="py-16 bg-offwhite">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="max-w-3xl mx-auto text-center bg-white p-6 rounded-xl shadow-lg"
-            variants={fadeInUp}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-              <i className="fas fa-envelope text-white text-lg"></i>
-            </div>
-            <h2 className="text-2xl font-bold text-dark-gray mb-3">שאלות בנושא פרטיות?</h2>
-            <p className="text-lg text-medium-gray mb-4 leading-relaxed">
-              אם יש לכם שאלות לגבי מדיניות הפרטיות שלנו או רוצים לממש את זכויותיכם, 
-              אנא צרו איתנו קשר
-            </p>
-            <div className="grid md:grid-cols-2 gap-4 mb-6">
-              <div className="text-center">
-                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <i className="fas fa-envelope text-primary"></i>
-                </div>
-                <h3 className="font-semibold text-dark-gray mb-1">אימייל</h3>
-                <a href="mailto:privacy@blabber.site" className="text-primary font-medium hover:underline">
-                  privacy@blabber.site
-                </a>
-              </div>
-              <div className="text-center">
-                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <i className="fas fa-phone text-primary"></i>
-                </div>
-                <h3 className="font-semibold text-dark-gray mb-1">טלפון</h3>
-                <a href="tel:+972-50-123-4567" className="text-primary font-medium hover:underline">
-                  050-123-4567
-                </a>
-              </div>
-            </div>
-            <p className="text-sm text-medium-gray">
-              זמני מענה: ימים א'-ה', 9:00-17:00
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      </div>
     </div>
   );
 };

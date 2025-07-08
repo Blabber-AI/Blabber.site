@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { useForm, ValidationError } from '@formspree/react';
 
 interface FormData {
   schoolName: string;
@@ -62,8 +63,7 @@ const CallToActionSection: React.FC = () => {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [state, handleSubmit] = useForm("mrbbgydr");
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -91,19 +91,10 @@ const CallToActionSection: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-    setIsSubmitting(true);
-    try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setIsSubmitted(true);
-      setFormData({ schoolName: '', contactName: '', email: '', phone: '', message: '' });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
+    handleSubmit(e);
   };
 
   return (
@@ -159,12 +150,12 @@ const CallToActionSection: React.FC = () => {
                 >
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-lg">
-                      <i className="fas fa-video text-white text-2xl"></i>
+                      <i className="fas fa-comments text-white text-2xl"></i>
                   </div>
                   </div>
                   <div>
-                                          <h4 className="text-lg text-white mb-1 font-sans font-bold">{t('contact.feature1.title')}</h4>
-                      <p className="text-indigo-200 text-sm leading-relaxed font-sans">{t('contact.feature1.desc')}</p>
+                      <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature1.title')}</h4>
+                      <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature1.desc')}</p>
                 </div>
               </motion.div>
               <motion.div
@@ -180,8 +171,8 @@ const CallToActionSection: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                                          <h4 className="text-lg text-white mb-1 font-sans font-bold">{t('contact.feature2.title')}</h4>
-                      <p className="text-indigo-200 text-sm leading-relaxed font-sans">{t('contact.feature2.desc')}</p>
+                      <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature2.title')}</h4>
+                      <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature2.desc')}</p>
                     </div>
                 </motion.div>
                 <motion.div 
@@ -197,8 +188,8 @@ const CallToActionSection: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                                          <h4 className="text-lg text-white mb-1 font-sans font-bold">{t('contact.feature3.title')}</h4>
-                      <p className="text-indigo-200 text-sm leading-relaxed font-sans">{t('contact.feature3.desc')}</p>
+                      <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature3.title')}</h4>
+                      <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature3.desc')}</p>
                 </div>
               </motion.div>
               </div>
@@ -212,7 +203,7 @@ const CallToActionSection: React.FC = () => {
             >
               <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl">
                 <AnimatePresence mode="wait">
-              {isSubmitted ? (
+              {state.succeeded ? (
                 <motion.div
                       key="success"
                       initial={{ opacity: 0, y: 20 }}
@@ -228,7 +219,7 @@ const CallToActionSection: React.FC = () => {
                       <h3 className="text-2xl mb-2">{t('contact.successTitle')}</h3>
                       <p className="text-indigo-200 mb-6">{t('contact.successMessage')}</p>
                   <button
-                    onClick={() => setIsSubmitted(false)}
+                    onClick={() => window.location.reload()}
                         className="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg"
                   >
                         {t('contact.sendAnother')}
@@ -240,7 +231,7 @@ const CallToActionSection: React.FC = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      onSubmit={handleSubmit} 
+                      onSubmit={handleFormSubmit} 
                       className="space-y-6" 
                       noValidate
                     >
@@ -248,6 +239,7 @@ const CallToActionSection: React.FC = () => {
                         <InputField id="schoolName" name="schoolName" placeholder={t('contact.schoolNamePlaceholder')} value={formData.schoolName} error={errors.schoolName} onChange={handleChange} label={t('contact.schoolName')} />
                         <InputField id="contactName" name="contactName" placeholder={t('contact.contactNamePlaceholder')} value={formData.contactName} error={errors.contactName} onChange={handleChange} label={t('contact.contactName')} />
                         <InputField id="email" name="email" type="email" placeholder={t('contact.emailPlaceholder')} value={formData.email} error={errors.email} onChange={handleChange} label={t('contact.email')} />
+                        <ValidationError prefix="Email" field="email" errors={state.errors} />
                         <InputField id="phone" name="phone" type="tel" placeholder={t('contact.phonePlaceholder')} value={formData.phone} error={errors.phone} onChange={handleChange} label={t('contact.phone')} />
                         <div className="relative sm:col-span-2">
                           <label htmlFor="message" className={`block text-sm mb-2 transition-colors duration-300 ${errors.message ? 'text-red-400' : 'text-indigo-200'}`}>
@@ -266,16 +258,17 @@ const CallToActionSection: React.FC = () => {
                                 : 'border-white/20 hover:border-white/40 focus:border-blue-400 focus:ring-blue-500/40'}`
                             }
                       />
+                      <ValidationError prefix="Message" field="message" errors={state.errors} />
                         </div>
                     </div>
 
                       <div className="text-center pt-2">
                         <button
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={state.submitting}
                           className="w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {isSubmitting ? (
+                      {state.submitting ? (
                             <div className="flex items-center justify-center">
                               <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>

@@ -1,174 +1,63 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLanguage } from '../hooks/useLanguage';
 
 interface VideoModalProps {
   isOpen: boolean;
   onClose: () => void;
-  videoUrl?: string;
-  title?: string;
+  videoUrl?: string; // Make videoUrl optional
 }
 
-const VideoModal: React.FC<VideoModalProps> = ({ 
-  isOpen, 
-  onClose, 
-  videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ", 
-  title = "Blabber Demo Video" 
-}) => {
-  const { t, isRTL } = useLanguage();
-  const modalRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
-    };
-
-    const handleClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      document.addEventListener('keydown', handleEscape);
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.removeEventListener('keydown', handleEscape);
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen, onClose]);
-
-  const backdropVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 }
-  };
-
-  const modalVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.8,
-      y: 50
-    },
-    visible: { 
-      opacity: 1, 
-      scale: 1,
-      y: 0
-    },
-    exit: { 
-      opacity: 0, 
-      scale: 0.8,
-      y: 50
-    }
-  };
-
+const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoUrl }) => {
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center"
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          variants={backdropVariants}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          onClick={onClose}
         >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black bg-opacity-75 backdrop-blur-sm" />
-          
-          {/* Modal Content */}
           <motion.div
-            ref={modalRef}
-            className={`relative bg-white rounded-2xl shadow-2xl mx-4 w-full max-w-4xl max-h-[90vh] overflow-hidden ${isRTL ? 'rtl' : 'ltr'}`}
-            variants={modalVariants}
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="relative bg-white rounded-2xl w-full max-w-4xl shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                  <i className="fas fa-play text-white"></i>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-dark-gray">{title}</h3>
-                  <p className="text-sm text-medium-gray">
-                    {t('common.loading')}...
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={onClose}
-                className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                aria-label={t('common.close')}
-              >
-                <i className="fas fa-times text-gray-600"></i>
-              </button>
-            </div>
-
-            {/* Video Container */}
-            <div className="relative w-full pt-[56.25%]"> {/* 16:9 Aspect Ratio */}
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={videoUrl}
-                title={title}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-
-            {/* Footer */}
-            <div className="p-6 bg-gray-50">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-center sm:text-left">
-                  <p className="text-sm text-medium-gray">
-                    רוצים לראות יותר? בואו נקבע הדגמה אישית עבור בית הספר שלכם
-                  </p>
-                </div>
-                <div className="flex gap-3">
-                  <button
-                    onClick={onClose}
-                    className="px-4 py-2 text-medium-gray hover:text-dark-gray transition-colors"
-                  >
-                    {t('common.close')}
-                  </button>
-                  <button
-                    onClick={() => {
-                      onClose();
-                      // Scroll to contact section
-                      const contactSection = document.getElementById('contact');
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                    className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors font-semibold"
-                  >
-                    קבעו הדגמה
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Loading Animation Overlay */}
-            <motion.div
-              className="absolute inset-0 bg-white flex items-center justify-center"
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 0 }}
-              transition={{ delay: 1, duration: 0.5 }}
-              style={{ pointerEvents: 'none' }}
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 text-gray-500 hover:text-black z-10 transition-colors"
+              aria-label="Close modal"
             >
-              <div className="flex flex-col items-center">
-                <motion.div
-                  className="w-16 h-16 border-4 border-primary-light border-t-primary rounded-full"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                />
-                <p className="mt-4 text-medium-gray">{t('common.loading')}...</p>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            
+            {videoUrl ? (
+              <div className="aspect-w-16 aspect-h-9">
+                <iframe
+                  src={videoUrl}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
               </div>
-            </motion.div>
+            ) : (
+              <div className="flex flex-col items-center justify-center p-12 md:p-20 text-center bg-gradient-to-br from-gray-50 to-gray-100">
+                <motion.div 
+                  className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mb-6 shadow-lg"
+                  animate={{ rotate: [0, 15, -10, 15, 0], scale: [1, 1.1, 1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <i className="fas fa-film text-white text-4xl"></i>
+                </motion.div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">בקרוב...</h2>
+                <p className="text-gray-600 text-lg">ההדגמה שלנו עוד לא מוכנה, אבל אנחנו עובדים על זה!</p>
+              </div>
+            )}
           </motion.div>
         </motion.div>
       )}

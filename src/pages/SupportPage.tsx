@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { useForm, ValidationError } from '@formspree/react';
 
 const SupportPage: React.FC = () => {
   const { t, isRTL } = useLanguage();
@@ -61,30 +62,31 @@ const SupportPage: React.FC = () => {
         { q: t('support.faq.support.q2'), a: t('support.faq.support.a2') },
         { q: t('support.faq.support.q3'), a: t('support.faq.support.a3') },
         { q: t('support.faq.support.q4'), a: t('support.faq.support.a4') },
-        { q: t('support.faq.support.q5'), a: t('support.faq.support.a5') },
       ]
     },
   ];
 
+  const [formState, handleFormSubmit] = useForm("mrbbgydr");
+
   return (
-    <div className={`py-8 md:py-16 ${isRTL ? 'rtl' : 'ltr'}`}>
+    <div className={`${isRTL ? 'rtl' : 'ltr'}`}>
       {/* Hero Section - Mobile Responsive */}
-      <section className="relative py-12 md:py-20 overflow-hidden">
+      <section className="relative py-20 overflow-hidden">
         {/* Modern Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-violet-900 via-blue-900 to-cyan-800"></div>
         
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-32 md:w-56 h-32 md:h-56 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-40 md:w-64 h-40 md:h-64 bg-cyan-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-75"></div>
-          <div className="absolute -bottom-8 left-40 w-36 md:w-60 h-36 md:h-60 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-150"></div>
+          <div className="absolute top-20 left-20 w-56 h-56 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-64 h-64 bg-cyan-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-75"></div>
+          <div className="absolute -bottom-8 left-40 w-60 h-60 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-150"></div>
         </div>
         
         {/* Grid Pattern Overlay */}
         <div className="absolute inset-0 bg-black/10">
           <div className="absolute inset-0" style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
-            backgroundSize: '30px 30px md:50px md:50px'
+            backgroundSize: '50px 50px'
           }}></div>
         </div>
         
@@ -197,13 +199,13 @@ const SupportPage: React.FC = () => {
               variants={fadeInUp}
             >
               <div className="w-10 md:w-12 h-10 md:h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <i className="fas fa-comments text-white text-base md:text-lg"></i>
+                <i className="fab fa-whatsapp text-white text-base md:text-lg"></i>
               </div>
               <h3 className="text-base md:text-lg text-gray-800 mb-2">{t('support.contact.chatTitle')}</h3>
               <p className="text-gray-600 text-sm mb-3">{t('support.contact.chatDesc')}</p>
-              <button className="text-green-600 hover:text-green-700 transition-colors text-sm md:text-base">
+              <a href="https://wa.me/972524278042" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-colors text-sm md:text-base">
                 {t('support.contact.chatButton')}
-              </button>
+              </a>
             </motion.div>
           </motion.div>
         </div>
@@ -300,7 +302,7 @@ const SupportPage: React.FC = () => {
                   >
                     <h3 className="text-base md:text-lg font-semibold text-gray-800 flex items-center group-hover:text-primary transition-colors pr-4">
                       <div className="w-6 md:w-8 h-6 md:h-8 bg-primary/10 rounded-lg flex items-center justify-center mr-3 md:mr-4 group-hover:bg-primary/20 transition-colors">
-                        <i className="fas fa-question text-primary text-xs md:text-sm"></i>
+                        <i className="fas fa-circle text-primary text-xs" style={{ fontSize: '0.5rem' }}></i>
                       </div>
                       {faq.q}
                     </h3>
@@ -346,78 +348,122 @@ const SupportPage: React.FC = () => {
             </p>
           </motion.div>
 
-          <motion.form
-            className="max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-2xl shadow-lg border border-gray-100"
+          <motion.div
+            className="max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
-              {/* Full Name */}
-                <div>
-                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.fullName')}</label>
-                  <input 
-                    type="text" 
-                  placeholder={t('support.form.fullNamePlaceholder')}
-                  className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
-                  />
-                </div>
+            <AnimatePresence mode="wait">
+              {formState.succeeded ? (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="text-center bg-white p-6 md:p-10 rounded-2xl shadow-lg border border-gray-100"
+                >
+                  <div className="mb-6">
+                    <div className="w-20 h-20 bg-green-500/30 rounded-full flex items-center justify-center mx-auto ring-4 ring-green-500/40">
+                      <i className="fas fa-check-circle text-green-300 text-5xl"></i>
+                    </div>
+                  </div>
+                  <h3 className="text-2xl mb-2 text-gray-800">{t('contact.successTitle')}</h3>
+                  <p className="text-indigo-200 mb-6 text-gray-600">{t('contact.successMessage')}</p>
+                </motion.div>
+              ) : (
+                <motion.form
+                  key="form"
+                  onSubmit={handleFormSubmit}
+                  className="bg-white p-6 md:p-10 rounded-2xl shadow-lg border border-gray-100"
+                  noValidate
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+                    {/* Full Name */}
+                    <div>
+                      <label htmlFor="fullName" className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.fullName')}</label>
+                      <input 
+                        id="fullName"
+                        type="text" 
+                        name="fullName"
+                        placeholder={t('support.form.fullNamePlaceholder')}
+                        className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
+                        required
+                      />
+                    </div>
 
-              {/* Email */}
-                <div>
-                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.email')}</label>
-                  <input 
-                    type="email" 
-                  placeholder={t('support.form.emailPlaceholder')}
-                  className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
-                  />
-                </div>
-              </div>
-              
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
-              {/* School Name */}
-              <div>
-                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.schoolName')}</label>
-                <input 
-                  type="text" 
-                  placeholder={t('support.form.schoolNamePlaceholder')}
-                  className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
-                />
-              </div>
+                    {/* Email */}
+                    <div>
+                      <label htmlFor="email" className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.email')}</label>
+                      <input 
+                        id="email"
+                        type="email" 
+                        name="email"
+                        placeholder={t('support.form.emailPlaceholder')}
+                        className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
+                        required
+                      />
+                      <ValidationError prefix="Email" field="email" errors={formState.errors} className="text-red-500 text-xs mt-1" />
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+                    {/* School Name */}
+                    <div>
+                      <label htmlFor="schoolName" className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.schoolName')}</label>
+                      <input 
+                        id="schoolName"
+                        type="text" 
+                        name="schoolName"
+                        placeholder={t('support.form.schoolNamePlaceholder')}
+                        className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
+                      />
+                    </div>
 
-              {/* Subject */}
-              <div>
-                <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right font-sans">{t('support.form.subject')}</label>
-                <select className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right font-sans">
-                  <option className="font-sans">{t('support.form.subjectGeneral')}</option>
-                  <option className="font-sans">{t('support.form.subjectTechnical')}</option>
-                  <option className="font-sans">{t('support.form.subjectBilling')}</option>
-                  <option className="font-sans">{t('support.form.subjectFeedback')}</option>
-                </select>
-              </div>
-              </div>
+                    {/* Subject */}
+                    <div>
+                      <label htmlFor="subject" className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right font-sans">{t('support.form.subject')}</label>
+                      <select 
+                        id="subject" 
+                        name="subject"
+                        className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right font-sans"
+                      >
+                        <option className="font-sans">{t('support.form.subjectGeneral')}</option>
+                        <option className="font-sans">{t('support.form.subjectTechnical')}</option>
+                        <option className="font-sans">{t('support.form.subjectBilling')}</option>
+                        <option className="font-sans">{t('support.form.subjectFeedback')}</option>
+                      </select>
+                    </div>
+                  </div>
 
-            {/* Message */}
-            <div className="mb-4 md:mb-6">
-              <label className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.message')}</label>
-                <textarea 
-                rows={6}
-                placeholder={t('support.form.messagePlaceholder')}
-                className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
-                ></textarea>
-              </div>
+                  {/* Message */}
+                  <div className="mb-4 md:mb-6">
+                    <label htmlFor="message" className="block text-gray-800 font-semibold mb-2 text-sm md:text-base rtl:text-right">{t('support.form.message')}</label>
+                    <textarea 
+                      id="message"
+                      name="message"
+                      rows={6}
+                      placeholder={t('support.form.messagePlaceholder')}
+                      className="w-full p-3 md:p-4 bg-gray-100 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base rtl:text-right"
+                    ></textarea>
+                     <ValidationError prefix="Message" field="message" errors={formState.errors} className="text-red-500 text-xs mt-1" />
+                  </div>
 
-            {/* Submit Button */}
-            <div className="text-center">
-              <button 
-                type="submit"
-                className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-sm md:text-base"
-              >
-                {t('support.form.submitButton')}
-              </button>
-            </div>
-          </motion.form>
+                  {/* Submit Button */}
+                  <div className="text-center">
+                    <button 
+                      type="submit"
+                      disabled={formState.submitting}
+                      className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {formState.submitting ? t('contact.submitting') : t('support.form.submitButton')}
+                    </button>
+                  </div>
+                </motion.form>
+              )}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
     </div>

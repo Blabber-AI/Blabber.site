@@ -61,7 +61,7 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
             
-            <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ" />
+            <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };

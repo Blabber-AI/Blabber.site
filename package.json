@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@types/react-router-dom": "^5.3.3",
     "framer-motion": "^12.23.0",
     "gsap": "^3.13.0",

@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { useForm, ValidationError } from '@formspree/react';
 import logo from '../assets/Blabber-logo.png';
 
 const Footer: React.FC = () => {
   const { t, isRTL } = useLanguage();
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [state, handleSubmit] = useForm("mrbbgydr");
+  const [email, setEmail] = useState("");
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -17,8 +20,24 @@ const Footer: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  React.useEffect(() => {
+    // Reset the email field when form submission is successful
+    if (state.succeeded) {
+      setEmail("");
+    }
+  }, [state.succeeded]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const resetForm = () => {
+    // Reset the form and state
+    window.location.reload();
   };
 
   return (
@@ -54,10 +73,10 @@ const Footer: React.FC = () => {
                 {t('footer.description')}
               </p>
               <div className="flex space-x-3 rtl:space-x-reverse">
-                  <motion.a href="https://www.linkedin.com/company/blabber" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-800 transition-all duration-300 group" whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }}>
+                  <motion.a href="https://www.linkedin.com/company/blabberai" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-800 transition-all duration-300 group" whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }}>
                   <i className="fab fa-linkedin-in text-sm group-hover:text-white"></i>
                 </motion.a>
-                  <motion.a href="https://www.instagram.com/blabber" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300 group" whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }}>
+                  <motion.a href="https://www.instagram.com/blabberai/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300 group" whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }}>
                   <i className="fab fa-instagram text-sm group-hover:text-white"></i>
                 </motion.a>
               </div>
@@ -107,7 +126,7 @@ const Footer: React.FC = () => {
                 <h3 className="text-lg mb-4 text-white font-sans font-bold">{t('footer.downloadApp')}</h3>
                 <p className="text-gray-300 mb-4 text-sm leading-relaxed font-sans">{t('footer.appDescription')}</p>
               <div className="space-y-2">
-                  <motion.a href="#" target="_blank" rel="noopener noreferrer" className="block w-full bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <motion.a href="https://apps.apple.com/us/app/blabber-ai/id6740026757" target="_blank" rel="noopener noreferrer" className="block w-full bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
                   <div className="flex items-center space-x-2 rtl:space-x-reverse">
                     <i className="fab fa-apple text-white text-lg"></i>
                     <div>
@@ -116,7 +135,7 @@ const Footer: React.FC = () => {
                     </div>
                   </div>
                 </motion.a>
-                  <motion.a href="#" target="_blank" rel="noopener noreferrer" className="block w-full bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <motion.a href="https://play.google.com/store/apps/details?id=com.app.blabber.blabber" target="_blank" rel="noopener noreferrer" className="block w-full bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
                   <div className="flex items-center space-x-2 rtl:space-x-reverse">
                     <i className="fab fa-google-play text-white text-lg"></i>
                     <div>
@@ -137,16 +156,50 @@ const Footer: React.FC = () => {
                <p className="text-gray-300 text-sm mb-4 max-w-lg mx-auto leading-relaxed font-sans">
                  {t('footer.newsletterDescription')}
             </p>
-               <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder={t('footer.emailPlaceholder')}
-                   className="flex-grow bg-white/10 text-white placeholder-gray-400 px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-sm font-sans"
-              />
-                 <button type="submit" className="bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 rounded-r-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-sm font-sans">
-                {t('footer.subscribe')}
-                 </button>
-               </form>
+               {state.succeeded ? (
+                 <motion.div 
+                   initial={{ opacity: 0, y: 20 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   className="text-center text-white py-4"
+                 >
+                   <div className="mb-4">
+                     <div className="w-16 h-16 bg-green-500/30 rounded-full flex items-center justify-center mx-auto ring-4 ring-green-500/40">
+                       <i className="fas fa-check-circle text-green-300 text-3xl"></i>
+                     </div>
+                   </div>
+                   <h3 className="text-xl mb-2">{t('contact.successTitle')}</h3>
+                   <p className="text-indigo-200 mb-4">{t('contact.successMessage')}</p>
+                   <button 
+                     onClick={resetForm}
+                     className="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 px-4 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg"
+                   >
+                     {t('contact.sendAnother')}
+                   </button>
+                 </motion.div>
+               ) : (
+                 <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={handleSubmit}>
+                   <input
+                     type="email"
+                     name="email"
+                     value={email}
+                     onChange={handleEmailChange}
+                     placeholder={t('footer.emailPlaceholder')}
+                     className="flex-grow bg-white/10 text-white placeholder-gray-400 px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-sm font-sans"
+                   />
+                   <ValidationError 
+                     prefix="Email"
+                     field="email"
+                     errors={state.errors}
+                   />
+                   <button 
+                     type="submit" 
+                     disabled={state.submitting}
+                     className="bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 rounded-r-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-sm font-sans"
+                   >
+                     {state.submitting ? '...' : t('footer.subscribe')}
+                   </button>
+                 </form>
+               )}
           </div>
         </motion.div>
 

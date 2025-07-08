@@ -4,8 +4,15 @@ import { translations } from '../utils/translations';
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem('blabber-language');
-    return (saved as Language) || 'he';
+    const savedLanguage = localStorage.getItem('blabber-language');
+
+    // Check if a valid language preference is saved in local storage
+    if (savedLanguage === 'en' || savedLanguage === 'he') {
+      return savedLanguage;
+    }
+
+    // Otherwise, default to Hebrew
+    return 'he';
   });
   const [isTransitioning, setIsTransitioning] = useState(false);
 

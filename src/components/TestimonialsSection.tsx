@@ -17,7 +17,7 @@ const TestimonialsSection: React.FC = () => {
       name: t('testimonials.person1.name'),
       role: t('testimonials.person1.role'),
       content: t('testimonials.person1.content'),
-      image: person1,
+      image: person2, // טל מזור - החלפנו בין התמונות
       rating: 5,
     },
     {
@@ -25,7 +25,7 @@ const TestimonialsSection: React.FC = () => {
       name: t('testimonials.person2.name'),
       role: t('testimonials.person2.role'),
       content: t('testimonials.person2.content'),
-      image: person2,
+      image: person1, // עדי תורג'מן - החלפנו בין התמונות
       rating: 5,
     },
     {

@@ -30,14 +30,15 @@ const HeroSection: React.FC = () => {
                 <div className="bg-white/30 backdrop-blur-xl rounded-2xl sm:rounded-[3rem] border border-white/40 shadow-2xl p-6 sm:p-12 md:p-16 text-center w-full max-w-lg sm:max-w-5xl">
                     {/* Main Title */}
                     <h1 
-                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-slate-800 font-extrabold"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-slate-800 font-extrabold leading-tight"
                         style={{ textShadow: '0 2px 10px rgba(0,0,0,0.1)' }}
-                    >
-                        {t('hero.title')}
-                    </h1>
+                        dangerouslySetInnerHTML={{ 
+                            __html: t('hero.title').replace('Blabber', '<span style="text-shadow: 0 4px 15px rgba(0,0,0,0.25), 0 8px 30px rgba(0,0,0,0.15); font-weight: 900; display: inline-block; transform: scale(1.05);">Blabber</span>')
+                        }}
+                    />
                     
                     {/* Subtitle with Logo */}
-                    <div className="flex items-center justify-center gap-3 mb-8">
+                    <div className="flex items-center justify-center gap-1 mb-8">
                         <h2 
                             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent animate-pulse"
                             style={{ 

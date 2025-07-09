@@ -91,10 +91,10 @@ const CallToActionSection: React.FC = () => {
     }
   };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validateForm()) return;
-    handleSubmit(e);
+    handleSubmit(e.currentTarget);
   };
 
   return (
@@ -146,7 +146,7 @@ const CallToActionSection: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.5 }}
-                  className="flex items-start space-x-4 rtl:space-x-reverse"
+                  className="flex items-start gap-4"
                 >
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-lg">
@@ -163,7 +163,7 @@ const CallToActionSection: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.6 }}
-                  className="flex items-start space-x-4 rtl:space-x-reverse"
+                  className="flex items-start gap-4"
                 >
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
@@ -180,7 +180,7 @@ const CallToActionSection: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.7 }}
-                  className="flex items-start space-x-4 rtl:space-x-reverse"
+                  className="flex items-start gap-4"
                 >
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">

@@ -18,16 +18,16 @@ export const translations: Translations = {
 
   // Hero Section
   'hero.title': { 
-    he: 'לומדים אנגלית עם Blabber', 
-    en: 'Learning English with Blabber' 
+    he: 'לומדים אנגלית עם<br />Blabber', 
+    en: 'Learning English with<br />Blabber' 
   },
   'hero.subtitle2': { 
     he: 'פשוט לדבר.', 
     en: 'Simply speak.' 
   },
   'hero.subtitle': { 
-    he: 'בואו להיות חלק משינוי.<br className="block md:hidden" /> מורה פרטי לכל תלמיד.', 
-    en: 'Be part of the change, private tutor for every student.' 
+    he: 'בואו להיות חלק משינוי<br className="block md:hidden" /> מורה פרטי לכל תלמיד', 
+    en: 'Be part of the change, private tutor for every student' 
   },
   'hero.cta.primary': { he: 'התחילו עכשיו', en: 'Get Started' },
   'hero.cta.secondary': { he: 'צפו בהדגמה', en: 'Watch Demo' },
@@ -54,6 +54,7 @@ export const translations: Translations = {
   'hiw.step3.desc1': { he: 'Blabber מספק ניתוח מתקדם ומפורט עבור כל תלמיד, המבוסס על המדדים הרשמיים של משרד החינוך.', en: 'Blabber provides advanced and detailed analysis for each student, based on the official metrics of the Ministry of Education.' },
   'hiw.step3.desc2': { he: 'עקבו אחר ביצועי התלמידים במשימה בודדת ובהתפתחותם לאורך זמן.', en: 'Track student performance in individual tasks and their development over time.' },
   'hiw.step3.desc3': { he: 'Blabber גם מתאים עצמו ליכולות ולצרכים של כל תלמיד ככל שהוא מתקדם - בדיוק כמו שאתם עושים!', en: 'Blabber also adapts itself to each student\'s abilities and needs as they progress - just like you do!' },
+  'hiw.transformCta': { he: '?Ready to transform your classroom', en: 'Ready to transform your classroom?' },
 
   // Testimonials Section
   'testimonials.title': { he: 'סיפורי הצלחה של בתי ספר', en: 'School Success Stories' },

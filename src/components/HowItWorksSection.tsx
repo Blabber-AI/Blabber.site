@@ -4,7 +4,6 @@ import { useLanguage } from '../hooks/useLanguage';
 import hiw1 from '../assets/HIW1.png';
 import hiw2 from '../assets/HIW2.png';
 import hiw3 from '../assets/HIW3.png';
-import { Link } from 'react-scroll';
 
 const HowItWorksSection: React.FC = () => {
   const { t, isRTL } = useLanguage();
@@ -165,26 +164,26 @@ const HowItWorksSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom CTA */}
+        {/* Call to action button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12 md:mt-20"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-12 md:mt-16 text-center"
         >
-          <Link 
-            to="contact" 
-            smooth={true} 
-            duration={800} 
-            offset={-80} 
-            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+          <button
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="inline-flex items-center gap-3 text-base font-semibold text-indigo-700 bg-indigo-100 hover:bg-indigo-200/80 border border-transparent rounded-full px-6 py-3 transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            <span className="text-gray-700 text-base font-sans">Ready to transform your classroom?</span>
-            <svg className="w-5 h-5 ml-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+            <i className="fas fa-rocket"></i>
+            <span>{t('hiw.transformCta')}</span>
+          </button>
         </motion.div>
       </div>
     </section>

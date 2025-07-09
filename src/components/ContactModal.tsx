@@ -157,27 +157,27 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   </motion.p>
                     
                   <div className="space-y-6 text-left rtl:text-right max-w-md mx-auto lg:mx-0">
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.5 }}
-                      className="flex items-start space-x-4 rtl:space-x-reverse"
+                      className="flex items-start gap-4"
                     >
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-lg">
                           <i className="fas fa-comments text-white text-2xl"></i>
-                      </div>
+                        </div>
                       </div>
                       <div>
-                          <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature1.title')}</h4>
-                          <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature1.desc')}</p>
-                    </div>
-                  </motion.div>
-                  <motion.div
+                        <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature1.title')}</h4>
+                        <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature1.desc')}</p>
+                      </div>
+                    </motion.div>
+                    <motion.div
                       initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 }}
-                      className="flex items-start space-x-4 rtl:space-x-reverse"
+                      className="flex items-start gap-4"
                     >
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
@@ -185,15 +185,15 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                         </div>
                       </div>
                       <div>
-                          <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature2.title')}</h4>
-                          <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature2.desc')}</p>
-                        </div>
+                        <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature2.title')}</h4>
+                        <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature2.desc')}</p>
+                      </div>
                     </motion.div>
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.7 }}
-                      className="flex items-start space-x-4 rtl:space-x-reverse"
+                      className="flex items-start gap-4"
                     >
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
@@ -201,10 +201,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                         </div>
                       </div>
                       <div>
-                          <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature3.title')}</h4>
-                          <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature3.desc')}</p>
-                    </div>
-                  </motion.div>
+                        <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature3.title')}</h4>
+                        <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature3.desc')}</p>
+                      </div>
+                    </motion.div>
                   </div>
                 </motion.div>
 

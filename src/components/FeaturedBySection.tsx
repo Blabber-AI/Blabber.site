@@ -52,7 +52,7 @@ const FeaturedBySection: React.FC = () => {
         {/* Static Logos Grid */}
         <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-10 max-w-5xl mx-auto overflow-x-auto pb-4">
           {logos.map((logo, index) => (
-            <motion.div
+          <motion.div
               key={logo.alt}
               className="group flex flex-col items-center flex-shrink-0"
               initial={{ opacity: 0, y: 20 }}
@@ -60,22 +60,22 @@ const FeaturedBySection: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            >
+              >
               <div className="bg-white rounded-xl p-3 sm:p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 group-hover:border-blue-200 group-hover:bg-blue-50">
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
                   className="h-8 sm:h-10 md:h-12 w-auto mx-auto transition-all duration-300"
-                />
-              </div>
-              
+                  />
+                </div>
+                
               <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
                 <p className="text-xs font-medium text-gray-600 whitespace-nowrap font-sans">
-                  {logo.name}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                    {logo.name}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
         </div>
       </div>
     </motion.section>

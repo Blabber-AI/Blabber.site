@@ -63,20 +63,20 @@ const Footer: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-                <div className={`flex items-center mb-4 ${isRTL ? 'rtl:space-x-reverse' : 'space-x-3'}`}>
+              <div className="flex items-center gap-3 mb-4">
                 <img src={logo} alt="Blabber Logo" className="h-10 w-auto" />
-                  <span className={`text-xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-sans font-bold ${isRTL ? 'rtl:mr-3' : ''}`}>
+                <span className="text-xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-sans font-bold">
                   Blabber
                 </span>
               </div>
               <p className="text-gray-300 leading-relaxed mb-4 text-sm font-sans">
                 {t('footer.description')}
               </p>
-              <div className="flex space-x-3 rtl:space-x-reverse">
-                  <motion.a href="https://www.linkedin.com/company/blabberai" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-800 transition-all duration-300 group" whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }}>
+              <div className="flex gap-3">
+                <motion.a href="https://www.linkedin.com/company/blabberai" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-800 transition-all duration-300 group" whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }}>
                   <i className="fab fa-linkedin-in text-sm group-hover:text-white"></i>
                 </motion.a>
-                  <motion.a href="https://www.instagram.com/blabberai/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300 group" whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }}>
+                <motion.a href="https://www.instagram.com/blabberai/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300 group" whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }}>
                   <i className="fab fa-instagram text-sm group-hover:text-white"></i>
                 </motion.a>
               </div>
@@ -97,22 +97,22 @@ const Footer: React.FC = () => {
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
                 <h3 className="text-lg mb-4 text-white font-sans font-bold">{t('footer.contact')}</h3>
               <div className="space-y-3">
-                  <div className="flex items-center space-x-4 rtl:space-x-reverse">
-                    <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0"><i className="fas fa-envelope text-white text-xs"></i></div>
+                <div className="flex items-center gap-4">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0"><i className="fas fa-envelope text-white text-xs"></i></div>
                   <div>
                     <p className="text-gray-400 text-xs font-sans">{t('footer.email')}</p>
-                      <a href="mailto:contact@blabber.site" className="text-white hover:text-blue-400 transition-colors duration-300 text-sm font-sans">contact@blabber.site</a>
-                </div>
+                    <a href="mailto:contact@blabber.site" className="text-white hover:text-blue-400 transition-colors duration-300 text-sm font-sans">contact@blabber.site</a>
                   </div>
-                  <div className="flex items-center space-x-4 rtl:space-x-reverse">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0"><i className="fas fa-phone text-white text-xs"></i></div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0"><i className="fas fa-phone text-white text-xs"></i></div>
                   <div>
                     <p className="text-gray-400 text-xs font-sans">{t('footer.phone')}</p>
-                      <a href="tel:0524278042" className="text-white hover:text-blue-400 transition-colors duration-300 text-sm font-sans">0524278042</a>
-                </div>
+                    <a href="tel:0524278042" className="text-white hover:text-blue-400 transition-colors duration-300 text-sm font-sans">0524278042</a>
                   </div>
-                  <div className="flex items-center space-x-4 rtl:space-x-reverse">
-                    <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-teal-600 rounded-full flex items-center justify-center flex-shrink-0"><i className="fas fa-map-marker-alt text-white text-xs"></i></div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-teal-600 rounded-full flex items-center justify-center flex-shrink-0"><i className="fas fa-map-marker-alt text-white text-xs"></i></div>
                   <div>
                     <p className="text-gray-400 text-xs font-sans">{t('footer.address')}</p>
                     <p className="text-white text-sm font-sans">{t('footer.location')}</p>
@@ -122,25 +122,25 @@ const Footer: React.FC = () => {
             </motion.div>
 
             {/* App Download */}
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}>
-                <h3 className="text-lg mb-4 text-white font-sans font-bold">{t('footer.downloadApp')}</h3>
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed font-sans">{t('footer.appDescription')}</p>
-              <div className="space-y-2">
-                  <motion.a href="https://apps.apple.com/us/app/blabber-ai/id6740026757" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
-                  <div className="flex items-center space-x-2 rtl:space-x-reverse">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}>
+              <h3 className="text-lg mb-4 text-white font-sans font-bold">{t('footer.downloadApp')}</h3>
+              <p className="text-gray-300 mb-4 text-sm leading-relaxed font-sans">{t('footer.appDescription')}</p>
+              <div className="flex flex-wrap gap-3">
+                <motion.a href="https://apps.apple.com/us/app/blabber-ai/id6740026757" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <div className="flex items-center gap-2">
                     <i className="fab fa-apple text-white text-lg px-1"></i>
                     <div>
                       <p className="text-xs text-gray-400 font-sans">{t('footer.downloadFrom')}</p>
-                        <p className="text-white text-sm group-hover:text-blue-400 transition-colors font-sans">App Store</p>
+                      <p className="text-white text-sm group-hover:text-blue-400 transition-colors font-sans">App Store</p>
                     </div>
                   </div>
                 </motion.a>
-                  <motion.a href="https://play.google.com/store/apps/details?id=com.app.blabber.blabber" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
-                  <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                <motion.a href="https://play.google.com/store/apps/details?id=com.app.blabber.blabber" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-black rounded-lg p-2 hover:bg-gray-800 transition-all duration-300 group" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <div className="flex items-center gap-2">
                     <i className="fab fa-google-play text-white text-lg px-1"></i>
                     <div>
                       <p className="text-xs text-gray-400 font-sans">{t('footer.downloadFrom')}</p>
-                        <p className="text-white text-sm group-hover:text-blue-400 transition-colors font-sans">Google Play</p>
+                      <p className="text-white text-sm group-hover:text-blue-400 transition-colors font-sans">Google Play</p>
                     </div>
                   </div>
                 </motion.a>
@@ -151,11 +151,11 @@ const Footer: React.FC = () => {
 
           {/* Newsletter Section */}
           <motion.div className="py-8" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}>
-          <div className="max-w-2xl mx-auto text-center">
-               <h3 className="text-lg text-white mb-2 font-sans font-bold">{t('footer.newsletterTitle')}</h3>
-               <p className="text-gray-300 text-sm mb-4 max-w-lg mx-auto leading-relaxed font-sans">
-                 {t('footer.newsletterDescription')}
-            </p>
+            <div className={`max-w-2xl mx-auto text-center ${isRTL ? 'md:text-right' : 'md:text-left'}`}>
+              <h3 className="text-lg text-white mb-2 font-sans font-bold">{t('footer.newsletterTitle')}</h3>
+              <p className="text-gray-300 text-sm mb-4 max-w-lg mx-auto leading-relaxed font-sans md:mx-0">
+                {t('footer.newsletterDescription')}
+              </p>
                {state.succeeded ? (
                  <motion.div 
                    initial={{ opacity: 0, y: 20 }}

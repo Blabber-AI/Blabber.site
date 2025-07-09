@@ -5,10 +5,24 @@ import ContactModal from './ContactModal';
 import GridMotion from './GridMotion';
 import logo from '../assets/Blabber-logo.png';
 
-const gridItems = Array.from({ length: 28 }, (_, i) => {
-  const imagePath = `../assets/grid_photos/grid${(i % 12) + 1}.png`;
-  return new URL(imagePath, import.meta.url).href;
-});
+// Import all grid images directly
+import grid1 from '../assets/grid_photos/grid1.png';
+import grid2 from '../assets/grid_photos/grid2.png';
+import grid3 from '../assets/grid_photos/grid3.png';
+import grid4 from '../assets/grid_photos/grid4.png';
+import grid5 from '../assets/grid_photos/grid5.png';
+import grid6 from '../assets/grid_photos/grid6.png';
+import grid7 from '../assets/grid_photos/grid7.png';
+import grid8 from '../assets/grid_photos/grid8.png';
+import grid9 from '../assets/grid_photos/grid9.png';
+import grid10 from '../assets/grid_photos/grid10.png';
+import grid11 from '../assets/grid_photos/grid11.png';
+import grid12 from '../assets/grid_photos/grid12.png';
+
+const allGridImages = [grid1, grid2, grid3, grid4, grid5, grid6, grid7, grid8, grid9, grid10, grid11, grid12];
+
+// Create a longer array for the grid animation to ensure variety
+const gridItems = Array.from({ length: 28 }, (_, i) => allGridImages[i % allGridImages.length]);
 
 const HeroSection: React.FC = () => {
     const { t } = useLanguage();
@@ -18,7 +32,7 @@ const HeroSection: React.FC = () => {
   return (
         <section 
             id="hero" 
-            className="relative flex items-start sm:items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 overflow-hidden min-h-screen py-4"
+            className="relative flex items-start sm:items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 overflow-hidden min-h-screen py-4 px-4 sm:px-0"
         >
             {/* Background Animation */}
             <div className="absolute inset-0 z-0 opacity-40">
@@ -27,7 +41,7 @@ const HeroSection: React.FC = () => {
 
             {/* Glassmorphism Content Panel */}
             <div className="relative z-10 flex items-start sm:items-center justify-center w-full h-full min-h-screen pt-8 sm:pt-0">
-                <div className="bg-white/30 backdrop-blur-xl rounded-2xl sm:rounded-[3rem] border border-white/40 shadow-2xl p-4 sm:p-8 md:p-12 text-center w-full max-w-sm sm:max-w-3xl mx-auto">
+                <div className="bg-white/30 backdrop-blur-xl rounded-2xl sm:rounded-[3rem] border border-white/40 shadow-2xl p-4 sm:p-8 md:p-12 text-center w-full max-w-sm sm:max-w-3xl">
                     {/* Main Title */}
                     <h1 
                         className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-slate-800 font-extrabold leading-tight"

@@ -42,7 +42,7 @@ const HeroSection: React.FC = () => {
   return (
         <section 
             id="hero" 
-            className="relative flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 overflow-hidden min-h-screen py-4 px-4 sm:px-0"
+            className="relative flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 overflow-hidden min-h-screen sm:min-h-0 sm:h-[80vh] sm:py-16 px-4"
         >
             {/* Background Animation */}
             <div className="absolute inset-0 z-0 opacity-40">

@@ -22,10 +22,6 @@ const FeaturedBySection: React.FC = () => {
   return (
     <motion.section
       className="py-8 sm:py-12 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
     >
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -34,11 +30,7 @@ const FeaturedBySection: React.FC = () => {
 
       <div className="container mx-auto px-4 text-center relative z-10 font-sans">
         {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        <div
           className="mb-8"
         >
           <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-xs px-3 py-1 rounded-full mb-3 shadow-md font-sans">
@@ -47,7 +39,7 @@ const FeaturedBySection: React.FC = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-gray-800 font-sans font-extrabold">
             {t('featured.title')}
           </h3>
-        </motion.div>
+        </div>
 
         {/* Static Logos Grid */}
         <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-10 max-w-5xl mx-auto overflow-x-auto pb-4">

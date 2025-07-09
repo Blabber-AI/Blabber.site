@@ -68,24 +68,24 @@ const HeroSection: React.FC = () => {
                             className="w-full sm:w-auto text-lg text-white px-8 py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105
                                        bg-gradient-to-br from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700
                                        shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 cursor-pointer"
-                        >
+                >
                             {t('hero.cta.primary')}
                         </button>
-                        <button 
+                <button 
                             onClick={() => setIsVideoModalOpen(true)}
                             className="w-full sm:w-auto text-lg px-8 py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105
                                        bg-white/50 hover:bg-white/80 backdrop-blur-sm
                                        text-slate-800 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-gray-200"
                         >
                             {t('hero.cta.secondary')}
-                        </button>
+                </button>
                     </div>
-                </div>
+              </div>
             </div>
             
             <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} />
             <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
-        </section>
+    </section>
   );
 };
 

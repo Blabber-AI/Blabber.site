@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 import VideoModal from './VideoModal';
 import ContactModal from './ContactModal';
 import GridMotion from './GridMotion';
 import logo from '../assets/Blabber-logo.png';
+import useWindowSize from '../hooks/useWindowSize';
 
 // Import all grid images directly
 import grid1 from '../assets/grid_photos/grid1.png';
@@ -28,19 +29,28 @@ const HeroSection: React.FC = () => {
     const { t } = useLanguage();
     const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+    const { width } = useWindowSize();
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    // Determine row count based on screen size, but only on the client
+    const rowCount = isClient && width && width < 768 ? 3 : 4; // 768px is md breakpoint
 
   return (
         <section 
             id="hero" 
-            className="relative flex items-start sm:items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 overflow-hidden min-h-screen py-4 px-4 sm:px-0"
+            className="relative flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 overflow-hidden min-h-screen py-4 px-4 sm:px-0"
         >
             {/* Background Animation */}
             <div className="absolute inset-0 z-0 opacity-40">
-                <GridMotion items={gridItems} />
+                <GridMotion items={gridItems} rowCount={rowCount} />
             </div>
 
             {/* Glassmorphism Content Panel */}
-            <div className="relative z-10 flex items-start sm:items-center justify-center w-full h-full min-h-screen pt-8 sm:pt-0">
+            <div className="relative z-10 flex items-center justify-center w-full h-full">
                 <div className="bg-white/30 backdrop-blur-xl rounded-2xl sm:rounded-[3rem] border border-white/40 shadow-2xl p-4 sm:p-8 md:p-12 text-center w-full max-w-sm sm:max-w-3xl">
                     {/* Main Title */}
                     <h1 

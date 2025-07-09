@@ -54,7 +54,7 @@ export const translations: Translations = {
   'hiw.step3.desc1': { he: 'Blabber מספק ניתוח מתקדם ומפורט עבור כל תלמיד, המבוסס על המדדים הרשמיים של משרד החינוך.', en: 'Blabber provides advanced and detailed analysis for each student, based on the official metrics of the Ministry of Education.' },
   'hiw.step3.desc2': { he: 'עקבו אחר ביצועי התלמידים במשימה בודדת ובהתפתחותם לאורך זמן.', en: 'Track student performance in individual tasks and their development over time.' },
   'hiw.step3.desc3': { he: 'Blabber גם מתאים עצמו ליכולות ולצרכים של כל תלמיד ככל שהוא מתקדם - בדיוק כמו שאתם עושים!', en: 'Blabber also adapts itself to each student\'s abilities and needs as they progress - just like you do!' },
-  'hiw.transformCta': { he: '?Ready to transform your classroom', en: 'Ready to transform your classroom?' },
+  'hiw.transformCta': { he: 'מוכנים למהפכה בכיתה שלכם?', en: 'Ready to transform your classroom?' },
 
   // Testimonials Section
   'testimonials.title': { he: 'סיפורי הצלחה של בתי ספר', en: 'School Success Stories' },

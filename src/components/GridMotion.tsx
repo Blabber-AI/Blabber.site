@@ -5,10 +5,9 @@ import './GridMotion.css';
 interface GridMotionProps {
   items?: (string | React.ReactNode)[];
   gradientColor?: string;
-  rowCount?: number;
 }
 
-const GridMotion: React.FC<GridMotionProps> = ({ items = [], gradientColor = 'white', rowCount = 4 }) => {
+const GridMotion: React.FC<GridMotionProps> = ({ items = [], gradientColor = 'white' }) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -43,7 +42,7 @@ const GridMotion: React.FC<GridMotionProps> = ({ items = [], gradientColor = 'wh
         className="intro"
       >
         <div className="gridMotion-container">
-          {[...Array(rowCount)].map((_, rowIndex) => (
+          {[...Array(4)].map((_, rowIndex) => (
             <div
               key={rowIndex}
               className="row"

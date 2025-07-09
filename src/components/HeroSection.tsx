@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
   return (
         <section 
             id="hero" 
-            className="relative flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 overflow-hidden min-h-[60vh] md:py-40"
+            className="relative flex items-start sm:items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 overflow-hidden min-h-screen py-4"
         >
             {/* Background Animation */}
             <div className="absolute inset-0 z-0 opacity-40">
@@ -26,8 +26,8 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* Glassmorphism Content Panel */}
-            <div className="relative z-10 flex flex-col items-center justify-center text-center p-4">
-                <div className="bg-white/30 backdrop-blur-xl rounded-2xl sm:rounded-[3rem] border border-white/40 shadow-2xl p-6 sm:p-12 md:p-16 text-center w-full max-w-lg sm:max-w-5xl">
+            <div className="relative z-10 flex items-start sm:items-center justify-center w-full h-full min-h-screen pt-8 sm:pt-0">
+                <div className="bg-white/30 backdrop-blur-xl rounded-2xl sm:rounded-[3rem] border border-white/40 shadow-2xl p-4 sm:p-8 md:p-12 text-center w-full max-w-sm sm:max-w-3xl mx-auto">
                     {/* Main Title */}
                     <h1 
                         className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-slate-800 font-extrabold leading-tight"

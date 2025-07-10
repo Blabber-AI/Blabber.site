@@ -32,7 +32,7 @@ const HeroSection: React.FC = () => {
   return (
         <section 
             id="hero" 
-            className="relative flex items-center justify-center bg-gradient-to-br from-purple-200 via-indigo-200 to-blue-200 overflow-hidden min-h-[85vh] sm:min-h-screen py-4 px-4 sm:px-0 animate-gradient"
+            className="relative flex items-center justify-center bg-gradient-to-br from-purple-100 via-indigo-100 to-blue-100 overflow-hidden min-h-[85vh] sm:min-h-screen py-4 px-4 sm:px-0 animate-gradient"
         >
             {/* Background Animation */}
             <div className="absolute inset-0 z-0 opacity-40 hidden sm:block">
@@ -44,7 +44,7 @@ const HeroSection: React.FC = () => {
                 <div className="bg-white/30 backdrop-blur-xl rounded-2xl sm:rounded-[3rem] border border-white/40 shadow-2xl p-4 sm:p-8 md:p-12 text-center w-full max-w-sm sm:max-w-3xl">
                     {/* Main Title */}
                     <h1 
-                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-slate-800 font-extrabold leading-tight"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 text-slate-800 font-extrabold leading-tight"
                         style={{ textShadow: '0 2px 10px rgba(0,0,0,0.1)' }}
                         dangerouslySetInnerHTML={{ 
                             __html: t('hero.title').replace('Blabber', '<span style="text-shadow: 0 4px 15px rgba(0,0,0,0.25), 0 8px 30px rgba(0,0,0,0.15); font-weight: 900; display: inline-block; transform: scale(1.05);">Blabber</span>')
@@ -52,7 +52,7 @@ const HeroSection: React.FC = () => {
                     />
                     
                     {/* Subtitle with Logo */}
-                    <div className="flex items-center justify-center gap-1 mb-8">
+                    <div className="flex items-center justify-center gap-1 mb-6 sm:mb-8">
                         <h2 
                             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent animate-pulse"
                             style={{ 
@@ -71,7 +71,7 @@ const HeroSection: React.FC = () => {
                     
                     {/* Description Text */}
                     <p 
-                        className="text-base sm:text-lg lg:text-xl text-slate-600 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed font-bold"
+                        className="text-base sm:text-lg lg:text-xl text-slate-600 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed font-bold"
                         dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }}
                     />
                     
@@ -79,7 +79,7 @@ const HeroSection: React.FC = () => {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up">
                         <button 
                             onClick={() => setIsContactModalOpen(true)}
-                            className="w-full sm:w-auto text-lg text-white px-8 py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105
+                            className="w-full sm:w-auto text-lg text-white px-8 py-3 sm:py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105
                                        bg-gradient-to-br from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700
                                        shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 cursor-pointer"
                 >
@@ -87,7 +87,7 @@ const HeroSection: React.FC = () => {
                         </button>
                 <button 
                             onClick={() => setIsVideoModalOpen(true)}
-                            className="w-full sm:w-auto text-lg px-8 py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105
+                            className="w-full sm:w-auto text-lg px-8 py-3 sm:py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105
                                        bg-white/50 hover:bg-white/80 backdrop-blur-sm
                                        text-slate-800 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-gray-200"
                         >

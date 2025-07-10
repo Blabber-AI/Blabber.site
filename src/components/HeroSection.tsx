@@ -32,10 +32,10 @@ const HeroSection: React.FC = () => {
   return (
         <section 
             id="hero" 
-            className="relative flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 overflow-hidden min-h-[85vh] sm:min-h-screen py-4 px-4 sm:px-0"
+            className="relative flex items-center justify-center bg-gradient-to-br from-purple-200 via-indigo-200 to-blue-200 overflow-hidden min-h-[85vh] sm:min-h-screen py-4 px-4 sm:px-0 animate-gradient"
         >
             {/* Background Animation */}
-            <div className="absolute inset-0 z-0 opacity-40">
+            <div className="absolute inset-0 z-0 opacity-40 hidden sm:block">
                 <GridMotion items={gridItems} />
             </div>
 

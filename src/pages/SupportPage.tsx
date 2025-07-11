@@ -71,7 +71,7 @@ const SupportPage: React.FC = () => {
   return (
     <div className={`${isRTL ? 'rtl' : 'ltr'}`}>
       {/* Hero Section - Mobile Responsive */}
-      <section className="relative py-20 overflow-hidden">
+      <section id="hero" className="relative py-12 md:py-20 lg:py-24 overflow-hidden">
         {/* Modern Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-violet-900 via-blue-900 to-cyan-800"></div>
         
@@ -108,7 +108,7 @@ const SupportPage: React.FC = () => {
               </div>
             </motion.div>
             
-            <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight tracking-wide">
               {t('support.title')}
             </h1>
             
@@ -135,8 +135,8 @@ const SupportPage: React.FC = () => {
       </section>
 
       {/* Contact Support Section - Mobile Responsive */}
-      <section className="py-8 md:py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section id="contact" className="py-12 md:py-20 lg:py-24 bg-white">
+        <div className="container max-w-7xl mx-auto px-4">
           <motion.div 
             className="text-center mb-8 md:mb-12"
             initial={{ opacity: 0, y: 30 }}
@@ -147,8 +147,8 @@ const SupportPage: React.FC = () => {
             <div className="w-10 md:w-12 h-10 md:h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
               <i className="fas fa-phone text-primary text-base md:text-lg"></i>
             </div>
-            <h2 className="text-2xl md:text-3xl text-gray-800 mb-3 md:mb-4">{t('support.contact.title')}</h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl text-gray-800 mb-3 md:mb-4 tracking-wide">{t('support.contact.title')}</h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-7 md:leading-8 px-4">
               {t('support.contact.subtitle')}
             </p>
             <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-3 md:mt-4"></div>
@@ -170,8 +170,8 @@ const SupportPage: React.FC = () => {
               <div className="w-10 md:w-12 h-10 md:h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                 <i className="fas fa-phone text-white text-base md:text-lg"></i>
               </div>
-              <h3 className="text-base md:text-lg text-gray-800 mb-2">{t('support.contact.phoneTitle')}</h3>
-              <p className="text-gray-600 text-sm mb-3">{t('support.contact.phoneDesc')}</p>
+              <h3 className="text-base md:text-lg text-gray-800 mb-2 tracking-wide">{t('support.contact.phoneTitle')}</h3>
+              <p className="text-gray-600 text-sm mb-3 leading-relaxed">{t('support.contact.phoneDesc')}</p>
               <a href="tel:0524278042" className="text-blue-600 hover:text-blue-700 transition-colors text-sm md:text-base">
                 052-427-8042
               </a>
@@ -184,8 +184,8 @@ const SupportPage: React.FC = () => {
               <div className="w-10 md:w-12 h-10 md:h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                 <i className="fas fa-envelope text-white text-base md:text-lg"></i>
               </div>
-              <h3 className="text-base md:text-lg text-gray-800 mb-2">{t('support.contact.emailTitle')}</h3>
-              <p className="text-gray-600 text-sm mb-3">{t('support.contact.emailDesc')}</p>
+              <h3 className="text-base md:text-lg text-gray-800 mb-2 tracking-wide">{t('support.contact.emailTitle')}</h3>
+              <p className="text-gray-600 text-sm mb-3 leading-relaxed">{t('support.contact.emailDesc')}</p>
               <a href="mailto:contact@blabber.site" className="text-purple-600 hover:text-purple-700 transition-colors text-sm md:text-base">
                 contact@blabber.site
               </a>
@@ -198,8 +198,8 @@ const SupportPage: React.FC = () => {
               <div className="w-10 md:w-12 h-10 md:h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                 <i className="fab fa-whatsapp text-white text-base md:text-lg"></i>
               </div>
-              <h3 className="text-base md:text-lg text-gray-800 mb-2">{t('support.contact.chatTitle')}</h3>
-              <p className="text-gray-600 text-sm mb-3">{t('support.contact.chatDesc')}</p>
+              <h3 className="text-base md:text-lg text-gray-800 mb-2 tracking-wide">{t('support.contact.chatTitle')}</h3>
+              <p className="text-gray-600 text-sm mb-3 leading-relaxed">{t('support.contact.chatDesc')}</p>
               <a href="https://wa.me/972524278042" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-colors text-sm md:text-base">
                 {t('support.contact.chatButton')}
               </a>
@@ -209,8 +209,8 @@ const SupportPage: React.FC = () => {
       </section>
 
       {/* Redesigned FAQ Section */}
-      <section className="py-8 md:py-16 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
+      <section id="faq" className="py-12 md:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container max-w-7xl mx-auto px-4">
           {/* FAQ Header */}
           <motion.div 
             className="text-center mb-8 md:mb-12"
@@ -222,8 +222,8 @@ const SupportPage: React.FC = () => {
             <div className="w-10 md:w-12 h-10 md:h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
               <i className="fas fa-question-circle text-primary text-base md:text-lg"></i>
             </div>
-            <h2 className="text-2xl md:text-3xl text-gray-800 mb-3">{t('support.faq.title')}</h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4 md:mb-6 px-4">
+            <h2 className="text-2xl md:text-3xl text-gray-800 mb-3 tracking-wide">{t('support.faq.title')}</h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-7 md:leading-8 mb-4 md:mb-6 px-4">
               {t('support.faq.subtitle')}
             </p>
             <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
@@ -231,7 +231,7 @@ const SupportPage: React.FC = () => {
 
           {/* FAQ Categories - Redesigned for 3 categories */}
           <div className="mb-6 md:mb-8">
-            <h3 className="text-lg md:text-xl text-gray-800 text-center mb-4 md:mb-6">{t('support.faq.selectTopic')}</h3>
+            <h3 className="text-lg md:text-xl text-gray-800 text-center mb-4 md:mb-6 tracking-wide">{t('support.faq.selectTopic')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
               {faqCategories.map((category) => {
                 const isActive = activeCategory === category.id;
@@ -275,7 +275,7 @@ const SupportPage: React.FC = () => {
                     <div className={`w-14 md:w-16 h-14 md:h-16 bg-gradient-to-r ${faqCategories.find(cat => cat.id === activeCategory)?.color} rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4`}>
                       <i className={`fas ${faqCategories.find(cat => cat.id === activeCategory)?.icon} text-white text-xl md:text-2xl`}></i>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-2 tracking-wide">
                       {faqCategories.find(cat => cat.id === activeCategory)?.title}
                     </h3>
                     <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
@@ -297,7 +297,7 @@ const SupportPage: React.FC = () => {
                     className="w-full p-4 md:p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors group"
                     onClick={() => toggleFAQ(index)}
                   >
-                    <h3 className="text-base md:text-lg font-semibold text-gray-800 flex items-center group-hover:text-primary transition-colors pr-4">
+                    <h3 className="text-base md:text-lg font-semibold text-gray-800 flex items-center group-hover:text-primary transition-colors pr-4 tracking-wide">
                       <div className="w-6 md:w-8 h-6 md:h-8 bg-primary/10 rounded-lg flex items-center justify-center mr-3 md:mr-4 group-hover:bg-primary/20 transition-colors">
                         <i className="fas fa-circle text-primary text-xs" style={{ fontSize: '0.5rem' }}></i>
                       </div>
@@ -315,7 +315,7 @@ const SupportPage: React.FC = () => {
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="text-gray-600 leading-relaxed border-t pt-3 md:pt-4 pl-8 md:pl-12 text-sm md:text-base">
+                      <div className="text-gray-600 leading-7 md:leading-8 border-t pt-3 md:pt-4 pl-8 md:pl-12 text-sm md:text-base">
                         <div className="w-5 md:w-6 h-5 md:h-6 bg-secondary/10 rounded-full flex items-center justify-center float-left mr-2 md:mr-3 mt-1">
                           <i className="fas fa-lightbulb text-secondary text-xs"></i>
                         </div>
@@ -330,8 +330,8 @@ const SupportPage: React.FC = () => {
       </section>
 
       {/* Contact Form Section - Mobile Responsive */}
-      <section className="py-8 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section id="form" className="py-12 md:py-20 lg:py-24 bg-gray-50">
+        <div className="container max-w-7xl mx-auto px-4">
           <motion.div 
             className="text-center mb-8 md:mb-12"
             initial={{ opacity: 0, y: 30 }}
@@ -339,8 +339,8 @@ const SupportPage: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl md:text-3xl text-gray-800 mb-4">{t('support.form.title')}</h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl text-gray-800 mb-4 tracking-wide">{t('support.form.title')}</h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-7 md:leading-8 px-4">
               {t('support.form.subtitle')}
             </p>
           </motion.div>
@@ -366,8 +366,8 @@ const SupportPage: React.FC = () => {
                       <i className="fas fa-check-circle text-green-300 text-5xl"></i>
                     </div>
                   </div>
-                  <h3 className="text-2xl mb-2 text-gray-800">{t('contact.successTitle')}</h3>
-                  <p className="text-indigo-200 mb-6 text-gray-600">{t('contact.successMessage')}</p>
+                  <h3 className="text-2xl mb-2 text-gray-800 leading-tight tracking-wide">{t('contact.successTitle')}</h3>
+                  <p className="text-indigo-200 mb-6 text-gray-600 leading-relaxed">{t('contact.successMessage')}</p>
                 </motion.div>
               ) : (
                 <motion.form

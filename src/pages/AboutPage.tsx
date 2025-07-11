@@ -22,7 +22,7 @@ const AboutPage: React.FC = () => {
   return (
     <div className={`bg-gray-50 ${isRTL ? 'rtl' : 'ltr'}`}>
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section id="hero" className="relative py-12 md:py-20 lg:py-24 overflow-hidden">
         {/* Modern Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-rose-800"></div>
         
@@ -59,7 +59,7 @@ const AboutPage: React.FC = () => {
               </div>
             </motion.div>
             
-            <h1 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight font-extrabold">
+            <h1 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight font-extrabold tracking-wide">
               {t('about.title')}
             </h1>
           </motion.div>
@@ -67,8 +67,8 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-4">
+      <section id="mission-vision" className="py-12 md:py-20 lg:py-24 bg-white">
+        <div className="container max-w-7xl mx-auto px-4">
           <motion.div 
             className="grid md:grid-cols-2 gap-8 md:gap-12"
             variants={stagger}
@@ -86,8 +86,8 @@ const AboutPage: React.FC = () => {
                   <i className="fas fa-bullseye text-3xl text-white"></i>
                 </div>
               </div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">{t('about.mission.title')}</h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <h2 className="text-3xl font-semibold text-gray-800 mb-4 tracking-wide">{t('about.mission.title')}</h2>
+              <p className="text-lg text-gray-600 leading-7 md:leading-8">
                 {t('about.mission.description')}
               </p>
             </motion.div>
@@ -102,8 +102,8 @@ const AboutPage: React.FC = () => {
                   <i className="fas fa-eye text-3xl text-white"></i>
                 </div>
               </div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">{t('about.vision.title')}</h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <h2 className="text-3xl font-semibold text-gray-800 mb-4 tracking-wide">{t('about.vision.title')}</h2>
+              <p className="text-lg text-gray-600 leading-7 md:leading-8">
                 {t('about.vision.description')}
               </p>
             </motion.div>
@@ -112,8 +112,8 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section id="stats" className="py-12 md:py-20 lg:py-24 bg-gray-50">
+        <div className="container max-w-7xl mx-auto px-4">
           <motion.div 
             className="text-center mb-8"
             variants={fadeInUp}
@@ -121,7 +121,7 @@ const AboutPage: React.FC = () => {
             whileInView="animate"
             viewport={{ once: true, amount: 0.5 }}
           >
-            <h2 className="text-xl md:text-2xl font-extrabold text-gray-800 mb-2">{t('about.stats.title')}</h2>
+            <h2 className="text-xl md:text-2xl font-extrabold text-gray-800 mb-2 tracking-wide">{t('about.stats.title')}</h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full"></div>
           </motion.div>
 
@@ -145,8 +145,8 @@ const AboutPage: React.FC = () => {
                 <div className={`w-12 h-12 ${stat.bg} rounded-full flex items-center justify-center mx-auto mb-3`}>
                   <i className={`fas ${stat.icon} ${stat.color} text-xl`}></i>
                 </div>
-                <p className="text-2xl font-bold text-gray-800 mb-1">{stat.number}</p>
-                <p className="text-xs text-gray-600">{stat.label}</p>
+                <p className="text-2xl font-bold text-gray-800 mb-1 leading-tight">{stat.number}</p>
+                <p className="text-xs text-gray-600 leading-relaxed">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -154,8 +154,8 @@ const AboutPage: React.FC = () => {
       </section>
       
       {/* Technology Section */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-4">
+      <section id="technology" className="py-12 md:py-20 lg:py-24 bg-white">
+        <div className="container max-w-7xl mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
             variants={fadeInUp}
@@ -163,8 +163,8 @@ const AboutPage: React.FC = () => {
             whileInView="animate"
             viewport={{ once: true, amount: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">{t('about.technology.title')}</h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-5">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4 tracking-wide">{t('about.technology.title')}</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-5 leading-7 md:leading-8">
               {t('about.technology.subtitle')}
             </p>
             <div className="w-24 h-1.5 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full"></div>
@@ -211,8 +211,8 @@ const AboutPage: React.FC = () => {
                 <div className="mb-5">
                   <i className={`fas ${tech.icon} ${tech.color} text-4xl`}></i>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">{tech.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{tech.description}</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3 tracking-wide">{tech.title}</h3>
+                <p className="text-gray-600 leading-7 md:leading-8">{tech.description}</p>
               </motion.div>
             ))}
           </motion.div>

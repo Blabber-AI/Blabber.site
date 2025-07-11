@@ -100,7 +100,7 @@ const CallToActionSection: React.FC = () => {
   return (
     <section 
       id="contact" 
-      className={`py-16 sm:py-24 bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900 relative overflow-hidden ${isRTL ? 'rtl' : 'ltr'}`}
+      className={`py-12 md:py-20 lg:py-24 bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900 relative overflow-hidden ${isRTL ? 'rtl' : 'ltr'}`}
     >
       <div className="absolute inset-0 overflow-hidden">
         <motion.div className="absolute top-20 left-10 w-20 md:w-32 h-20 md:h-32 bg-white/10 rounded-full blur-xl" animate={{ y: [0, -20, 0], x: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} />
@@ -125,7 +125,7 @@ const CallToActionSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-3xl sm:text-4xl lg:text-5xl mb-6 leading-tight"
+                className="text-3xl sm:text-4xl lg:text-5xl mb-6 leading-tight tracking-wide"
               >
                 {t('contact.mainTitle1')}
               </motion.h2>
@@ -135,7 +135,7 @@ const CallToActionSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-base sm:text-lg md:text-xl text-indigo-200 max-w-2xl mx-auto lg:mx-0 mb-8"
+                className="text-base sm:text-lg md:text-xl text-indigo-200 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed"
               >
                 {t('contact.subtitle')}
               </motion.p>
@@ -154,7 +154,7 @@ const CallToActionSection: React.FC = () => {
                   </div>
                   </div>
                   <div>
-                      <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature1.title')}</h4>
+                      <h4 className="text-lg text-white mb-1 font-semibold">{t('contact.feature1.title')}</h4>
                       <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature1.desc')}</p>
                 </div>
               </motion.div>
@@ -171,7 +171,7 @@ const CallToActionSection: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                      <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature2.title')}</h4>
+                      <h4 className="text-lg text-white mb-1 font-semibold">{t('contact.feature2.title')}</h4>
                       <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature2.desc')}</p>
                     </div>
                 </motion.div>
@@ -188,7 +188,7 @@ const CallToActionSection: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                      <h4 className="text-lg text-white mb-1 font-bold">{t('contact.feature3.title')}</h4>
+                      <h4 className="text-lg text-white mb-1 font-semibold">{t('contact.feature3.title')}</h4>
                       <p className="text-indigo-200 text-sm leading-relaxed">{t('contact.feature3.desc')}</p>
                 </div>
               </motion.div>
@@ -216,8 +216,8 @@ const CallToActionSection: React.FC = () => {
                           <i className="fas fa-check-circle text-green-300 text-5xl"></i>
                         </div>
                       </div>
-                      <h3 className="text-2xl mb-2">{t('contact.successTitle')}</h3>
-                      <p className="text-indigo-200 mb-6">{t('contact.successMessage')}</p>
+                      <h3 className="text-2xl mb-2 leading-tight">{t('contact.successTitle')}</h3>
+                      <p className="text-indigo-200 mb-6 leading-relaxed">{t('contact.successMessage')}</p>
                   <button
                     onClick={() => window.location.reload()}
                         className="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg"

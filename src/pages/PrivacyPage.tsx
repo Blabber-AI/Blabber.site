@@ -37,7 +37,7 @@ const PrivacyPage: React.FC = () => {
     <div className={`bg-gray-50 font-sans ${isRTL ? 'rtl' : 'ltr'}`}>
       {/* Hero Section */}
       <motion.section 
-        className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-800 text-white"
+        className="relative py-12 md:py-20 lg:py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-800 text-white"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -55,12 +55,12 @@ const PrivacyPage: React.FC = () => {
             <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 ring-4 ring-white/30">
               <i className="fas fa-user-secret text-white text-4xl"></i>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">{t('privacy.title')}</h1>
-            <p className="text-lg md:text-xl text-blue-200 leading-relaxed mb-6 max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight tracking-wide">{t('privacy.title')}</h1>
+            <p className="text-lg md:text-xl text-blue-200 leading-7 md:leading-8 mb-6 max-w-3xl mx-auto">
               {t('privacy.hero.subtitle')}
             </p>
             <div className="bg-white/10 rounded-lg p-3 inline-block backdrop-blur-sm border border-white/20">
-              <p className="text-base">
+              <p className="text-base leading-relaxed">
                 <i className={`fas fa-calendar-alt ${isRTL ? 'ml-2' : 'mr-2'}`}></i>
                 {t('privacy.lastUpdated')}: July 08, 2025
               </p>
@@ -70,7 +70,7 @@ const PrivacyPage: React.FC = () => {
       </motion.section>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-16 md:py-24">
+      <div className="container max-w-7xl mx-auto px-4 py-12 md:py-20 lg:py-24">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
           
           {/* Sticky Table of Contents */}
@@ -81,7 +81,7 @@ const PrivacyPage: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <h2 className="text-xl font-bold text-gray-800 mb-4 pb-3 border-b-2 border-gray-100">{t('privacy.toc.title')}</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 pb-3 border-b-2 border-gray-100 tracking-wide">{t('privacy.toc.title')}</h2>
               <ul className="space-y-2">
                 {sections.map((section) => (
                   <li key={section.id}>
@@ -134,10 +134,10 @@ const PrivacyPage: React.FC = () => {
                     <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center ${isRTL ? 'ml-4' : 'mr-4'}`}>
                       <i className={`fas ${section.icon} text-white text-xl`}></i>
                     </div>
-                    <h2 className={`flex-1 text-xl md:text-2xl font-bold text-gray-800 ${isRTL ? 'text-right' : 'text-left'}`}>{section.title}</h2>
+                    <h2 className={`flex-1 text-xl md:text-2xl font-semibold ${isRTL ? 'text-right' : 'text-left'} tracking-wide`}>{section.title}</h2>
                   </div>
 
-                  <div className="text-gray-600 leading-relaxed space-y-4 text-lg">
+                  <div className="text-gray-600 leading-7 md:leading-8 space-y-4 text-lg">
                     {section.content.map((paragraph, pIndex) => (
                       <div key={pIndex} className={`flex items-start ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
                         <i className={`fas fa-check-circle text-blue-500 ${isRTL ? 'ml-3' : 'mr-3'} mt-1.5 flex-shrink-0`}></i>
@@ -158,9 +158,9 @@ const PrivacyPage: React.FC = () => {
                   <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center ${isRTL ? 'ml-4' : 'mr-4'}`}>
                     <i className="fas fa-headset text-white text-xl"></i>
                   </div>
-                  <h2 className={`flex-1 text-xl md:text-2xl font-bold ${isRTL ? 'text-right' : 'text-left'}`}>{t('privacy.contact.title')}</h2>
+                  <h2 className={`flex-1 text-xl md:text-2xl font-semibold ${isRTL ? 'text-right' : 'text-left'} tracking-wide`}>{t('privacy.contact.title')}</h2>
                 </div>
-                <div className={`prose prose-lg max-w-none text-gray-300 leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>
+                <div className={`prose prose-lg max-w-none text-gray-300 leading-7 md:leading-8 ${isRTL ? 'text-right' : 'text-left'}`}>
                   <p>{t('privacy.contact.p1')}</p>
                   <p>
                     <a 

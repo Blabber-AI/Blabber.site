@@ -33,10 +33,10 @@ const FeaturedBySection: React.FC = () => {
         <div
           className="mb-8"
         >
-          <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-xs px-3 py-1 rounded-full mb-3 shadow-md font-sans">
+          <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm px-3 py-1 rounded-full mb-3 shadow-md font-sans">
             {t('featured.badge')}
           </span>
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-800 font-sans font-extrabold">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-800 font-sans font-extrabold tracking-wide">
             {t('featured.title')}
           </h3>
         </div>
@@ -62,7 +62,7 @@ const FeaturedBySection: React.FC = () => {
                 </div>
                 
               <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
-                <p className="text-xs font-medium text-gray-600 whitespace-nowrap font-sans">
+                <p className="text-xs font-medium text-gray-600 leading-relaxed whitespace-nowrap font-sans">
                     {logo.name}
                   </p>
                 </div>

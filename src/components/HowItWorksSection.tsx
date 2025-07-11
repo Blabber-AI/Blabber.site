@@ -65,7 +65,7 @@ const HowItWorksSection: React.FC = () => {
   ];
   
   return (
-    <section id="how-it-works" className={`py-12 sm:py-16 bg-white ${isRTL ? 'rtl' : 'ltr'}`}>
+    <section id="how-it-works" className={`py-6 md:py-10 lg:py-14 bg-white ${isRTL ? 'rtl' : 'ltr'}`}>
       {/* Clean Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-0 w-72 h-72 bg-blue-500/3 rounded-full blur-3xl"></div>
@@ -79,25 +79,25 @@ const HowItWorksSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }} 
             viewport={{ once: true }} 
           transition={{ duration: 0.6 }}
-          className="text-center max-w-4xl mx-auto mb-12 md:mb-20"
+          className="text-center max-w-4xl mx-auto mb-6 md:mb-10"
           >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-gray-700 text-sm mb-4 md:mb-6 font-sans">
+          <div className="inline-flex items-center px-2 py-1 rounded-full bg-gray-50 border border-gray-200 text-gray-700 text-xs mb-2 md:mb-3 font-sans">
             <div className="w-2 h-2 bg-gray-500 rounded-full mr-2"></div>
               {t('hiw.badge')}
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4 md:mb-6 font-sans font-extrabold">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-900 mb-1 md:mb-2 font-sans font-extrabold">
               {t('hiw.title')}
             </h2>
           
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed font-sans">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed font-sans">
               {t('hiw.subtitle')}
             </p>
           </motion.div>
 
         {/* Steps Grid */}
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
@@ -117,7 +117,7 @@ const HowItWorksSection: React.FC = () => {
                             </div>
 
                   {/* Visual Section */}
-                  <div className={`bg-gradient-to-br ${step.bgColor} p-6 relative flex flex-col items-center justify-center`}>
+                  <div className={`bg-gradient-to-br ${step.bgColor} p-4 md:p-6 relative flex flex-col items-center justify-center`}>
                     {/* Icon */}
                     <div className={`w-14 h-14 md:w-16 md:h-16 bg-white rounded-xl flex items-center justify-center ${step.iconColor} shadow-lg mb-4`}>
                       {icons[index]}
@@ -134,14 +134,14 @@ const HowItWorksSection: React.FC = () => {
                         </div>
                         
                   {/* Content Section */}
-                  <div className="p-6 flex-grow">
-                    <h3 className="text-xl md:text-2xl text-gray-900 mb-4 font-sans font-bold">
+                  <div className="p-4 md:p-6 flex-grow">
+                    <h3 className="text-lg md:text-xl text-gray-900 mb-1 font-sans font-bold">
                       {step.title}
                     </h3>
                     
-                    <div className="space-y-3">
+                    <div className="space-y-1">
                         {step.description.map((desc, i) => (
-                        <p key={i} className="text-gray-600 leading-relaxed text-base md:text-lg font-sans">
+                        <p key={i} className="text-gray-600 leading-relaxed text-sm md:text-base font-sans">
                           {desc}
                         </p>
                         ))}
@@ -170,7 +170,7 @@ const HowItWorksSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12 md:mt-16 text-center"
+          className="mt-6 md:mt-10 text-center"
         >
           <button
             onClick={() => {
@@ -179,7 +179,7 @@ const HowItWorksSection: React.FC = () => {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="inline-flex items-center gap-3 text-base font-semibold text-indigo-700 bg-indigo-100 hover:bg-indigo-200/80 border border-transparent rounded-full px-6 py-3 transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-700 bg-indigo-100 hover:bg-indigo-200/80 border border-transparent rounded-full px-3 py-1.5 transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             <i className="fas fa-rocket"></i>
             <span>{t('hiw.transformCta')}</span>

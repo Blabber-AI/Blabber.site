@@ -44,7 +44,7 @@ const HeroSection: React.FC = () => {
                 <div className="bg-white/30 backdrop-blur-xl rounded-2xl sm:rounded-[3rem] border border-white/40 shadow-2xl p-4 sm:p-8 md:p-12 text-center w-full max-w-sm sm:max-w-3xl">
                     {/* Main Title */}
                     <h1 
-                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 text-slate-800 font-extrabold leading-tight"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 text-slate-800 font-extrabold leading-tight tracking-wide"
                         style={{ textShadow: '0 2px 10px rgba(0,0,0,0.1)' }}
                         dangerouslySetInnerHTML={{ 
                             __html: t('hero.title').replace('Blabber', '<span style="text-shadow: 0 4px 15px rgba(0,0,0,0.25), 0 8px 30px rgba(0,0,0,0.15); font-weight: 900; display: inline-block; transform: scale(1.05);">Blabber</span>')
@@ -54,7 +54,7 @@ const HeroSection: React.FC = () => {
                     {/* Subtitle with Logo */}
                     <div className="flex items-center justify-center gap-1 mb-6 sm:mb-8">
                         <h2 
-                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent animate-pulse"
+                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent animate-pulse tracking-wide"
                             style={{ 
                                 textShadow: '0 4px 20px rgba(79, 70, 229, 0.4), 0 0 40px rgba(147, 51, 234, 0.2)',
                                 filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
@@ -71,7 +71,7 @@ const HeroSection: React.FC = () => {
                     
                     {/* Description Text */}
                     <p 
-                        className="text-base sm:text-lg lg:text-xl text-slate-600 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed font-bold"
+                        className="text-base sm:text-lg lg:text-xl text-slate-800 mb-6 sm:mb-10 max-w-3xl mx-auto leading-7 md:leading-8"
                         dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }}
                     />
                     

@@ -151,9 +151,9 @@ const Footer: React.FC = () => {
 
           {/* Newsletter Section */}
           <motion.div className="py-8" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}>
-            <div className={`max-w-2xl mx-auto text-center ${isRTL ? 'md:text-right' : 'md:text-left'}`}>
+            <div className="max-w-2xl mx-auto text-center">
                <h3 className="text-lg text-white mb-2 font-sans font-bold">{t('footer.newsletterTitle')}</h3>
-              <p className="text-gray-300 text-sm mb-4 max-w-lg mx-auto leading-relaxed font-sans md:mx-0">
+              <p className="text-gray-300 text-sm mb-4 max-w-lg mx-auto leading-relaxed font-sans">
                  {t('footer.newsletterDescription')}
             </p>
                {state.succeeded ? (

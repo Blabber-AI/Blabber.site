@@ -54,7 +54,7 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section 
       id="testimonials" 
-      className="py-12 sm:py-16 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden"
+      className="py-12 md:py-20 lg:py-24 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
@@ -88,16 +88,16 @@ const TestimonialsSection: React.FC = () => {
           <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm px-4 py-2 rounded-full mb-4 shadow-lg font-sans font-semibold">
             {t('testimonials.badge')}
           </span>
-          <h2 className="text-3xl md:text-4xl bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-4 font-sans font-extrabold">
+          <h2 className="text-3xl md:text-4xl bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-4 font-sans font-extrabold tracking-wide">
             {t('testimonials.title')}
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-sans">
+          <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto font-sans">
             {t('testimonials.subtitle')}
           </p>
         </motion.div>
 
         {/* Main Testimonial Display */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentTestimonial}
@@ -130,7 +130,7 @@ const TestimonialsSection: React.FC = () => {
                 </div>
 
                 {/* Testimonial Content */}
-                <blockquote className="text-lg sm:text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 italic font-sans">
+                <blockquote className="text-lg sm:text-xl md:text-2xl text-gray-700 leading-8 md:leading-9 mb-8 italic font-sans">
                   "{currentData.content}"
                 </blockquote>
 
@@ -147,8 +147,8 @@ const TestimonialsSection: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-center sm:text-left rtl:sm:text-right">
-                    <h4 className="text-gray-800 text-xl font-sans font-bold">{currentData.name}</h4>
-                    <p className="text-gray-600 text-base font-sans">{currentData.role}</p>
+                    <h4 className="text-gray-800 text-xl font-sans font-semibold">{currentData.name}</h4>
+                    <p className="text-gray-600 text-base leading-relaxed font-sans">{currentData.role}</p>
                   </div>
                 </div>
               </div>

@@ -57,9 +57,13 @@ const Navbar: React.FC = () => {
       );
     }
     return (
-      <Link to={item.to} onClick={() => setIsMenuOpen(false)} className="relative font-bold text-gray-800 hover:text-blue-600 transition-all duration-300 group text-center text-base md:text-lg font-sans">
+      <Link 
+        to={item.to} 
+        onClick={() => setIsMenuOpen(false)} 
+        className={`relative font-bold transition-all duration-300 group text-center text-base md:text-lg font-sans ${location.pathname === item.to ? 'text-blue-600' : 'text-gray-800 hover:text-blue-600'}`}
+      >
         <span className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-60' : 'opacity-100'}`}>{item.label}</span>
-        <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
+        <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 ${location.pathname === item.to ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
       </Link>
     );
   };
@@ -146,7 +150,14 @@ const Navbar: React.FC = () => {
           <div className="flex-grow flex flex-col items-center justify-center space-y-8 text-center">
             {navLinks.map((item) => (
               <div key={item.to} className="w-full">
-                <NavLinkComponent item={item} />
+                <Link 
+                  to={item.to} 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className={`relative font-bold transition-all duration-300 group text-center text-base md:text-lg font-sans ${location.pathname === item.to ? 'text-blue-600' : 'text-gray-800 hover:text-blue-600'}`}
+                >
+                  <span className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-60' : 'opacity-100'}`}>{item.label}</span>
+                  <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 ${location.pathname === item.to ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                </Link>
               </div>
             ))}
             

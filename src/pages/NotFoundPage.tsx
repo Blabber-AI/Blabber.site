@@ -14,7 +14,7 @@ const NotFoundPage: React.FC = () => {
 
   return (
     <div className={`min-h-screen bg-gradient-to-br from-light-gray to-offwhite flex items-center justify-center ${isRTL ? 'rtl' : 'ltr'}`}>
-      <div className="container mx-auto px-4 py-20">
+      <div className="container max-w-7xl mx-auto px-4 py-12 md:py-20 lg:py-24">
         <div className="text-center max-w-4xl mx-auto">
           {/* 404 Animation */}
           <motion.div 

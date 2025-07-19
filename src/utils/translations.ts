@@ -26,8 +26,8 @@ export const translations: Translations = {
     en: 'Simply speak.' 
   },
   'hero.subtitle': { 
-    he: 'בואו להיות חלק משינוי<br className="block md:hidden" /> מורה פרטי לכל תלמיד', 
-    en: 'Be part of the change, private tutor for every student' 
+    he: 'בואו להיות חלק משינוי!<br className="block md:hidden" /> מורה פרטי מבוסס AI לכל תלמיד', 
+    en: 'Be part of the change! <br className="block md:hidden" />  Private AI tutor for every student' 
   },
   'hero.cta.primary': { he: 'התחילו עכשיו', en: 'Get Started' },
   'hero.cta.secondary': { he: 'צפו בהדגמה', en: 'Watch Demo' },
